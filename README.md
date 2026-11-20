@@ -21,11 +21,22 @@ Agar Claude fail ho jaye to `samples/` folder ki koi script use hoti hai, taaki 
 
 ## One-time setup
 
-### 1. Claude API key
-1. https://platform.claude.com par account banaiye, billing add kijiye.
-2. **API Keys → Create Key**. Key copy kijiye.
+### 1. Claude (script likhne ke liye) — do mein se ek
+
+**A) Claude Pro/Max subscription se (recommended, koi alag bill nahi)**
+1. Apne laptop ke terminal mein:
+   ```
+   npm install -g @anthropic-ai/claude-code
+   claude setup-token
+   ```
+2. Browser mein Claude account se login → Allow. Terminal mein ek lamba token print hoga (1 saal valid).
 3. GitHub repo → **Settings → Secrets and variables → Actions → New repository secret**
-   - Name: `ANTHROPIC_API_KEY`, Value: aapki key
+   - Name: `CLAUDE_CODE_OAUTH_TOKEN`, Value: wo token
+   Usage aapke subscription ki limit mein ginta hai.
+
+**B) Claude API key se (pay-as-you-go)**
+1. https://platform.claude.com → billing add → **API Keys → Create Key**.
+2. Secret: `ANTHROPIC_API_KEY`. (Agar ye set hai to isi ko priority milti hai.)
 
 ### 2. YouTube upload permission
 1. https://console.cloud.google.com par naya project banaiye (jaise `daily-reels`).

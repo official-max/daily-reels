@@ -1,5 +1,5 @@
 """Daily script writer: gathers today's trends and asks Claude for a reel script (strict JSON)."""
-import json, urllib.request, xml.etree.ElementTree as ET
+import os, json, shutil, subprocess, urllib.request, xml.etree.ElementTree as ET
 
 MODEL = "claude-opus-5-5"
 
@@ -74,11 +74,42 @@ def trending(youtube=None, limit=15):
 
 
 def write_script(kind, date_str, trends, recent_titles):
-    import anthropic
-    client = anthropic.Anthropic()
+    """Uses the Claude API if ANTHROPIC_API_KEY is set, otherwise the Claude Code CLI
+    (subscription auth via CLAUDE_CODE_OAUTH_TOKEN from `claude setup-token`)."""
     user = (f"Today is {date_str} (India). Write today's reel in the \"{kind}\" format.\n\n"
             f"Trending in India today (optional inspiration only):\n- " + "\n- ".join(trends[:25] or ["(none)"]) +
             "\n\nRecent titles to avoid repeating:\n- " + "\n- ".join(recent_titles[-30:] or ["(none)"]))
+    data = _via_api(user) if os.environ.get("ANTHROPIC_API_KEY") else _via_claude_code(user)
+    data["type"] = kind
+    return data
+
+
+def _via_claude_code(user):
+    exe = shutil.which("claude")
+    if not exe:
+        raise RuntimeError("Claude Code CLI not found (npm install -g @anthropic-ai/claude-code)")
+    if not os.environ.get("CLAUDE_CODE_OAUTH_TOKEN"):
+        raise RuntimeError("Neither ANTHROPIC_API_KEY nor CLAUDE_CODE_OAUTH_TOKEN is set")
+    prompt = SYSTEM + "\n\n---\n\n" + user + "\n\nReply only with the JSON object for today's reel."
+    cmd = [exe, "-p", prompt, "--model", MODEL, "--output-format", "json",
+           "--json-schema", json.dumps(SCHEMA), "--max-turns", "3"]
+    r = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", timeout=900)
+    if r.returncode != 0:
+        raise RuntimeError(f"claude CLI failed ({r.returncode}): {(r.stderr or r.stdout)[-1500:]}")
+    out = json.loads(r.stdout)
+    if out.get("is_error"):
+        raise RuntimeError(f"claude CLI error: {str(out.get('result'))[:1500]}")
+    data = out.get("structured_output")
+    if data is None:
+        data = json.loads(out.get("result") or "")
+    if isinstance(data, str):
+        data = json.loads(data)
+    return data
+
+
+def _via_api(user):
+    import anthropic
+    client = anthropic.Anthropic()
     resp = client.beta.messages.create(
         model=MODEL,
         max_tokens=16000,
@@ -93,6 +124,4 @@ def write_script(kind, date_str, trends, recent_titles):
     if resp.stop_reason == "max_tokens":
         raise RuntimeError("script output was cut off (max_tokens)")
     text = next(b.text for b in resp.content if b.type == "text")
-    data = json.loads(text)
-    data["type"] = kind
-    return data
+    return json.loads(text)

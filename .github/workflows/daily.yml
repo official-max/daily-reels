@@ -33,7 +33,9 @@ jobs:
           cache: pip
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
+          npm install -g @anthropic-ai/claude-code
 
       - name: Restore character sprite cache
         uses: actions/cache@v4
@@ -43,6 +45,8 @@ jobs:
 
       - name: Make today's reel
         env:
+          # Either one works. CLAUDE_CODE_OAUTH_TOKEN uses your Claude Pro/Max subscription (`claude setup-token`).
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
