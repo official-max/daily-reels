@@ -1,0 +1,96 @@
+{
+ "type": "devotional",
+ "topic": "Karm aur phal",
+ "label": "AAJ KI KAHANI",
+ "title_line1": "Krishna - Arjun",
+ "title_line2": "Samvaad",
+ "title_sub": "Karm aur Phal ka Rahasya",
+ "end_text": "RADHE RADHE",
+ "end_sub": "Jai Shri Krishna",
+ "yt_title": "Bhagwan meri sunte kyun nahi? Shri Krishna ka jawab | Krishna Arjun Samvaad #shorts",
+ "yt_description": "Ek garib vyakti ka sawaal, aur Shri Krishna ka anmol jawab.\nKarm karo, phal ki chinta Bhagwan par chhodo.\n#krishna #radheradhe #bhagavadgita #krishnaarjun #shorts #motivation",
+ "tags": [
+  "krishna",
+  "shri krishna",
+  "radhe radhe",
+  "bhagavad gita",
+  "krishna arjun",
+  "krishna story",
+  "hindi story",
+  "shorts"
+ ],
+ "shots": [
+  {
+   "scene": "walk",
+   "mood": "neutral",
+   "lines": [
+    {
+     "speaker": "N",
+     "hindi": "एक बार अर्जुन, भगवान श्रीकृष्ण के साथ, वन में जा रहे थे।",
+     "caption": "Ek baar Arjun, Bhagwan *Shri Krishna* ke saath van mein ja rahe the."
+    }
+   ]
+  },
+  {
+   "scene": "meet",
+   "mood": "sad",
+   "lines": [
+    {
+     "speaker": "N",
+     "hindi": "रास्ते में, एक गरीब व्यक्ति पेड़ के नीचे बैठकर रो रहा था।",
+     "caption": "Raaste mein, ek *garib vyakti* ped ke neeche baithkar ro raha tha."
+    }
+   ]
+  },
+  {
+   "scene": "meet",
+   "mood": "sad",
+   "lines": [
+    {
+     "speaker": "P",
+     "hindi": "मैं रोज़ मेहनत करता हूँ, पूजा भी करता हूँ... फिर भी दुख ही दुख है।",
+     "caption": "Main roz *mehnat* karta hoon, pooja bhi karta hoon... phir bhi *dukh hi dukh* hai."
+    }
+   ]
+  },
+  {
+   "scene": "divine",
+   "mood": "happy",
+   "lines": [
+    {
+     "speaker": "K",
+     "hindi": "किसान बीज बोकर, अगले ही दिन फसल नहीं मांगता।",
+     "caption": "Kisaan beej bokar, agle hi din *fasal* nahi maangta."
+    },
+    {
+     "speaker": "K",
+     "hindi": "कर्म का फल भी, समय आने पर ही मिलता है।",
+     "caption": "*Karm ka phal* bhi, samay aane par hi milta hai."
+    }
+   ]
+  },
+  {
+   "scene": "meet",
+   "mood": "happy",
+   "lines": [
+    {
+     "speaker": "K",
+     "hindi": "तुम मेहनत मत छोड़ना। बादल सूरज को ढक सकते हैं, बुझा नहीं सकते।",
+     "caption": "Tum mehnat mat chhodna. Baadal suraj ko *dhak* sakte hain, *bujha nahi* sakte."
+    }
+   ]
+  },
+  {
+   "scene": "divine",
+   "mood": "happy",
+   "lines": [
+    {
+     "speaker": "N",
+     "hindi": "अच्छे कर्म करते रहो... फल की चिंता, भगवान पर छोड़ दो।",
+     "caption": "Achhe karm karte raho... phal ki chinta, *Bhagwan par chhod do*."
+    }
+   ]
+  }
+ ],
+ "p_name": "Garib Bhakt"
+}

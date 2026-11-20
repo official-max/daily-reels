@@ -1,0 +1,72 @@
+name: Daily Reel
+
+on:
+  schedule:
+    # 10:30 UTC = 4:00 PM IST. The video is uploaded and scheduled to go public at 7:00 PM IST.
+    - cron: "30 10 * * *"
+  workflow_dispatch:
+    inputs:
+      type:
+        description: "auto / devotional / motivational"
+        default: "auto"
+      upload:
+        description: "Upload to YouTube? (true/false)"
+        default: "true"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-reel
+  cancel-in-progress: false
+
+jobs:
+  reel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Restore character sprite cache
+        uses: actions/cache@v4
+        with:
+          path: out/reel_sprites
+          key: sprites-${{ hashFiles('reels/engine.py') }}
+
+      - name: Make today's reel
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: |
+          ARGS="--type ${{ github.event.inputs.type || 'auto' }} --post-time 19:00"
+          if [ "${{ github.event.inputs.upload }}" = "false" ]; then ARGS="$ARGS --no-upload"; fi
+          python -m reels.pipeline $ARGS
+
+      - name: Keep the video for 7 days (download from the run page)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reel-${{ github.run_number }}
+          path: |
+            out/reel.mp4
+            out/script.json
+          retention-days: 7
+          if-no-files-found: ignore
+
+      - name: Save history
+        if: success()
+        run: |
+          git config user.name "daily-reels-bot"
+          git config user.email "daily-reels-bot@users.noreply.github.com"
+          git add state/history.json
+          git diff --cached --quiet || (git commit -m "history: $(date -u +%F)" && git push)

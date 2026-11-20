@@ -1,0 +1,95 @@
+{
+ "type": "motivational",
+ "topic": "Haar ke baad jeet",
+ "label": "LIFE LESSON",
+ "title_line1": "Haar Mat",
+ "title_line2": "Maano",
+ "title_sub": "Ek aam aadmi ki kahani",
+ "end_text": "HAAR MAT MAANO",
+ "end_sub": "Kal ka suraj tumhara hai",
+ "yt_title": "Jab sab kuch khatam lage... ye video dekhna | Haar Mat Maano #shorts",
+ "yt_description": "Ek aam aadmi ki kahani jo raat ke andhere se suraj tak pahuncha.\nHar mushkil ke baad ek nayi subah aati hai.\n#motivation #hindimotivation #lifelessons #haarmatmaano #shorts #inspiration",
+ "tags": [
+  "motivation",
+  "hindi motivation",
+  "life lessons",
+  "haar mat maano",
+  "motivational story",
+  "inspiration",
+  "success story",
+  "shorts"
+ ],
+ "shots": [
+  {
+   "scene": "night",
+   "mood": "sad",
+   "lines": [
+    {
+     "speaker": "N",
+     "hindi": "रात के अंधेरे में... वो अकेला बैठा था।",
+     "caption": "Raat ke andhere mein... wo *akela* baitha tha."
+    },
+    {
+     "speaker": "P",
+     "hindi": "मैंने सब कुछ करके देख लिया... पर कुछ नहीं बदला।",
+     "caption": "Maine sab kuch karke dekh liya... par *kuch nahi badla*."
+    }
+   ]
+  },
+  {
+   "scene": "rain",
+   "mood": "sad",
+   "lines": [
+    {
+     "speaker": "N",
+     "hindi": "ऊपर से तूफान... और लोगों की बातें, कि तुमसे नहीं होगा।",
+     "caption": "Upar se *toofan*... aur logon ki baatein, ki *tumse nahi hoga*."
+    }
+   ]
+  },
+  {
+   "scene": "road",
+   "mood": "neutral",
+   "lines": [
+    {
+     "speaker": "N",
+     "hindi": "पर अगली सुबह... वो फिर उठा, और फिर चल पड़ा।",
+     "caption": "Par agli subah... wo *phir utha*, aur phir chal pada."
+    },
+    {
+     "speaker": "N",
+     "hindi": "हर दिन, बस एक कदम आगे।",
+     "caption": "Har din, bas *ek kadam* aage."
+    }
+   ]
+  },
+  {
+   "scene": "sunrise",
+   "mood": "happy",
+   "lines": [
+    {
+     "speaker": "N",
+     "hindi": "और एक दिन... वही सूरज, उसके लिए उगा।",
+     "caption": "Aur ek din... wahi *suraj*, uske liye uga."
+    }
+   ]
+  },
+  {
+   "scene": "mountain",
+   "mood": "happy",
+   "lines": [
+    {
+     "speaker": "N",
+     "hindi": "याद रखना... रात कितनी भी लंबी हो, सुबह ज़रूर होती है।",
+     "caption": "Yaad rakhna... raat kitni bhi lambi ho, *subah zaroor* hoti hai."
+    },
+    {
+     "speaker": "N",
+     "hindi": "हार मत मानो!",
+     "caption": "*Haar mat maano!*"
+    }
+   ]
+  }
+ ],
+ "p_name": "Raju"
+}
