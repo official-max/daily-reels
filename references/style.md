@@ -1,0 +1,4 @@
+- Kahani aisi ho ki aam aadmi khud ko usme dekhe: ghar, kaam, paisa, parivaar, padhai jaisi roz ki pareshaniyan.
+- Shuruaat mein ek sawaal ya dard wali line ho, jo scroll rok de.
+- Bhasha simple aur dil se ho, bhaari shabd kam.
+- Ant mein ek seedhi seekh ho jo yaad reh jaye.

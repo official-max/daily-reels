@@ -61,7 +61,9 @@ def main():
         trends = writer.trending(yt)
         log(f"{len(trends)} trending titles collected")
         try:
-            raw = writer.write_script(kind, today.strftime("%d %B %Y, %A"), trends, [h.get("title", "") for h in history])
+            raw = writer.write_script(kind, today.strftime("%d %B %Y, %A"), trends, [h.get("title", "") for h in history],
+                                      [h["story"] for h in history if h.get("story")])
+            if raw.get("_story"): log("story from references:", raw["_story"])
         except Exception as e:
             log("Claude script failed, using a sample script instead:", repr(e))
             if os.environ.get("GITHUB_ACTIONS"):  # shows up on the run's summary page
@@ -81,7 +83,11 @@ def main():
     log("rendered ->", mp4)
 
     entry = dict(date=str(today), type=script["type"], title=script["yt_title"], seconds=round(tl["total"], 1))
-    if not a.no_upload:
+    if raw.get("_story"): entry["story"] = raw["_story"]
+    if a.no_upload:
+        log("test run (no upload): history not updated, so the same story stays queued")
+        return
+    else:
         if yt is None: sys.exit("YouTube secrets missing (YT_CLIENT_ID / YT_CLIENT_SECRET / YT_REFRESH_TOKEN)")
         hh, mm = map(int, a.post_time.split(":"))
         publish = dt.datetime(today.year, today.month, today.day, hh, mm, tzinfo=IST).astimezone(dt.timezone.utc)

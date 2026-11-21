@@ -83,3 +83,4 @@ Output `out/` folder mein aata hai.
 | Script ka style / rules | `reels/writer.py` → `SYSTEM` prompt |
 | Voices | `reels/story_base.py` → `VOICES` |
 | Backup scripts | `samples/*.json` |
+| Apni kahaniyan, style notes, reference videos | `references/` (dekhiye `references/README.md`) |

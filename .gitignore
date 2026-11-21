@@ -3,3 +3,7 @@ __pycache__/
 *.pyc
 client_secret*.json
 .env
+
+# Reference videos stay on this computer (too big for git)
+references/videos/*
+!references/videos/.gitkeep

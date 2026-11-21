@@ -1,5 +1,5 @@
 """Daily script writer: gathers today's trends and asks Claude for a reel script (strict JSON)."""
-import os, json, shutil, subprocess, tempfile, urllib.request, xml.etree.ElementTree as ET
+import os, glob, json, shutil, subprocess, tempfile, urllib.request, xml.etree.ElementTree as ET
 
 MODEL = "claude-opus-5-5"
 
@@ -73,14 +73,46 @@ def trending(youtube=None, limit=15):
     return [t for t in out if t]
 
 
-def write_script(kind, date_str, trends, recent_titles):
+REF = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "references")
+
+
+def _read(path):
+    try:
+        return open(path, encoding="utf-8").read().strip()
+    except Exception:
+        return ""
+
+
+def next_story(kind, used):
+    """First story file in references/stories/<kind>/ that has not been posted yet -> (name, text) or (None, "")."""
+    files = sorted(glob.glob(os.path.join(REF, "stories", kind, "*.txt")))
+    for f in files:
+        name = f"{kind}/{os.path.basename(f)}"
+        text = _read(f)
+        if name not in used and text:
+            return name, text
+    return None, ""
+
+
+def write_script(kind, date_str, trends, recent_titles, used_stories=()):
     """Uses the Claude API if ANTHROPIC_API_KEY is set, otherwise the Claude Code CLI
     (subscription auth via CLAUDE_CODE_OAUTH_TOKEN from `claude setup-token`)."""
-    user = (f"Today is {date_str} (India). Write today's reel in the \"{kind}\" format.\n\n"
-            f"Trending in India today (optional inspiration only):\n- " + "\n- ".join(trends[:25] or ["(none)"]) +
-            "\n\nRecent titles to avoid repeating:\n- " + "\n- ".join(recent_titles[-30:] or ["(none)"]))
+    story_name, story = next_story(kind, set(used_stories))
+    style = _read(os.path.join(REF, "style.md"))
+    user = f"Today is {date_str} (India). Write today's reel in the \"{kind}\" format.\n\n"
+    if story:
+        user += ("The channel owner gave this story for today. Base the reel on it: keep its message and key moments, "
+                 "and compress it into one 40-55 second reel using only the scenes the engine can draw.\n"
+                 f"<story>\n{story[:6000]}\n</story>\n\n")
+    if style:
+        user += f"Channel owner's style notes (follow them unless they break the format rules):\n<notes>\n{style[:3000]}\n</notes>\n\n"
+    user += ("Trending in India today (optional inspiration only" + (", ignore if it does not fit the story" if story else "") + "):\n- " +
+             "\n- ".join(trends[:25] or ["(none)"]) +
+             "\n\nRecent titles to avoid repeating:\n- " + "\n- ".join(recent_titles[-30:] or ["(none)"]))
     data = _via_api(user) if os.environ.get("ANTHROPIC_API_KEY") else _via_claude_code(user)
     data["type"] = kind
+    if story_name:
+        data["_story"] = story_name
     return data
 
 

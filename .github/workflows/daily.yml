@@ -73,4 +73,4 @@ jobs:
           git config user.name "daily-reels-bot"
           git config user.email "daily-reels-bot@users.noreply.github.com"
           git add state/history.json
-          git diff --cached --quiet || (git commit -m "history: $(date -u +%F)" && git push)
+          git diff --cached --quiet || (git commit -m "history: $(date -u +%F)" && git pull --rebase && git push)
