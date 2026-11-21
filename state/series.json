@@ -1,4 +1,268 @@
 {
- "active": null,
+ "active": {
+  "type": "paheli",
+  "series_title": "Raja Ki Ajeeb Paheli",
+  "parts": [
+   {
+    "topic": "Ghamandi raja ki paheli: wo kya hai jo raja aur bhagwan ke paas nahi, par garib ke paas hai",
+    "hook": "Kya Aap *Jawab* Jaante Ho?",
+    "p_name": "Chatur",
+    "label": "PAHELI",
+    "title_line1": "Raja Ki",
+    "title_line2": "Ajeeb Paheli",
+    "title_sub": "Kya aap jawab jaante ho?",
+    "end_text": "COMMENT KARO",
+    "end_sub": "Jawab kal Part 2 mein",
+    "yt_title": "Raja Ki Ajeeb Paheli 🤔 Kya Aap Jawab Jaante Ho? | Part 1 #shorts",
+    "yt_description": "Ek ghamandi raja ne bhare darbar mein ek ajeeb sawaal poocha...\nKya aap jawab jaante ho? Comment mein likho!\nSahi jawab kal Part 2 mein.\n#paheli #hindipaheli #riddle #brainteaser #hindistory #shorts",
+    "tags": [
+     "paheli",
+     "hindi paheli",
+     "riddle",
+     "brain teaser",
+     "raja ki kahani",
+     "hindi story",
+     "dimag wali paheli",
+     "shorts"
+    ],
+    "shots": [
+     {
+      "scene": "darbar",
+      "mood": "neutral",
+      "sticker": "BHARA DARBAR",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "एक बार, एक घमंडी राजा ने भरे दरबार में ऐलान किया...",
+        "caption": "Ek baar ek *ghamandi raja* ne bhare darbar mein elaan kiya..."
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "angry",
+      "sticker": "",
+      "cards": [
+       {
+        "icon": "coin",
+        "label": "Sahi = Inaam"
+       },
+       {
+        "icon": "cross",
+        "label": "Galat = Jail"
+       }
+      ],
+      "lines": [
+       {
+        "speaker": "R",
+        "hindi": "जो मेरे सवाल का सही जवाब देगा, उसे सोने की सौ मोहरें मिलेंगी!",
+        "caption": "Jo sahi jawab dega, use *sone ki sau mohrein* milengi!"
+       },
+       {
+        "speaker": "R",
+        "hindi": "और जो गलत बोला... वो सीधा कालकोठरी जाएगा!",
+        "caption": "Aur jo galat bola... wo seedha *kaalkothri* jayega!"
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "neutral",
+      "sticker": "",
+      "cards": [
+       {
+        "icon": "question",
+        "label": "Kya hai wo?"
+       }
+      ],
+      "lines": [
+       {
+        "speaker": "R",
+        "hindi": "बताओ... वो कौन सी चीज़ है, जो राजा के पास भी नहीं, और भगवान के पास भी नहीं...",
+        "caption": "Batao... wo kya hai jo *raja ke paas nahi*, aur *bhagwan ke paas bhi nahi*..."
+       },
+       {
+        "speaker": "R",
+        "hindi": "पर एक गरीब के पास होती है?",
+        "caption": "Par ek *garib ke paas* hoti hai?"
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "shock",
+      "sticker": "SANNATA",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "पूरा दरबार सन्न रह गया... किसी के मुँह से एक शब्द नहीं निकला।",
+        "caption": "Poora darbar *sann* reh gaya... kisi ke munh se ek shabd nahi nikla."
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "happy",
+      "sticker": "EK AAM AADMI",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "तभी एक साधारण सा आदमी आगे आया, और मुस्कुराया।",
+        "caption": "Tabhi ek *saadharan aadmi* aage aaya, aur muskuraya."
+       },
+       {
+        "speaker": "C",
+        "hindi": "महाराज, जवाब बहुत आसान है।",
+        "caption": "Maharaj, jawab *bahut aasan* hai."
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "neutral",
+      "sticker": "",
+      "cards": [
+       {
+        "icon": "question",
+        "label": "Comment karo"
+       }
+      ],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "आखिर वो चीज़ क्या है? जवाब कमेंट करो, सही जवाब मिलेगा पार्ट दो में!",
+        "caption": "Aakhir wo cheez kya hai? *Jawab comment karo*, sahi jawab milega *Part 2* mein!"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "topic": "Paheli ka jawab: kuch nahi",
+    "hook": "Paheli Ka *Jawab* Mil Gaya",
+    "p_name": "Chatur",
+    "label": "PAHELI",
+    "title_line1": "Paheli Ka",
+    "title_line2": "Jawab",
+    "title_sub": "Raja ki ajeeb paheli",
+    "end_text": "BUDDHI JEETI",
+    "end_sub": "Nayi paheli jald aa rahi hai",
+    "yt_title": "Raja Ki Paheli Ka Jawab 😲 Kisne Sahi Bataya? | Part 2 #shorts",
+    "yt_description": "Wo kya hai jo raja aur bhagwan ke paas nahi, par garib ke paas hai?\nJawab sunkar raja ka ghamand toot gaya!\n#paheli #hindipaheli #riddle #brainteaser #hindistory #shorts",
+    "tags": [
+     "paheli ka jawab",
+     "hindi paheli",
+     "riddle answer",
+     "brain teaser",
+     "raja ki kahani",
+     "hindi story",
+     "shorts"
+    ],
+    "shots": [
+     {
+      "scene": "darbar",
+      "mood": "neutral",
+      "sticker": "PICHHLI BAAR",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "राजा ने पूछा था... वो क्या है, जो राजा और भगवान के पास नहीं, पर गरीब के पास है?",
+        "caption": "Raja ne poocha tha... wo kya hai jo *raja aur bhagwan* ke paas nahi, par *garib* ke paas hai?"
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "happy",
+      "sticker": "JAWAB",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "C",
+        "hindi": "महाराज, उसका जवाब है... कुछ नहीं!",
+        "caption": "Maharaj, uska jawab hai... *kuch nahi!*"
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "shock",
+      "sticker": "",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "R",
+        "hindi": "कुछ नहीं? ये कैसा जवाब है?",
+        "caption": "*Kuch nahi?* Ye kaisa jawab hai?"
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "happy",
+      "sticker": "",
+      "cards": [
+       {
+        "icon": "crown",
+        "label": "Raja: Sab kuch"
+       },
+       {
+        "icon": "lamp",
+        "label": "Garib: Kuch nahi"
+       }
+      ],
+      "lines": [
+       {
+        "speaker": "C",
+        "hindi": "आपके पास सब कुछ है, इसलिए कुछ नहीं, आपके पास नहीं।",
+        "caption": "Aapke paas *sab kuch* hai, isliye *kuch nahi* aapke paas nahi."
+       },
+       {
+        "speaker": "C",
+        "hindi": "भगवान को किसी चीज़ की ज़रूरत नहीं... और गरीब के पास, कुछ नहीं ही होता है।",
+        "caption": "Bhagwan ko kisi cheez ki zaroorat nahi... aur garib ke paas *kuch nahi* hota hai."
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "happy",
+      "sticker": "",
+      "cards": [
+       {
+        "icon": "coin",
+        "label": "Inaam"
+       }
+      ],
+      "lines": [
+       {
+        "speaker": "R",
+        "hindi": "वाह! आज तुमने मेरा घमंड तोड़ दिया। ये लो, सौ मोहरें!",
+        "caption": "Waah! Aaj tumne mera *ghamand* tod diya. Ye lo *sau mohrein!*"
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "neutral",
+      "sticker": "SEEKH",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "याद रखो... बुद्धि के आगे, घमंड हमेशा हारता है।",
+        "caption": "Yaad rakho... *buddhi* ke aage, *ghamand* hamesha haarta hai."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "next": 1
+ },
  "last_kind": null
 }
