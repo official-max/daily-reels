@@ -1,5 +1,5 @@
 """Daily script writer: gathers today's trends and asks Claude for a reel script (strict JSON)."""
-import os, json, shutil, subprocess, urllib.request, xml.etree.ElementTree as ET
+import os, json, shutil, subprocess, tempfile, urllib.request, xml.etree.ElementTree as ET
 
 MODEL = "claude-opus-5-5"
 
@@ -91,9 +91,12 @@ def _via_claude_code(user):
     if not os.environ.get("CLAUDE_CODE_OAUTH_TOKEN"):
         raise RuntimeError("Neither ANTHROPIC_API_KEY nor CLAUDE_CODE_OAUTH_TOKEN is set")
     prompt = SYSTEM + "\n\n---\n\n" + user + "\n\nReply only with the JSON object for today's reel."
-    cmd = [exe, "-p", prompt, "--model", MODEL, "--output-format", "json",
+    # Prompt goes through stdin (a multi-line argument gets cut at the first newline on Windows).
+    # No tools, and run outside the repo, so the model only writes the script.
+    cmd = [exe, "-p", "--model", MODEL, "--output-format", "json", "--tools", "",
            "--json-schema", json.dumps(SCHEMA), "--max-turns", "3"]
-    r = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", timeout=900)
+    r = subprocess.run(cmd, input=prompt, capture_output=True, text=True, encoding="utf-8",
+                       timeout=900, cwd=tempfile.gettempdir())
     if r.returncode != 0:
         raise RuntimeError(f"claude CLI failed ({r.returncode}): {(r.stderr or r.stdout)[-1500:]}")
     out = json.loads(r.stdout)

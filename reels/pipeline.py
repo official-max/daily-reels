@@ -64,6 +64,9 @@ def main():
             raw = writer.write_script(kind, today.strftime("%d %B %Y, %A"), trends, [h.get("title", "") for h in history])
         except Exception as e:
             log("Claude script failed, using a sample script instead:", repr(e))
+            if os.environ.get("GITHUB_ACTIONS"):  # shows up on the run's summary page
+                msg = repr(e)[:900].replace("%", "%25").replace("\r", "").replace("\n", "%0A")
+                print(f"::warning title=Claude script failed, sample used::{msg}", flush=True)
             raw = fallback_script(kind, history)
     raw["type"] = raw.get("type", kind)
     script = media.normalize(raw)
