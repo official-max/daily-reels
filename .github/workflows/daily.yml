@@ -80,4 +80,8 @@ jobs:
           git config user.name "daily-reels-bot"
           git config user.email "daily-reels-bot@users.noreply.github.com"
           git add state/
-          git diff --cached --quiet || (git commit -m "history: $(date -u +%F)" && git pull --rebase && git push)
+          git diff --cached --quiet && exit 0
+          git commit -m "state: $(date -u '+%F %H:%M') UTC"
+          # if someone pushed meanwhile, replay on top of it; on a clash in state/ the bot's fresh state wins
+          for i in 1 2 3; do git pull --rebase -X theirs && git push && exit 0; sleep 5; done
+          exit 1
