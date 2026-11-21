@@ -668,6 +668,9 @@ SHOTS = dict(walk=shot_walk, meet=shot_meet, divine=shot_divine, night=shot_nigh
 TL = None
 def worker_init(tl):
     global TL; TL = tl
+    # drop text overlays cached for a previous timeline (captions, title, hook, stickers...)
+    for k in [k for k in ms.CACHE if isinstance(k, tuple) or k in ("title", "end", "hook", "pill")]:
+        del ms.CACHE[k]
 
 def post(fr):
     a = np.asarray(fr, np.float32)
