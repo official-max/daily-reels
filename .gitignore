@@ -7,3 +7,6 @@ client_secret*.json
 # Reference videos stay on this computer (too big for git)
 references/videos/*
 !references/videos/.gitkeep
+
+# Old version of the code, kept only on this computer
+_backup_v1/
