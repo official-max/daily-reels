@@ -15,6 +15,7 @@ ROOT = ms.HERE
 OUT = os.path.join(ROOT, "out")
 HISTORY = os.path.join(ROOT, "state", "history.json")
 SERIES = os.path.join(ROOT, "state", "series.json")
+LAST_ERROR = os.path.join(ROOT, "state", "last_error.txt")
 IST = dt.timezone(dt.timedelta(hours=5, minutes=30))
 
 
@@ -83,9 +84,12 @@ def main():
                 series = writer.write_series(kind, today.strftime("%d %B %Y, %A"), trends, [h.get("title", "") for h in history],
                                              [h["story"] for h in history if h.get("story")])
                 if series.get("_story"): log("story from references:", series["_story"])
+                if os.path.exists(LAST_ERROR): os.remove(LAST_ERROR)
             except Exception as e:
                 log("Claude series failed, using a sample instead:", repr(e))
                 warn("Claude script failed, sample used", repr(e))
+                # committed by the workflow, so the reason can be read from the repo without opening the logs
+                open(LAST_ERROR, "w", encoding="utf-8").write(f"{dt.datetime.now(IST):%Y-%m-%d %H:%M} IST\n{e}\n")
                 series = fallback_series(kind, history)
             series = dict(series, next=0)
             state["active"] = series
