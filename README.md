@@ -1,6 +1,6 @@
 # Daily Reels 🎬
 
-Roz ek Hindi cartoon Short **apne aap** banta hai aur YouTube par **shaam 7 baje (IST)** publish hota hai.
+Roz **3 Hindi cartoon Shorts** apne aap bante hain aur YouTube par **12 PM, 4 PM aur 7 PM (IST)** publish hote hain.
 GitHub Actions par chalta hai, laptop on rakhne ki zaroorat nahi.
 
 - **Series mein kahaniyan**, roz ek part:
@@ -13,10 +13,10 @@ GitHub Actions par chalta hai, laptop on rakhne ki zaroorat nahi.
 ## Roz kya hota hai
 
 ```
-4:00 PM IST  GitHub Actions start
+9 AM, 1 PM, 4 PM IST  GitHub Actions start (har video se 3 ghante pehle)
   ├─ state/series.json mein chal rahi series ka agla part?  ── nahi ──► Claude se nayi series (sab parts)
   ├─ awaaz (edge-tts) → animation → reel.mp4
-  ├─ YouTube upload, 7:00 PM par publish
+  ├─ YouTube upload, 3 ghante baad publish (12 PM / 4 PM / 7 PM)
   └─ state/ commit (history, series, aur fail hua ho to last_error.txt)
 ```
 Claude fail ho jaye to `samples/` ki series use hoti hai, taaki us din ki video na chhoote.

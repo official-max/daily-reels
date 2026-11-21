@@ -2,8 +2,10 @@ name: Daily Reel
 
 on:
   schedule:
-    # 10:30 UTC = 4:00 PM IST. The video is uploaded and scheduled to go public at 7:00 PM IST.
-    - cron: "30 10 * * *"
+    # 3 videos a day. Each run starts 3 hours before its publish time (IST = UTC + 5:30).
+    - cron: "30 3 * * *"    #  9:00 AM IST -> publish 12:00 PM
+    - cron: "30 7 * * *"    #  1:00 PM IST -> publish  4:00 PM
+    - cron: "30 10 * * *"   #  4:00 PM IST -> publish  7:00 PM
   workflow_dispatch:
     inputs:
       type:
@@ -41,7 +43,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: out/reel_sprites
-          key: sprites-${{ hashFiles('reels/engine.py') }}
+          key: sprites-${{ hashFiles('reels/characters.py', 'reels/canvas.py') }}
 
       - name: Make today's reel
         env:
@@ -52,7 +54,12 @@ jobs:
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
         run: |
-          ARGS="--type ${{ github.event.inputs.type || 'auto' }} --post-time 19:00"
+          case "${{ github.event.schedule }}" in
+            "30 3 * * *") POST=12:00 ;;
+            "30 7 * * *") POST=16:00 ;;
+            *)            POST=19:00 ;;
+          esac
+          ARGS="--type ${{ github.event.inputs.type || 'auto' }} --post-time $POST"
           if [ "${{ github.event.inputs.upload }}" = "false" ]; then ARGS="$ARGS --no-upload"; fi
           python -m reels.pipeline $ARGS
 
