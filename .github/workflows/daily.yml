@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       type:
-        description: "auto / devotional / motivational"
+        description: "auto / paheli / devotional (paheli or devotional starts a new series of that kind)"
         default: "auto"
       upload:
         description: "Upload to YouTube? (true/false)"
@@ -72,5 +72,5 @@ jobs:
         run: |
           git config user.name "daily-reels-bot"
           git config user.email "daily-reels-bot@users.noreply.github.com"
-          git add state/history.json
+          git add state/
           git diff --cached --quiet || (git commit -m "history: $(date -u +%F)" && git pull --rebase && git push)

@@ -125,6 +125,9 @@ C = {
     "K": dict(skin=(88, 136, 222), skin_d=(55, 92, 175), hair=(28, 22, 44), dhoti=(252, 196, 40), pleat=(255, 214, 80), border=RED),
     "A": dict(skin=(238, 192, 152), skin_d=(190, 140, 106), hair=(34, 24, 22), dhoti=(246, 240, 226), pleat=(255, 251, 242), border=(196, 52, 58), top=(150, 36, 50)),
     "P": dict(skin=(186, 136, 98), skin_d=(140, 98, 68), hair=(108, 104, 104), dhoti=(128, 104, 82), pleat=(142, 118, 94), border=(98, 78, 60), top=(196, 186, 160)),
+    "R": dict(skin=(232, 186, 142), skin_d=(186, 136, 98), hair=(30, 22, 22), dhoti=(186, 30, 46), pleat=(206, 48, 62), border=GOLD, top=(196, 34, 50), legs=(186, 30, 46), feet=(200, 150, 50)),
+    "C": dict(skin=(206, 152, 110), skin_d=(160, 112, 78), hair=(28, 22, 22), dhoti=(244, 234, 210), pleat=(252, 246, 230), border=(226, 120, 40), top=(246, 238, 216), legs=(244, 236, 218), feet=(120, 74, 44)),
+    "G": dict(skin=(196, 142, 100), skin_d=(150, 104, 72), hair=(28, 22, 22), dhoti=(140, 30, 40), pleat=(160, 40, 50), border=(110, 20, 30), top=(176, 184, 196), legs=(140, 30, 40), feet=(80, 54, 36)),
 }
 
 def L_back(cv, who, uy):
@@ -146,6 +149,12 @@ def L_back(cv, who, uy):
         cv.part(m(lambda d: POLY(cv, d, ribbon(bow, 14, 14))), (130, 78, 36), sh=0.45, hl=0.35, gloss=0.2, rim=0.7)
         cv.flat(m(lambda d: LINE(cv, d, [(100, -392 + uy), (66, -116 + uy)], 2, caps=False)), (240, 230, 205))
         for pt in ((100, -392), (66, -116)): cv.part(m(lambda d, pt=pt: E(cv, d, pt[0], pt[1] + uy, 9)), GOLD, gloss=0.6)
+    if who == "R":
+        cv.part(m(lambda d: POLY(cv, d, [(-70, -336 + uy), (70, -336 + uy), (132, -40), (-132, -40)])), (140, 18, 34), sh=0.5, hl=0.2, rim=0.6)
+        cv.part(m(lambda d: LINE(cv, d, [(-132, -44), (132, -44)], 10)), GOLD, sh=0.3, gloss=0.4, cast=0)
+    if who == "G":
+        cv.part(m(lambda d: LINE(cv, d, [(112, -660), (112, 10)], 12)), (120, 82, 50), sh=0.45, hl=0.3, rim=0.6)
+        cv.part(m(lambda d: POLY(cv, d, [(112, -715), (134, -650), (112, -628), (90, -650)])), (215, 222, 232), sh=0.3, hl=0.5, gloss=0.6, rim=0.8)
 
 def L_lower(cv, who, ph, sit):
     c = C[who]; m = cv.mask
@@ -156,8 +165,8 @@ def L_lower(cv, who, ph, sit):
     sw = math.sin(ph) * 16 if ph is not None else 0
     sway = math.sin(ph) * 6 if ph is not None else 0
     for s, s_ in ((-1, sw), (1, -sw)):
-        cv.part(m(lambda d, s=s, s_=s_: LINE(cv, d, [(s*24, -170), (s*27 + s_, -24)], 30)), c["skin"], sh=0.45)
-        cv.part(m(lambda d, s=s, s_=s_: E(cv, d, s*31 + s_, -12, 30, 13)), c["skin"], sh=0.35)
+        cv.part(m(lambda d, s=s, s_=s_: LINE(cv, d, [(s*24, -170), (s*27 + s_, -24)], 30)), c.get("legs", c["skin"]), sh=0.45)
+        cv.part(m(lambda d, s=s, s_=s_: E(cv, d, s*31 + s_, -12, 30, 13)), c.get("feet", c["skin"]), sh=0.35)
         if who == "K": cv.part(m(lambda d, s=s, s_=s_: E(cv, d, s*27 + s_, -34, 17, 6)), GOLD, sh=0.3, hl=0.5, gloss=0.5, rim=0.8)
     hem = [(-66, -206), (66, -206), (80, -130), (90 + sway, -64), (60 + sway, -52), (30 + sway, -58), (0 + sway, -54), (-30 + sway, -58), (-60 + sway, -52), (-90 + sway, -64), (-80, -130)]
     cv.part(m(lambda d: POLY(cv, d, hem)), c["dhoti"], sh=0.45, hl=0.3)
@@ -165,7 +174,7 @@ def L_lower(cv, who, ph, sit):
     for x0 in (-40, 40): cv.flat(m(lambda d, x0=x0: LINE(cv, d, [(x0*0.6, -190), (x0 + sway, -70)], 3)), ms.darker(c["dhoti"], 0.8), alpha=0.7)
     band = [(-90 + sway, -64), (-60 + sway, -52), (0 + sway, -56), (60 + sway, -52), (90 + sway, -64), (88 + sway, -80), (0 + sway, -74), (-88 + sway, -80)]
     cv.part(m(lambda d: POLY(cv, d, band)), c["border"], sh=0.3, hl=0.3)
-    if who != "P":
+    if who in ("K", "A", "R"):
         cv.part(m(lambda d: POLY(cv, d, [(-88 + sway, -78), (0 + sway, -72), (88 + sway, -78), (87 + sway, -85), (0 + sway, -79), (-87 + sway, -85)])), GOLD, sh=0, hl=0.3, gloss=0.4, cast=0)
 
 def L_upper(cv, who, uy):
@@ -182,6 +191,21 @@ def L_upper(cv, who, uy):
         cv.part(m(lambda d: (POLY(cv, d, Y([(-62, -334), (62, -334), (56, -200), (-56, -200)])), E(cv, d, -58, -320 + uy, 26), E(cv, d, 58, -320 + uy, 26))),
                 top, sh=0.5, hl=0.3)
     cv.soft(m(lambda d: E(cv, d, 0, -336 + uy, 36, 12)), (20, 20, 40), 0.35, 4)
+    if who == "R":
+        cv.part(m(lambda d: LINE(cv, d, Y([(0, -330), (0, -205)]), 6)), GOLD, sh=0.2, cast=0)
+        for r_, col in ((30, GOLD), (46, (255, 236, 190))):
+            for i in range(13):
+                u = i / 12
+                cv.part(m(lambda d, u=u, r_=r_: E(cv, d, lerp(-40, 40, u), -330 + r_*math.sin(math.pi*u) + uy, 5)), col, sh=0.3, hl=0.4, gloss=0.6, cast=0.15)
+        cv.part(m(lambda d: E(cv, d, 0, -276 + uy, 15)), GOLD, sh=0.3, gloss=0.7)
+        cv.part(m(lambda d: E(cv, d, 0, -276 + uy, 7)), (40, 170, 110), gloss=0.9, cast=0)
+        cv.part(m(lambda d: POLY(cv, d, Y([(-58, -222), (58, -222), (60, -200), (-60, -200)]))), GOLD, sh=0.35, hl=0.4, gloss=0.5)
+    if who == "C":
+        cv.part(m(lambda d: POLY(cv, d, Y([(-64, -330), (-36, -338), (60, -212), (34, -202)]))), (232, 118, 40), sh=0.45, hl=0.3)
+    if who == "G":
+        cv.part(m(lambda d: E(cv, d, 0, -270 + uy, 30, 34)), (210, 216, 226), sh=0.4, hl=0.5, gloss=0.5)
+        cv.part(m(lambda d: E(cv, d, 0, -270 + uy, 13)), GOLD, gloss=0.7, cast=0.1)
+        cv.part(m(lambda d: POLY(cv, d, Y([(-58, -222), (58, -222), (60, -202), (-60, -202)]))), (110, 70, 40), sh=0.35, hl=0.2)
     if who == "K":
         cv.part(m(lambda d: POLY(cv, d, Y([(-60, -222), (60, -222), (62, -198), (-62, -198)]))), GOLD, sh=0.35, hl=0.4, gloss=0.5)
         for i, x in enumerate((-36, 0, 36)):
@@ -219,6 +243,8 @@ def arm_geom(pose, g, ph):
     elif pose == "bless": L = [(-58, -318), (-112, -284), (-102 + g*0.3, -372 + g*0.4)]
     elif pose == "namaste": L = [(-58, -318), (-80, -246), (-9, -286)]; R = [(58, -318), (80, -246), (9, -286)]
     elif pose == "wipe": L = [(-58, -318), (-92, -272), (-34, -398)]
+    elif pose == "point": R = [(58, -318), (124, -298), (192, -326)]
+    elif pose == "think": L = [(-58, -318), (-74, -238), (-16, -322)]
     elif pose == "victory": L = [(-58, -318), (-104, -404), (-92, -500)]; R = [(58, -318), (104, -404), (92, -500)]
     return L, R
 
@@ -228,7 +254,12 @@ def L_arms(cv, who, uy, pose, g, ph):
     Y = lambda pts: [(x, y + uy) for x, y in pts]
     for arm in (R, L):
         a = Y(arm)
-        if who == "P":
+        if who in ("R", "C", "G"):
+            cv.part(m(lambda d, a=a: LINE(cv, d, a, 28)), c["top"], sh=0.45, cast=0.3)
+            if who == "R":
+                b = (lerp(a[1][0], a[2][0], 0.85), lerp(a[1][1], a[2][1], 0.85))
+                cv.part(m(lambda d, b=b: E(cv, d, b[0], b[1], 16, 9)), GOLD, gloss=0.6, cast=0.2)
+        elif who == "P":
             cv.part(m(lambda d, a=a: LINE(cv, d, a[:2], 31)), c["top"], sh=0.45, cast=0.3)
             cv.part(m(lambda d, a=a: LINE(cv, d, a[1:], 24)), sk, sh=0.45, cast=0.3)
         else:
@@ -272,6 +303,28 @@ def L_head(cv, who, uy):
             for dx, dy, r in ((-60, -50, 24), (-30, -72, 26), (0, -80, 26), (30, -74, 24), (60, -54, 22), (-78, -20, 16), (78, -22, 16)):
                 E(cv, d, dx, hy + dy, r)
         cv.part(m(hp), c["hair"], sh=0.35, hl=0.25, rim=0.6, cast=0.4)
+        return
+    if who in ("R", "C", "G"):
+        def hp(d):
+            CHORD(cv, d, 0, hy - 4, 86, 86, 200, 340)
+            for s in (-1, 1): POLY(cv, d, [(s*72, hy - 44), (s*90, hy - 12), (s*88, hy + 14), (s*76, hy - 4)])
+        cv.part(m(hp), c["hair"], sh=0.35, hl=0.22, rim=0.7, cast=0.4)
+        if who == "C":
+            cv.flat(m(lambda d: E(cv, d, 0, hy - 30, 6)), (215, 40, 50))
+        if who == "R":
+            for s in (-1, 1):
+                must = cubic((s*4, hy + 36), (s*40, hy + 26), (s*66, hy + 48), (s*84, hy + 16), 16)
+                cv.part(m(lambda d, must=must: POLY(cv, d, ribbon(must, 22, 6))), (28, 20, 20), sh=0.3, hl=0.2, rim=0.5, cast=0.3)
+            cv.part(m(lambda d: POLY(cv, d, [(-80, hy - 60), (80, hy - 60), (76, hy - 34), (-76, hy - 34)])), GOLD, sh=0.4, hl=0.45, gloss=0.6, rim=0.8)
+            for x, hh in ((-60, 40), (-30, 56), (0, 76), (30, 56), (60, 40)):
+                cv.part(m(lambda d, x=x, hh=hh: POLY(cv, d, [(x - 16, hy - 60), (x, hy - 60 - hh), (x + 16, hy - 60)])), GOLD, sh=0.45, hl=0.45, gloss=0.5, rim=0.8)
+                cv.part(m(lambda d, x=x, hh=hh: E(cv, d, x, hy - 60 - hh + 8, 6)), (255, 245, 220), gloss=0.8, cast=0.1)
+            cv.part(m(lambda d: E(cv, d, 0, hy - 47, 10, 9)), RED, gloss=1.0, cast=0.1)
+            for x in (-44, 44): cv.part(m(lambda d, x=x: E(cv, d, x, hy - 47, 6)), (40, 170, 110), gloss=0.9, cast=0.1)
+        if who == "G":
+            cv.part(m(lambda d: CHORD(cv, d, 0, hy - 2, 92, 96, 190, 350)), (196, 204, 216), sh=0.4, hl=0.5, gloss=0.6, rim=0.8)
+            cv.part(m(lambda d: POLY(cv, d, [(-8, hy - 30), (8, hy - 30), (6, hy + 30), (-6, hy + 30)])), (176, 184, 196), sh=0.3, hl=0.4, gloss=0.4)
+            cv.part(m(lambda d: POLY(cv, d, [(-10, hy - 92), (10, hy - 92), (0, hy - 130)])), GOLD, gloss=0.6)
         return
     def hair_front(d):
         CHORD(cv, d, 0, hy - 5, 86, 85, 200, 340)
@@ -350,6 +403,7 @@ def L_eyes(cv, who, uy, brow, bl, lx, ly, closed):
                 if who == "K": cv.flat(m(lambda d, ex=ex, s=s: LINE(cv, d, [(ex + s*18, ey - 6), (ex + s*27, ey - 10)], 3)), ink)
         by = ey - 30
         if brow == "sad": cv.flat(m(lambda d, s=s: LINE(cv, d, [(s*48, by + 6), (s*16, by - 6)], 5)), brc)
+        elif brow == "angry": cv.flat(m(lambda d, s=s: LINE(cv, d, [(s*50, by - 12), (s*14, by + 6)], 6)), brc)
         elif brow == "curious" and s == 1: cv.flat(m(lambda d: LINE(cv, d, [(16, by - 4), (48, by - 14)], 5)), brc)
         else: cv.flat(m(lambda d, ex=ex: ARC(cv, d, ex, by + 8, 18, 9, 205, 335, 4.5)), brc)
 
@@ -362,7 +416,10 @@ def L_mouth(cv, who, uy, mood, o):
     elif mood == "happy":
         cv.part(m(lambda d: CHORD(cv, d, 0, my - 10, 22, 18, 0, 180)), (110, 30, 42), sh=0.2, hl=0, rim=0, cast=0)
         cv.flat(m(lambda d: E(cv, d, 0, my + 3, 9, 4)), (235, 110, 125))
-    elif mood == "sad": cv.flat(m(lambda d: ARC(cv, d, 0, my + 10, 15, 9, 205, 335, 4.5)), ink)
+    elif mood in ("sad", "angry"): cv.flat(m(lambda d: ARC(cv, d, 0, my + 10, 15, 9, 205, 335, 4.5)), ink)
+    elif mood == "shock":
+        cv.part(m(lambda d: E(cv, d, 0, my + 4, 12, 16)), (110, 30, 42), sh=0.3, hl=0, rim=0, cast=0)
+        cv.flat(m(lambda d: E(cv, d, 0, my + 12, 7, 5)), (235, 110, 125))
     elif mood == "neutral": cv.flat(m(lambda d: LINE(cv, d, [(-10, my), (10, my)], 4)), ink)
     else: cv.flat(m(lambda d: ARC(cv, d, 0, my - 9, 17, 11, 25, 155, 4.5)), ink)
 
@@ -390,7 +447,7 @@ def char(frame, pen, who, X, Y, sc, t, pose="stand", mood="smile", talk=0.0, loo
     if pose != "wipe": arms()
     put(frame, sprite(("head", who, uy, sc), BB["head"], s, lambda cv: L_head(cv, who, uy)), X, Y + dy)
     closed = mood == "happy" and talk < 0.05
-    brow = mood if mood in ("sad", "curious") else "n"
+    brow = mood if mood in ("sad", "curious", "angry") else ("curious" if mood == "shock" else "n")
     bl = blinkq(t, who); lx = round(look[0] * 2) / 2; ly = round(look[1] * 2) / 2
     put(frame, sprite(("eyes", who, uy, sc, brow, bl, lx, ly, closed), BB["eyes"], s, lambda cv: L_eyes(cv, who, uy, brow, bl, lx, ly, closed)), X, Y + dy)
     o = round(clamp(talk) * 4) / 4 if talk > 0.06 else 0
@@ -662,7 +719,59 @@ def shot_mountain(t, s):
     dust(p, t, 300, 1500)
     return img, dict(zoom=lerp(1.35, 1.0, e), cx=540, cy=lerp(1300, 1000, e))
 
-SHOTS = dict(walk=shot_walk, meet=shot_meet, divine=shot_divine, night=shot_night, rain=shot_rain, sunrise=shot_sunrise, mountain=shot_mountain)
+def bg_darbar():
+    cv = SC((0, 0, W, H), SS); m = cv.mask
+    cv.rgb[:] = gradient([(0, (58, 12, 22)), (0.42, (124, 32, 40)), (0.62, (148, 50, 44)), (1, (148, 50, 44))], cv.h, cv.w); cv.a[:] = 1
+    for cx_ in (180, 540, 900):
+        w_ = 210 if cx_ == 540 else 150
+        arch = [(cx_ - w_, 1150), (cx_ - w_, 560)] + [(cx_ + math.cos(a)*w_, 560 - math.sin(a)*w_*1.2) for a in np.linspace(math.pi, 0, 24)] + [(cx_ + w_, 1150)]
+        cv.part(m(lambda d, arch=arch: POLY(cv, d, arch)), (72, 18, 30), sh=0.5, hl=0.15, rim=0.3, cast=0)
+        cv.flat(m(lambda d, arch=arch: d.line([cv.P(x, y) for x, y in arch], fill=255, width=int(10*SS))), (226, 168, 66))
+    for x in (40, 360, 720, 1040):
+        cv.part(m(lambda d, x=x: POLY(cv, d, [(x - 34, 1250), (x - 34, 300), (x + 34, 300), (x + 34, 1250)])), (236, 180, 70), sh=0.5, hl=0.45, gloss=0.3, rim=0.8)
+        for y in (290, 1220): cv.part(m(lambda d, x=x, y=y: POLY(cv, d, [(x - 50, y), (x + 50, y), (x + 50, y + 34), (x - 50, y + 34)])), (250, 200, 90), sh=0.4, hl=0.5, gloss=0.4)
+    for x in (200, 880):
+        cv.part(m(lambda d, x=x: POLY(cv, d, [(x - 46, 330), (x + 46, 330), (x + 46, 640), (x, 600), (x - 46, 640)])), (200, 40, 50), sh=0.4, hl=0.3, rim=0.5)
+        cv.part(m(lambda d, x=x: E(cv, d, x, 450, 22)), (250, 200, 80), gloss=0.5)
+    cv.part(m(lambda d: [E(cv, d, 540, 760, 200, 230), POLY(cv, d, [(340, 760), (740, 760), (740, 1230), (340, 1230)])]), (238, 186, 70), sh=0.5, hl=0.45, gloss=0.4, rim=0.8)
+    cv.part(m(lambda d: [E(cv, d, 540, 780, 150, 180), POLY(cv, d, [(390, 780), (690, 780), (690, 1150), (390, 1150)])]), (176, 26, 40), sh=0.45, hl=0.3)
+    cv.part(m(lambda d: E(cv, d, 540, 600, 26)), (60, 160, 220), gloss=0.9)
+    fy = 1250
+    cv.rgb[int(fy*SS):] = gradient([(0, (186, 146, 108)), (1, (222, 186, 140))], cv.h - int(fy*SS), cv.w)
+    for k in range(-8, 9):
+        cv.flat(m(lambda d, k=k: d.line([cv.P(540 + k*40, fy), cv.P(540 + k*260, H)], fill=255, width=int(3*SS))), (160, 120, 86), alpha=0.6)
+    for y in (1300, 1380, 1490, 1640, 1840):
+        cv.flat(m(lambda d, y=y: d.line([cv.P(0, y), cv.P(W, y)], fill=255, width=int(3*SS))), (160, 120, 86), alpha=0.5)
+    cv.part(m(lambda d: POLY(cv, d, [(440, fy - 20), (640, fy - 20), (900, H), (180, H)])), (190, 30, 44), sh=0.2, hl=0.15, cast=0)
+    for sg in (-1, 1):
+        cv.flat(m(lambda d, sg=sg: d.line([cv.P(540 + sg*92, fy - 20), cv.P(540 + sg*344, H)], fill=255, width=int(12*SS))), (232, 176, 70))
+    cv.soft(m(lambda d: E(cv, d, 540, 760, 360)), (255, 220, 150), 0.18, 120)
+    return cv.image().convert("RGB").filter(ImageFilter.GaussianBlur(3 * SS))
+
+LAMPS = [(130, 1180), (950, 1180)]
+def shot_darbar(t, s):
+    img = asset("darbar", bg_darbar).copy(); p = ms.Pen(img)
+    for i, (x, y) in enumerate(LAMPS):
+        fl = 0.8 + 0.2*math.sin(t*9 + i*2) + 0.1*math.sin(t*23 + i)
+        for k in range(5): p.ell(x, y - 30, 30 + k*22, fill=(255, 190, 90, int(16*fl)))
+        p.ell(x, y, 34, 12, fill=(160, 90, 40)); p.ell(x, y - 26, 9*fl, 20*fl, fill=(255, 210, 110)); p.ell(x, y - 22, 4, 9, fill=(255, 250, 220))
+    rt, ct = talk("R"), talk("C")
+    rm, cm = s.get("rmood", "neutral"), s.get("cmood", "neutral")
+    rpose = ("point" if rm == "angry" else "talk") if rt > 0.05 else ("think" if rm == "shock" else "stand")
+    cpose = "talk" if ct > 0.05 else ("think" if cm == "neutral" and (t % 6) < 3 else "stand")
+    for x, ph in ((190, 0), (900, 0.7)):
+        shadow(img, x, 1340, 70)
+        char(img, p, "G", x, 1340, 1.0, t + ph, mood="neutral", look=(0.3 if x < 540 else -0.3, 0))
+    shadow(img, 540, 1272, 80)
+    char(img, p, "R", 540, 1272, 1.05, t, pose=rpose, mood=rm, talk=rt, look=(0.5, 0.4))
+    shadow(img, 760, 1760, 110)
+    char(img, p, "C", 760, 1760, 1.3, t + 0.4, pose=cpose, mood=cm, talk=ct, look=(-0.5, -0.5))
+    dust(p, t)
+    nm = s.get("cam", "wide"); e = ease_io(t / s["dur"])
+    z, cx, cy = dict(wide=(1.0, 540, 1000), raja=(1.75, 540, 860), chatur=(1.7, 760, 1230), both=(1.25, 650, 1130))[nm]
+    return img, dict(zoom=z * lerp(1.0, 1.05, e), cx=cx, cy=cy)
+
+SHOTS = dict(darbar=shot_darbar, walk=shot_walk, meet=shot_meet, divine=shot_divine, night=shot_night, rain=shot_rain, sunrise=shot_sunrise, mountain=shot_mountain)
 
 # ================================================================ frame
 TL = None
@@ -709,7 +818,7 @@ def render_frame(fi):
     last = shots[-1]; te = last["start"] + last["narr_end"] + 0.4
     # sticker card at the start of each shot (after the title card is gone)
     st = s.get("sticker"); ts = T - s["start"]
-    if st and T > 2.7 and ts < 2.6:
+    if st and not s.get("cards") and T > 2.7 and ts < 2.6:
         key = ("stk", si)
         if key not in C_: C_[key] = ms.make_sticker(st)
         a = max(0.0, ts - 0.15); cap_bottom = 0
@@ -720,6 +829,15 @@ def render_frame(fi):
                 cap_bottom = max(cap_bottom, 230 + C_[ck].height - 30)
         sy = max(690, cap_bottom + C_[key].height / 2 + 10)
         ms.overlay(frame, C_[key], W / 2 + (130 if si % 2 else -130), sy, lerp(0.4, 1.0, ms.ease_back(a / 0.3)), clamp(a / 0.08) * clamp((2.6 - ts) / 0.25))
+    # icon cards (paheli): one or two cards that pop in after the shot starts
+    cards = s.get("cards") or []
+    if cards and ts > 0.3:
+        xs = [W / 2] if len(cards) == 1 else [W / 2 - 175, W / 2 + 175]
+        for j, cd in enumerate(cards[:2]):
+            key = ("card", cd.get("icon"), cd.get("label"))
+            if key not in C_: C_[key] = ms.make_card(cd.get("icon", "question"), cd.get("label", ""))
+            a = max(0.0, ts - 0.3 - j*0.25)
+            ms.overlay(frame, C_[key], xs[j], 1400 if s.get("cam") in ("raja", "chatur") else 1020, lerp(0.3, 1.0, ms.ease_back(a / 0.3)), clamp(a / 0.08) * clamp((s["dur"] - ts) / 0.3))
     # "watch till the end" pill near the bottom
     if 2.8 < T < min(9.0, te - 0.5):
         if "pill" not in C_: C_["pill"] = ms.make_pill("Last tak zaroor dekhna")

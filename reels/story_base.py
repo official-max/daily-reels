@@ -26,8 +26,11 @@ VOICES = {   # speaker: (voice, rate, pitch)
     "K": ("hi-IN-MadhurNeural", "-10%", "-4Hz"),
     "A": ("hi-IN-MadhurNeural", "+0%", "+6Hz"),
     "P": ("hi-IN-MadhurNeural", "-12%", "-10Hz"),
+    "R": ("hi-IN-MadhurNeural", "-8%", "-14Hz"),
+    "C": ("hi-IN-MadhurNeural", "+4%", "+3Hz"),
 }
-TAGS = {"K": ("Shri Krishna", (45, 100, 205)), "A": ("Arjun", (165, 40, 55)), "P": ("Garib vyakti", (125, 88, 52))}
+TAGS = {"K": ("Shri Krishna", (45, 100, 205)), "A": ("Arjun", (165, 40, 55)), "P": ("Garib vyakti", (125, 88, 52)),
+        "R": ("Raja", (176, 28, 44)), "C": ("Chatur", (205, 110, 30))}
 
 # ================================================================ helpers
 def clamp(x, a=0.0, b=1.0): return max(a, min(b, x))
@@ -101,7 +104,7 @@ CHARS = {
     "F": dict(skin=(205, 150, 100), skin_d=(158, 108, 72), hair=(30, 25, 25), dhoti=(240, 236, 222), dhoti_b=(210, 120, 50),
               top=(250, 250, 245), top_d=(196, 196, 190), turban=(245, 130, 40), moustache=True),
 }
-BLINK_OFF = dict(K=0.0, A=1.3, P=2.2, F=0.7)
+BLINK_OFF = dict(K=0.0, A=1.3, P=2.2, F=0.7, R=0.5, C=1.8, G=2.9)
 
 
 def draw_char(p, who, x, fy, sc, t, pose="stand", mood="smile", talk=0.0, look=(0, 0), walking=False, sit=False, glow=1.0):
@@ -655,6 +658,60 @@ def make_sticker(text):
     d.text((16 + (bw - tw) / 2, 16 + (bh - font.size * 1.25) / 2), text, font=font, fill=(200, 30, 45))
     return img.filter(ImageFilter.SMOOTH).rotate(-4, resample=Image.BICUBIC, expand=True)
 
+def _icon(d, icon, cx, cy, r):
+    """Simple bold icons drawn into a 2x-scale card."""
+    ink, gold, red, green = (40, 26, 20), (240, 184, 60), (215, 40, 50), (40, 170, 90)
+    w = max(4, int(r * 0.14))
+    if icon == "gallows":
+        d.line([(cx - r*0.6, cy + r), (cx + r*0.2, cy + r)], fill=ink, width=w)
+        d.line([(cx - r*0.4, cy + r), (cx - r*0.4, cy - r)], fill=ink, width=w)
+        d.line([(cx - r*0.4, cy - r), (cx + r*0.5, cy - r)], fill=ink, width=w)
+        d.line([(cx + r*0.4, cy - r), (cx + r*0.4, cy - r*0.35)], fill=ink, width=max(3, w // 2))
+        d.ellipse([cx + r*0.22, cy - r*0.4, cx + r*0.58, cy + r*0.05], outline=ink, width=max(3, w // 2))
+    elif icon == "sword":
+        d.polygon([(cx - r*0.75, cy + r*0.75), (cx + r*0.6, cy - r*0.6), (cx + r*0.85, cy - r*0.85), (cx + r*0.75, cy - r*0.45), (cx - r*0.6, cy + r*0.9)], fill=(200, 208, 220), outline=ink)
+        d.line([(cx - r*0.85, cy + r*0.45), (cx - r*0.45, cy + r*0.95)], fill=gold, width=w)
+        d.line([(cx - r*0.75, cy + r*0.75), (cx - r*0.95, cy + r*0.95)], fill=(120, 70, 40), width=w)
+    elif icon == "question":
+        f = ImageFont.truetype(FONT_CAP, int(r * 2.1)); tw = f.getlength("?")
+        d.text((cx - tw / 2, cy - r * 1.45), "?", font=f, fill=gold, stroke_width=max(3, w // 2), stroke_fill=ink)
+    elif icon == "tick":
+        d.line([(cx - r*0.7, cy), (cx - r*0.2, cy + r*0.55), (cx + r*0.75, cy - r*0.6)], fill=green, width=int(w*1.6), joint="curve")
+    elif icon == "cross":
+        for a, b in (((-0.65, -0.65), (0.65, 0.65)), ((0.65, -0.65), (-0.65, 0.65))):
+            d.line([(cx + a[0]*r, cy + a[1]*r), (cx + b[0]*r, cy + b[1]*r)], fill=red, width=int(w*1.6))
+    elif icon == "coin":
+        for k, (dx, dy) in enumerate(((-0.35, 0.3), (0.3, 0.35), (0, -0.2))):
+            x, y = cx + dx*r, cy + dy*r
+            d.ellipse([x - r*0.5, y - r*0.5, x + r*0.5, y + r*0.5], fill=gold, outline=(170, 110, 20), width=max(3, w // 2))
+            d.ellipse([x - r*0.3, y - r*0.3, x + r*0.3, y + r*0.3], outline=(200, 140, 30), width=max(2, w // 3))
+    elif icon == "door":
+        d.rectangle([cx - r*0.55, cy - r*0.4, cx + r*0.55, cy + r], fill=(150, 90, 50), outline=ink, width=max(3, w // 2))
+        d.pieslice([cx - r*0.55, cy - r*0.95, cx + r*0.55, cy + r*0.15], 180, 360, fill=(150, 90, 50), outline=ink, width=max(3, w // 2))
+        d.ellipse([cx + r*0.25, cy + r*0.3, cx + r*0.4, cy + r*0.45], fill=gold)
+    elif icon == "lamp":
+        d.ellipse([cx - r*0.15, cy - r*0.95, cx + r*0.15, cy - r*0.2], fill=(255, 190, 60))
+        d.ellipse([cx - r*0.07, cy - r*0.6, cx + r*0.07, cy - r*0.3], fill=(255, 245, 210))
+        d.chord([cx - r*0.8, cy - r*0.5, cx + r*0.8, cy + r*0.7], 0, 180, fill=(190, 100, 50), outline=ink, width=max(3, w // 2))
+    elif icon == "crown":
+        d.polygon([(cx - r*0.8, cy + r*0.5), (cx - r*0.8, cy - r*0.4), (cx - r*0.4, cy), (cx, cy - r*0.7), (cx + r*0.4, cy), (cx + r*0.8, cy - r*0.4), (cx + r*0.8, cy + r*0.5)], fill=gold, outline=ink)
+        d.ellipse([cx - r*0.12, cy + r*0.05, cx + r*0.12, cy + r*0.29], fill=red)
+    elif icon == "clock":
+        d.ellipse([cx - r*0.8, cy - r*0.8, cx + r*0.8, cy + r*0.8], fill=(255, 250, 235), outline=ink, width=w)
+        d.line([(cx, cy), (cx, cy - r*0.55)], fill=ink, width=w); d.line([(cx, cy), (cx + r*0.4, cy + r*0.15)], fill=ink, width=w)
+
+def make_card(icon, label):
+    """Square card with an icon and a short caption under it (shown over a shot)."""
+    k = 2; cw, ch = 300 * k, 330 * k
+    img = Image.new("RGBA", (cw + 30*k, ch + 30*k), (0, 0, 0, 0)); d = ImageDraw.Draw(img)
+    d.rounded_rectangle([18*k, 22*k, cw + 18*k, ch + 22*k], radius=34*k, fill=(0, 0, 0, 110))
+    d.rounded_rectangle([8*k, 8*k, cw + 8*k, ch + 8*k], radius=34*k, fill=(250, 236, 205), outline=(226, 168, 66), width=8*k)
+    _icon(d, icon, 8*k + cw / 2, 8*k + 125*k, 82*k)
+    if label:
+        f = fit(label, ImageFont.truetype(FONT_CAP, 40*k), 250*k); tw = f.getlength(label)
+        d.text((8*k + (cw - tw) / 2, 8*k + 250*k), label, font=f, fill=(150, 24, 36))
+    return img.resize((img.width // k, img.height // k), Image.LANCZOS)
+
 def make_pill(text):
     font = ImageFont.truetype(FONT_B, 46); tw = font.getlength(text)
     img = Image.new("RGBA", (int(tw + 80), 96), (0, 0, 0, 0)); d = ImageDraw.Draw(img)
@@ -814,7 +871,13 @@ def build_audio(tl, voices, path, seed):
         x = voices[ph["idx"]]
         if ph["spk"] == "K": x = reverb(x)
         add(voice, ph["start"], x)
-    if tl.get("type") == "motivational":
+    if tl.get("type") == "paheli":   # slow minor pads: suspense
+        prog = [[110, 164.81, 220, 261.63], [98, 146.83, 196, 233.08], [87.31, 130.81, 174.61, 207.65], [82.41, 123.47, 164.81, 207.65]]
+        t0, i = 0.0, 0
+        while t0 < total:
+            add(bed, t0, pad(prog[i % 4], 4.0), 0.8); t0 += 4.0; i += 1
+        bed += tanpura(n) * 0.3
+    elif tl.get("type") == "motivational":
         prog = [[110, 220, 261.63, 329.63], [87.31, 174.61, 220, 261.63], [130.81, 261.63, 329.63, 392], [98, 196, 246.94, 293.66]]
         t0, i = 0.0, 0
         while t0 < total:
@@ -840,6 +903,8 @@ def build_audio(tl, voices, path, seed):
             tw = 0.1; end = d if kd in ("walk", "farm") else 2.8
             while tw < end:
                 tq = tarr(0.09); add(sfx, st + tw, band(noise(0.09), 60, 500) * np.exp(-tq*40), 0.07); tw += math.pi / 6.5
+        if kd == "darbar":   # deep drum hit on every cut
+            tq = tarr(1.2); add(sfx, st + 0.05, np.sin(2*np.pi*58*tq) * np.exp(-tq*4.5) * np.minimum(1, tq / 0.004), 0.35)
         if kd == "rain":
             r = band(noise(d + 0.6), 400, 6500) * np.minimum(1, tarr(d + 0.6) / 0.5) * np.clip((d + 0.6 - tarr(d + 0.6)) / 0.6, 0, 1)
             add(sfx, st, r, 0.14)

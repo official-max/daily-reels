@@ -2,7 +2,10 @@
 
 Roz ek naya Hindi cartoon Short **apne aap** banta hai aur YouTube par **shaam 7 baje (IST)** publish hota hai.
 
-- **Ek din devotional** (Shri Krishna ki kahani/seekh), **ek din motivational** (aam aadmi ki kahani)
+- **Series mein kahaniyan**, roz ek part:
+  - **Paheli** (raja ka darbar): Part 1 mein sawaal + "jawab comment karo", Part 2 mein jawab
+  - **Bhagwan ki kahani** (Shri Krishna): 2-3 parts
+  - Ek series khatam hote hi agli series dusre type ki (paheli ↔ bhagwan). Hisaab `state/series.json` mein
 - Trending topics (Google News + YouTube India) se inspiration, Claude script likhta hai
 - Premium 2.5D cartoon animation, Hindi voiceover, captions, music — sab code se
 - GitHub Actions par chalta hai — laptop on rakhne ki zaroorat nahi
@@ -71,8 +74,8 @@ Tab tak: YouTube Studio mein video ko roz **Public** kar dijiye (1 click), aur a
 ## Local par chalana
 ```
 pip install -r requirements.txt
-python -m reels.pipeline --script samples/motivational_01.json --no-upload           # video banao
-python -m reels.pipeline --script samples/devotional_01.json --no-upload --preview    # sirf preview image
+python -m reels.pipeline --script samples/paheli_01.json --part 1 --no-upload       # video banao
+python -m reels.pipeline --script samples/paheli_01.json --part 2 --preview         # sirf preview image
 ```
 Output `out/` folder mein aata hai.
 

@@ -3,9 +3,9 @@
 Yahan aap apni kahaniyan, style aur reference videos rakh sakte hain. Bot inhe dekh kar reel banata hai.
 
 ## 1. Apni kahaniyan: `stories/`
-- Devotional kahani → `stories/devotional/` mein ek `.txt` file
-- Motivational kahani → `stories/motivational/` mein ek `.txt` file
-- Hindi, Hinglish, kuch bhi chalega. Lambi kahani bhi chalegi; Claude use 40-55 second ki reel mein badal dega.
+- Bhagwan ki kahani → `stories/devotional/` mein ek `.txt` file (2-3 parts banenge)
+- Paheli / chaturai wali kahani → `stories/paheli/` mein ek `.txt` file (Part 1 sawaal, Part 2 jawab)
+- Hindi, Hinglish, kuch bhi chalega. Lambi kahani bhi chalegi; Claude use parts mein baant dega.
 - File ka naam number se shuru kijiye (`01_karm.txt`, `02_dhairya.txt`). Usi kram se ek-ek karke use hongi.
 - Jis din us type ki koi nayi kahani nahi bachi, us din bot khud trending topics se kahani likhta hai.
 - Har kahani sirf ek baar use hoti hai (`state/history.json` mein yaad rehta hai).
