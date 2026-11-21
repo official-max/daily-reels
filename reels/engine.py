@@ -703,6 +703,28 @@ def render_frame(fi):
     if si + 1 < len(shots) and T > s["end"] - ms.XF:
         frame = Image.blend(frame, render_shot(si + 1, T - shots[si + 1]["start"]), ease_io((T - (s["end"] - ms.XF)) / ms.XF))
     C_ = ms.CACHE
+    last = shots[-1]; te = last["start"] + last["narr_end"] + 0.4
+    # sticker card at the start of each shot (after the title card is gone)
+    st = s.get("sticker"); ts = T - s["start"]
+    if st and T > 2.7 and ts < 2.6:
+        key = ("stk", si)
+        if key not in C_: C_[key] = ms.make_sticker(st)
+        a = max(0.0, ts - 0.15); cap_bottom = 0
+        for k, ph in enumerate(TL["phrases"]):
+            if ph["start"] - 0.05 <= T <= ph["end"] + 0.3:
+                ck = ("cap", k)
+                if ck not in C_: C_[ck] = ms.make_caption(ph["text"], ph["spk"], ph.get("tag"))
+                cap_bottom = max(cap_bottom, 230 + C_[ck].height - 30)
+        sy = max(690, cap_bottom + C_[key].height / 2 + 10)
+        ms.overlay(frame, C_[key], W / 2 + (130 if si % 2 else -130), sy, lerp(0.4, 1.0, ms.ease_back(a / 0.3)), clamp(a / 0.08) * clamp((2.6 - ts) / 0.25))
+    # "watch till the end" pill near the bottom
+    if 2.8 < T < min(9.0, te - 0.5):
+        if "pill" not in C_: C_["pill"] = ms.make_pill("Last tak zaroor dekhna")
+        ms.overlay(frame, C_["pill"], W / 2, 1640, 1.0, clamp((T - 2.8) / 0.3) * clamp((min(9.0, te - 0.5) - T) / 0.3))
+    # hook bar pinned to the top for the whole reel
+    if TL.get("hook"):
+        if "hook" not in C_: C_["hook"] = ms.make_hook(TL["hook"])
+        ms.overlay(frame, C_["hook"], W / 2, 95, 1.0, clamp((T - 0.1) / 0.25))
     for k, ph in enumerate(TL["phrases"]):
         if ph["start"] - 0.05 <= T <= ph["end"] + 0.3:
             key = ("cap", k)
@@ -712,7 +734,6 @@ def render_frame(fi):
     if T < 2.6:
         if "title" not in C_: C_["title"] = ms.make_title(TL["label"], TL["title1"], TL["title2"], TL["title_sub"])
         ms.overlay(frame, C_["title"], W / 2, 860, lerp(0.7, 1.0, ms.ease_back((T - 0.1) / 0.4)), clamp((T - 0.1) / 0.2) * clamp((2.6 - T) / 0.35))
-    last = shots[-1]; te = last["start"] + last["narr_end"] + 0.4
     if T >= te:
         if "end" not in C_: C_["end"] = ms.make_end(TL["end_text"], TL["end_sub"])
         a = T - te

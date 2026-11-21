@@ -7,11 +7,11 @@ SCENES = ["walk", "meet", "divine", "road", "night", "rain", "sunrise", "mountai
 LINE = {"type": "object", "additionalProperties": False, "required": ["speaker", "hindi", "caption"],
         "properties": {"speaker": {"type": "string", "enum": ["N", "K", "A", "P"]},
                        "hindi": {"type": "string"}, "caption": {"type": "string"}}}
-SHOT = {"type": "object", "additionalProperties": False, "required": ["scene", "mood", "lines"],
-        "properties": {"scene": {"type": "string", "enum": SCENES},
+SHOT = {"type": "object", "additionalProperties": False, "required": ["scene", "mood", "sticker", "lines"],
+        "properties": {"scene": {"type": "string", "enum": SCENES}, "sticker": {"type": "string"},
                        "mood": {"type": "string", "enum": ["sad", "neutral", "happy"]},
                        "lines": {"type": "array", "items": LINE}}}
-STR_FIELDS = ["topic", "p_name", "label", "title_line1", "title_line2", "title_sub", "end_text", "end_sub", "yt_title", "yt_description"]
+STR_FIELDS = ["topic", "hook", "p_name", "label", "title_line1", "title_line2", "title_sub", "end_text", "end_sub", "yt_title", "yt_description"]
 SCHEMA = {"type": "object", "additionalProperties": False,
           "required": STR_FIELDS + ["tags", "shots"],
           "properties": {**{k: {"type": "string"} for k in STR_FIELDS},
@@ -44,6 +44,8 @@ Writing rules:
 - Trending topics are given only as optional inspiration. Use one only if a festival, occasion or positive theme fits the format naturally.
   Never mention news events, politics, accidents, disasters, crimes, real people, celebrities or brands, and never state facts about current events.
 - Do not repeat or closely imitate any recent title listed.
+- hook: a relatable Roman Hinglish line pinned at the top of the whole video, max 30 characters, e.g. "Jab *Zindagi* Unfair Lage" or "Bhagwan *Sunte* Kyun Nahi?". Wrap exactly one word in *asterisks* (shown in red).
+- sticker: per shot, a 2-4 word uppercase Roman card that pops up when the shot starts (max 22 characters), e.g. "SUBAH 5 BAJE", "SAB KHATAM?", "PHIR AAYA MOD". It adds a beat the narration does not say word for word. Use "" for at most two shots.
 - p_name: what to call P in his caption tag, in Roman (max 14 characters), e.g. "Raju", "Ek Kisaan", "Garib Bhakt".
 - label: 2-3 word uppercase badge, e.g. "AAJ KI KAHANI" or "LIFE LESSON".
 - title_line1 / title_line2: two short Roman lines for the opening title card (max 16 characters each).

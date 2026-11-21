@@ -29,7 +29,8 @@
      "hindi": "एक बार अर्जुन, भगवान श्रीकृष्ण के साथ, वन में जा रहे थे।",
      "caption": "Ek baar Arjun, Bhagwan *Shri Krishna* ke saath van mein ja rahe the."
     }
-   ]
+   ],
+   "sticker": "EK SAFAR"
   },
   {
    "scene": "meet",
@@ -40,7 +41,8 @@
      "hindi": "रास्ते में, एक गरीब व्यक्ति पेड़ के नीचे बैठकर रो रहा था।",
      "caption": "Raaste mein, ek *garib vyakti* ped ke neeche baithkar ro raha tha."
     }
-   ]
+   ],
+   "sticker": "GARIB BHAKT"
   },
   {
    "scene": "meet",
@@ -51,7 +53,8 @@
      "hindi": "मैं रोज़ मेहनत करता हूँ, पूजा भी करता हूँ... फिर भी दुख ही दुख है।",
      "caption": "Main roz *mehnat* karta hoon, pooja bhi karta hoon... phir bhi *dukh hi dukh* hai."
     }
-   ]
+   ],
+   "sticker": "EK SAWAAL"
   },
   {
    "scene": "divine",
@@ -67,7 +70,8 @@
      "hindi": "कर्म का फल भी, समय आने पर ही मिलता है।",
      "caption": "*Karm ka phal* bhi, samay aane par hi milta hai."
     }
-   ]
+   ],
+   "sticker": "PRABHU KA JAWAB"
   },
   {
    "scene": "meet",
@@ -78,7 +82,8 @@
      "hindi": "तुम मेहनत मत छोड़ना। बादल सूरज को ढक सकते हैं, बुझा नहीं सकते।",
      "caption": "Tum mehnat mat chhodna. Baadal suraj ko *dhak* sakte hain, *bujha nahi* sakte."
     }
-   ]
+   ],
+   "sticker": "BHAROSA"
   },
   {
    "scene": "divine",
@@ -89,8 +94,10 @@
      "hindi": "अच्छे कर्म करते रहो... फल की चिंता, भगवान पर छोड़ दो।",
      "caption": "Achhe karm karte raho... phal ki chinta, *Bhagwan par chhod do*."
     }
-   ]
+   ],
+   "sticker": "KARM KARO"
   }
  ],
- "p_name": "Garib Bhakt"
+ "p_name": "Garib Bhakt",
+ "hook": "Bhagwan *Sunte* Kyun Nahi?"
 }

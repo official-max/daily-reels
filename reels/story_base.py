@@ -631,6 +631,37 @@ def make_end(end_text, end_sub):
     ctext(d, W/2, by + 18, "SUBSCRIBE", f["f_btn"], (255, 255, 255), 0)
     return img
 
+def make_hook(text):
+    """White bar pinned to the top for the whole reel; *word* is shown in red."""
+    font = fit(text.replace("*", ""), ImageFont.truetype(FONT_CAP, 56), 880)
+    toks = parse_tokens(text); sp = font.getlength(" ")
+    tw = sum(font.getlength(w) for w, _ in toks) + sp * (len(toks) - 1)
+    bw = tw + 80; img = Image.new("RGBA", (W, 150), (0, 0, 0, 0)); d = ImageDraw.Draw(img)
+    d.rounded_rectangle([(W - bw) / 2 + 5, 24, (W + bw) / 2 + 5, 134], radius=22, fill=(0, 0, 0, 90))
+    d.rounded_rectangle([(W - bw) / 2, 16, (W + bw) / 2, 126], radius=22, fill=(255, 255, 255), outline=(25, 20, 30), width=4)
+    x = (W - tw) / 2; y = 71 - font.size * 0.62
+    for w, hl in toks:
+        d.text((x, y), w, font=font, fill=(214, 30, 50) if hl else (25, 20, 30)); x += font.getlength(w) + sp
+    return img
+
+def make_sticker(text):
+    """Tilted paper card that pops in at the start of a shot."""
+    font = fit(text, ImageFont.truetype(FONT_CAP, 54), 560); tw = font.getlength(text)
+    bw, bh = int(tw + 90), int(font.size * 1.75)
+    img = Image.new("RGBA", (bw + 40, bh + 40), (0, 0, 0, 0)); d = ImageDraw.Draw(img)
+    d.rectangle([28, 30, bw + 28, bh + 30], fill=(0, 0, 0, 100))
+    d.rectangle([16, 16, bw + 16, bh + 16], fill=(255, 246, 214), outline=(40, 30, 30), width=5)
+    d.rectangle([bw / 2 - 40, 6, bw / 2 + 72, 30], fill=(250, 210, 90, 220))
+    d.text((16 + (bw - tw) / 2, 16 + (bh - font.size * 1.25) / 2), text, font=font, fill=(200, 30, 45))
+    return img.filter(ImageFilter.SMOOTH).rotate(-4, resample=Image.BICUBIC, expand=True)
+
+def make_pill(text):
+    font = ImageFont.truetype(FONT_B, 46); tw = font.getlength(text)
+    img = Image.new("RGBA", (int(tw + 80), 96), (0, 0, 0, 0)); d = ImageDraw.Draw(img)
+    d.rounded_rectangle([0, 8, tw + 80, 88], radius=40, fill=(15, 12, 20, 215), outline=(255, 255, 255, 230), width=3)
+    d.text((40, 48 - font.size * 0.66), text, font=font, fill=(255, 255, 255))
+    return img
+
 def overlay(frame, im, cx, cy, scale, alpha):
     if alpha <= 0.01: return
     if abs(scale - 1) > 0.01:

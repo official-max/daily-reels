@@ -24,7 +24,7 @@ def normalize(script):
             if cap.count("*") % 2: cap = cap.replace("*", "")
             lines.append((spk, hi, cap))
         if not lines: continue
-        sh = dict(phrases=lines)
+        sh = dict(phrases=lines, sticker=" ".join((raw.get("sticker") or "").replace("*", "").split()).upper()[:26])
         pmood = {"sad": "sad", "happy": "happy"}.get(mood, "neutral")
         if scene == "road": sh.update(kind="walk", who="P", pmood=pmood)
         elif scene == "meet":
@@ -65,5 +65,6 @@ def build_timeline(script, voice_dir):
         sd.update(start=st, end=t, dur=t - st, narr_end=ne); shots.append(sd)
     tl = dict(shots=shots, phrases=phrases, total=t, type=script["type"], nxt=None,
               label=script["label"], title1=script["title_line1"], title2=script["title_line2"], title_sub=script["title_sub"],
-              end_text=script["end_text"], end_sub=script["end_sub"])
+              end_text=script["end_text"], end_sub=script["end_sub"],
+              hook=(script.get("hook") or "").strip()[:40])
     return tl, voices

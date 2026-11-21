@@ -34,7 +34,8 @@
      "hindi": "मैंने सब कुछ करके देख लिया... पर कुछ नहीं बदला।",
      "caption": "Maine sab kuch karke dekh liya... par *kuch nahi badla*."
     }
-   ]
+   ],
+   "sticker": "AKELI RAAT"
   },
   {
    "scene": "rain",
@@ -45,7 +46,8 @@
      "hindi": "ऊपर से तूफान... और लोगों की बातें, कि तुमसे नहीं होगा।",
      "caption": "Upar se *toofan*... aur logon ki baatein, ki *tumse nahi hoga*."
     }
-   ]
+   ],
+   "sticker": "TOOFAN"
   },
   {
    "scene": "road",
@@ -61,7 +63,8 @@
      "hindi": "हर दिन, बस एक कदम आगे।",
      "caption": "Har din, bas *ek kadam* aage."
     }
-   ]
+   ],
+   "sticker": "PHIR CHALA"
   },
   {
    "scene": "sunrise",
@@ -72,7 +75,8 @@
      "hindi": "और एक दिन... वही सूरज, उसके लिए उगा।",
      "caption": "Aur ek din... wahi *suraj*, uske liye uga."
     }
-   ]
+   ],
+   "sticker": "NAYI SUBAH"
   },
   {
    "scene": "mountain",
@@ -88,8 +92,10 @@
      "hindi": "हार मत मानो!",
      "caption": "*Haar mat maano!*"
     }
-   ]
+   ],
+   "sticker": "JEET GAYA"
   }
  ],
- "p_name": "Raju"
+ "p_name": "Raju",
+ "hook": "Jab Sab *Khatam* Lage"
 }
