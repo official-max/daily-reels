@@ -16,7 +16,8 @@ Read `README.md` for the code map. Key files: `reels/schedule.py` (slots), `reel
 ## Ground rules
 - Never put tokens, keys or `client_secret*.json` in the repo, in commits, or in chat. They go only into GitHub repository secrets.
 - Do not ask the person to paste a secret to you. Tell them where to paste it themselves.
-- Each channel needs its **own** Claude account token. Do not reuse another person's token.
+- The Claude token may belong to the person or to a family member who has chosen to let this channel use their
+  Claude subscription. Whoever owns it creates it on their own computer and pastes it into the secret themselves.
 
 ## Steps
 
@@ -35,7 +36,9 @@ In the fork, so the new channel starts fresh and does not repeat the original ch
 Commit and push.
 
 ### 3. Claude token (secret `CLAUDE_CODE_OAUTH_TOKEN`)
-The person needs a Claude Pro or Max subscription. On their computer:
+This needs a Claude Pro or Max subscription: the person's own, or the family member's who is sharing theirs
+(that owner runs these commands on their computer; one subscription's usage then covers both channels, roughly
+one or two Claude calls per channel per day):
 ```
 npm install -g @anthropic-ai/claude-code
 claude setup-token
