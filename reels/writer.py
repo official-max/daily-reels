@@ -129,7 +129,7 @@ def write_series(kind, date_str, trends, recent_titles, used_stories=()):
     story_name, story = next_story(kind, set(used_stories))
     system = "\n\n".join([INTRO, FORMAT_TEXT[kind], RULES])
     request = build_request(kind, date_str, trends, recent_titles, story)
-    data = _via_api(system, request) if os.environ.get("ANTHROPIC_API_KEY", "").strip() else _via_cli(system, request, research=not story)
+    data = _via_api(system, request) if "".join(os.environ.get("ANTHROPIC_API_KEY", "").split()) else _via_cli(system, request, research=not story)
     parts = [p for p in data.get("parts", []) if p.get("shots")][:FORMATS[kind]["parts"]]
     if not parts:
         raise RuntimeError("series came back with no parts")
@@ -159,10 +159,14 @@ def _via_cli(system, request, research=True):
 
 
 def _cli_env():
-    """An unset GitHub secret arrives as "" - drop empty auth variables so the CLI uses the OAuth token."""
+    """Environment for the CLI.
+    - A token copied from a wrapped terminal line can contain line breaks or spaces; tokens never do, so remove them.
+    - An unset GitHub secret arrives as "": drop empty auth variables so the CLI uses the OAuth token."""
     env = dict(os.environ)
-    for k in ("ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN"):
-        if not env.get(k, "").strip(): env.pop(k, None)
+    for k in ("CLAUDE_CODE_OAUTH_TOKEN", "ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN"):
+        v = "".join(env.get(k, "").split())
+        if v: env[k] = v
+        else: env.pop(k, None)
     return env
 
 
