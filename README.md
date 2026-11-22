@@ -13,7 +13,7 @@ GitHub Actions par chalta hai, laptop on rakhne ki zaroorat nahi.
 ## Roz kya hota hai
 
 ```
-9 AM, 1 PM, 4 PM IST  GitHub Actions start (har video se 3 ghante pehle)
+Har ghante GitHub check karta hai: koi slot (12 PM / 4 PM / 7 PM) 3 ghante mein hai ya chhoot gaya?  ── haan ──►
   ├─ state/series.json mein chal rahi series ka agla part?  ── nahi ──► Claude se nayi series (sab parts)
   ├─ awaaz (edge-tts) → animation → reel.mp4
   ├─ YouTube upload, 3 ghante baad publish (12 PM / 4 PM / 7 PM)
@@ -82,7 +82,7 @@ python -m reels.pipeline --script samples/paheli_01.json --part 2 --preview     
 ## Kuch badalna ho to
 | Kya | Kahan |
 |---|---|
-| Post ka time | `.github/workflows/daily.yml` (cron) aur `--post-time` |
+| Post ke time (slots) | `reels/schedule.py` → `SLOTS` |
 | Kahani ka style / rules | `writer.py` → `FORMAT_TEXT`, `RULES` |
 | Voices, caption names | `config.py` |
 | Naya format (jaise Ramayan) | `config.FORMATS` + scene `scenes.py` mein + characters `characters.py` mein + `writer.FORMAT_TEXT` |

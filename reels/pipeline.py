@@ -92,7 +92,8 @@ def main():
     ap.add_argument("--part", type=int, default=1, help="with --script: which part")
     ap.add_argument("--no-upload", action="store_true")
     ap.add_argument("--preview", action="store_true", help="only render a contact sheet")
-    ap.add_argument("--post-time", default="19:00", help="publish time IST, HH:MM")
+    ap.add_argument("--post-time", default="now", help="publish time IST, HH:MM, or 'now' (see reels/schedule.py)")
+    ap.add_argument("--slot", default="extra", help="which daily slot this video fills (recorded in the history)")
     a = ap.parse_args()
 
     os.makedirs(OUT, exist_ok=True)
@@ -119,12 +120,14 @@ def main():
     if a.no_upload:
         log("test run: nothing uploaded, this part stays queued"); return
     if yt is None: sys.exit("YouTube secrets missing (YT_CLIENT_ID / YT_CLIENT_SECRET / YT_REFRESH_TOKEN)")
-    hh, mm = map(int, a.post_time.split(":"))
-    publish = dt.datetime(today.year, today.month, today.day, hh, mm, tzinfo=IST).astimezone(dt.timezone.utc)
+    publish = None                                   # None = public right away
+    if a.post_time != "now":
+        hh, mm = map(int, a.post_time.split(":"))
+        publish = dt.datetime(today.year, today.month, today.day, hh, mm, tzinfo=IST).astimezone(dt.timezone.utc)
     vid, status = youtube.upload(yt, mp4, script["yt_title"], script["yt_description"], script.get("tags", []), publish)
     log(f"uploaded https://youtube.com/shorts/{vid} ({status})")
 
-    entry = dict(date=str(today), type=kind, series=series.get("series_title"), part=f"{idx + 1}/{n}",
+    entry = dict(date=str(today), slot=a.slot, type=kind, series=series.get("series_title"), part=f"{idx + 1}/{n}",
                  title=script["yt_title"], seconds=round(tl["total"], 1), video_id=vid)
     if series.get("_story"): entry["story"] = series["_story"]
     save(HISTORY, (history + [entry])[-200:])

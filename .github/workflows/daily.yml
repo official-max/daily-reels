@@ -2,17 +2,16 @@ name: Daily Reel
 
 on:
   schedule:
-    # 3 videos a day. Each run starts 3 hours before its publish time (IST = UTC + 5:30).
-    - cron: "30 3 * * *"    #  9:00 AM IST -> publish 12:00 PM
-    - cron: "30 7 * * *"    #  1:00 PM IST -> publish  4:00 PM
-    - cron: "30 10 * * *"   #  4:00 PM IST -> publish  7:00 PM
+    # Every hour. reels/schedule.py decides whether a video is due: 3 a day, published 12:00, 16:00 and 19:00 IST,
+    # each made up to 3 hours early. GitHub's cron can be late or skip runs; the next hourly run then fills the gap.
+    - cron: "17 * * * *"
   workflow_dispatch:
     inputs:
       type:
         description: "auto / paheli / devotional (paheli or devotional starts a new series of that kind)"
         default: "auto"
       upload:
-        description: "Upload to YouTube? (true/false)"
+        description: "Upload to YouTube? (true/false). A manual upload fills the next free slot."
         default: "true"
 
 permissions:
@@ -29,23 +28,37 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Is a video due?
+        id: due
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then DUE=$(python3 -m reels.schedule --force); else DUE=$(python3 -m reels.schedule); fi
+          echo "due: $DUE"
+          if [ "$DUE" = "none" ]; then echo "go=false" >> "$GITHUB_OUTPUT"; exit 0; fi
+          echo "go=true" >> "$GITHUB_OUTPUT"
+          echo "slot=${DUE% *}" >> "$GITHUB_OUTPUT"
+          echo "publish=${DUE#* }" >> "$GITHUB_OUTPUT"
+
       - uses: actions/setup-python@v5
+        if: steps.due.outputs.go == 'true'
         with:
           python-version: "3.12"
           cache: pip
 
       - name: Install dependencies
+        if: steps.due.outputs.go == 'true'
         run: |
           pip install -r requirements.txt
           npm install -g @anthropic-ai/claude-code
 
       - name: Restore character sprite cache
+        if: steps.due.outputs.go == 'true'
         uses: actions/cache@v4
         with:
           path: out/reel_sprites
           key: sprites-${{ hashFiles('reels/characters.py', 'reels/canvas.py') }}
 
-      - name: Make today's reel
+      - name: Make the reel
+        if: steps.due.outputs.go == 'true'
         env:
           # Either one works. CLAUDE_CODE_OAUTH_TOKEN uses your Claude Pro/Max subscription (`claude setup-token`).
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -54,17 +67,12 @@ jobs:
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
         run: |
-          case "${{ github.event.schedule }}" in
-            "30 3 * * *") POST=12:00 ;;
-            "30 7 * * *") POST=16:00 ;;
-            *)            POST=19:00 ;;
-          esac
-          ARGS="--type ${{ github.event.inputs.type || 'auto' }} --post-time $POST"
+          ARGS="--type ${{ github.event.inputs.type || 'auto' }} --slot ${{ steps.due.outputs.slot }} --post-time ${{ steps.due.outputs.publish }}"
           if [ "${{ github.event.inputs.upload }}" = "false" ]; then ARGS="$ARGS --no-upload"; fi
           python -m reels.pipeline $ARGS
 
       - name: Keep the video for 7 days (download from the run page)
-        if: always()
+        if: always() && steps.due.outputs.go == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: reel-${{ github.run_number }}
@@ -74,8 +82,8 @@ jobs:
           retention-days: 7
           if-no-files-found: ignore
 
-      - name: Save history
-        if: success()
+      - name: Save state
+        if: success() && steps.due.outputs.go == 'true'
         run: |
           git config user.name "daily-reels-bot"
           git config user.email "daily-reels-bot@users.noreply.github.com"
