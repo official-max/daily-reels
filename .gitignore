@@ -10,3 +10,6 @@ references/videos/*
 
 # Old version of the code, kept only on this computer
 _backup_v1/
+
+# local notes for Claude (not published)
+CLAUDE.md
