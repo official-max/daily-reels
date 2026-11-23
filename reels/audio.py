@@ -2,6 +2,7 @@
 import os, math, random, subprocess, wave
 import numpy as np
 from .config import SR, FPS, VOICES
+from .themes import THEME
 from .util import ffmpeg_exe
 
 
@@ -50,12 +51,12 @@ def reverb(x):
     n = len(x) + len(ir); y = np.fft.irfft(np.fft.rfft(x, n) * np.fft.rfft(ir, n), n)
     return np.concatenate([x, np.zeros(len(ir))]) + 0.2 * y / (np.max(np.abs(y)) + 1e-9) * np.max(np.abs(x))
 
-def tanpura(n):
+def tanpura(n, pitch=1.0):
     out = np.zeros(n); cache = {}
     for f in (110.0, 146.83, 73.42):
         t = tarr(3.4); s = np.zeros_like(t)
         for h in range(1, 15):
-            s += (1 / h) * (1 + 0.5*np.sin(2*np.pi*0.6*t*h/3 + h)) * np.sin(2*np.pi*f*h*t*(1 + 0.0006*h))
+            s += (1 / h) * (1 + 0.5*np.sin(2*np.pi*0.6*t*h/3 + h)) * np.sin(2*np.pi*f*pitch*h*t*(1 + 0.0006*h))
         cache[f] = s * np.exp(-t / 1.5) * np.minimum(1, t / 0.01)
     seq = [110.0, 146.83, 146.83, 73.42]; t0 = 0.3; i = 0
     while t0 < n / SR: add(out, t0, cache[seq[i % 4]]); t0 += 0.78; i += 1
@@ -63,11 +64,11 @@ def tanpura(n):
 
 SCALE = [293.66, 329.63, 369.99, 440, 493.88, 587.33, 659.26, 739.99, 880]
 
-def bansuri(n, seed):
+def bansuri(n, seed, pitch=1.0):
     rng = random.Random(seed); out = np.zeros(n); t0 = 1.2; idx = 5
     while t0 < n / SR - 1.5:
         d = rng.choice([0.45, 0.45, 0.9, 0.9, 1.35, 1.8, 2.7])
-        idx = max(0, min(8, idx + rng.choice([-2, -1, -1, 0, 1, 1, 2]))); f = SCALE[idx]
+        idx = max(0, min(8, idx + rng.choice([-2, -1, -1, 0, 1, 1, 2]))); f = SCALE[idx] * pitch
         L = d + 0.25; tt = tarr(L)
         vib = 1 + 0.006*np.sin(2*np.pi*5.2*tt)*np.clip((tt - 0.25) / 0.3, 0, 1)
         ph = 2*np.pi*np.cumsum(f*vib) / SR
@@ -100,18 +101,18 @@ def chirp(d=0.12):
 SUSPENSE = [[110, 164.81, 220, 261.63], [98, 146.83, 196, 233.08], [87.31, 130.81, 174.61, 207.65], [82.41, 123.47, 164.81, 207.65]]
 
 
-def music_bed(kind, n, total, seed):
+def music_bed(kind, n, total, seed, pitch=1.0):
     """Background music for the whole reel: suspense pads (paheli) or tanpura + bansuri (devotional)."""
     bed = np.zeros(n)
     if kind == "paheli":
         t0 = 0.0
         for i in range(int(total // 4) + 1):
-            add(bed, t0, pad(SUSPENSE[i % 4], 4.0), 0.8); t0 += 4.0
-        return bed + tanpura(n) * 0.3
-    return bed + tanpura(n) * 0.55 + bansuri(n, seed) * 0.5
+            add(bed, t0, pad([f * pitch for f in SUSPENSE[i % 4]], 4.0), 0.8); t0 += 4.0
+        return bed + tanpura(n, pitch) * 0.3
+    return bed + tanpura(n, pitch) * 0.55 + bansuri(n, seed, pitch) * 0.5
 
 
-def shot_sfx(sfx, bed, s, first, rng):
+def shot_sfx(sfx, bed, s, first, rng, pitch=1.0):
     """Sound effects for one shot: a whoosh on every cut plus scene ambience."""
     st, d, kd = s["start"], s["dur"], s["kind"]
     if not first:
@@ -119,9 +120,9 @@ def shot_sfx(sfx, bed, s, first, rng):
     if kd == "darbar":                                   # deep drum hit
         tq = tarr(1.2); add(sfx, st + 0.05, np.sin(2*np.pi*58*tq) * np.exp(-tq*4.5) * np.minimum(1, tq / 0.004), 0.35)
     if kd == "divine":                                   # warm chord + sparkle
-        add(bed, st, pad([146.83, 220, 293.66, 369.99], d), 0.7)
+        add(bed, st, pad([f * pitch for f in (146.83, 220, 293.66, 369.99)], d), 0.7)
         for j, f in enumerate([587.33, 659.26, 739.99, 880, 987.77, 1174.66]):
-            add(sfx, st + 0.1 + j*0.06, sweep(f, f, 1.2, 3.5), 0.06)
+            add(sfx, st + 0.1 + j*0.06, sweep(f * pitch, f * pitch, 1.2, 3.5), 0.06)
     if kd in ("walk", "meet"):                           # birds + soft wind
         tb = 0.6
         while tb < d:
@@ -140,10 +141,10 @@ def build_audio(tl, voices, path, seed):
     for ph in tl["phrases"]:
         x = voices[ph["idx"]]
         add(voice, ph["start"], reverb(x) if ph["spk"] == "K" else x)
-    bed = music_bed(tl.get("type"), n, total, seed)
+    bed = music_bed(tl.get("type"), n, total, seed, THEME.get("music", 1.0))
     rng = random.Random(seed)
     for si, s in enumerate(tl["shots"]):
-        shot_sfx(sfx, bed, s, si == 0, rng)
+        shot_sfx(sfx, bed, s, si == 0, rng, THEME.get("music", 1.0))
     last = tl["shots"][-1]
     add(sfx, 0.12, bell(520), 0.4)                                   # opening bell
     add(sfx, tl["phrases"][-1]["start"], bell(520), 0.35)            # last line

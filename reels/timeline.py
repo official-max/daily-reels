@@ -79,7 +79,7 @@ def build_timeline(script, voice_dir):
             t += d; k += 1
         narr_end = t - st; t += s.get("tail", 0.45)
         shots.append({**{kk: vv for kk, vv in s.items() if kk != "phrases"}, "start": st, "end": t, "dur": t - st, "narr_end": narr_end})
-    tl = dict(shots=shots, phrases=phrases, total=t, type=script["type"], label=script["label"],
+    tl = dict(shots=shots, phrases=phrases, total=t, type=script["type"], theme=script.get("theme", 0), label=script["label"],
               title1=script["title_line1"], title2=script["title_line2"], title_sub=script["title_sub"],
               end_text=script["end_text"], end_sub=script["end_sub"], hook=(script.get("hook") or "").strip()[:40])
     return tl, voices

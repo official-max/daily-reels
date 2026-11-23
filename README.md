@@ -30,6 +30,7 @@ Claude fail ho jaye to `samples/` ki series use hoti hai, taaki us din ki video 
 | `writer.py` | Claude ko prompt + JSON schema; poori series likhwata hai |
 | `timeline.py` | Script ko render-ready banata hai: camera, mood, awaaz, timing |
 | `render.py` | Har frame jodta hai (shot + overlays) aur ffmpeg se mp4 banata hai |
+| `themes.py` | Har nayi series ka alag look: rang, kapde, UI, transition, music (6 + 6 themes) |
 | `scenes.py` | Backgrounds aur shots: jungle (walk, meet, divine), darbar |
 | `characters.py` | Characters: Krishna, Arjun, aam aadmi, Raja, Chatur, sipahi |
 | `canvas.py` | 2.5D shading wala drawing canvas + sprite cache |
@@ -84,6 +85,7 @@ python -m reels.pipeline --script samples/paheli_01.json --part 2 --preview     
 |---|---|
 | Post ke time (slots) | `reels/schedule.py` → `SLOTS` |
 | Kahani ka style / rules | `writer.py` → `FORMAT_TEXT`, `RULES` |
+| Rang / look (themes) | `themes.py` |
 | Voices, caption names | `config.py` |
 | Naya format (jaise Ramayan) | `config.FORMATS` + scene `scenes.py` mein + characters `characters.py` mein + `writer.FORMAT_TEXT` |
 | Claude kyun fail hua | `state/last_error.txt` |

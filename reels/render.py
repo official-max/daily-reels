@@ -1,6 +1,6 @@
 """Frame composition and video encoding.
 
-frame = shot image (scenes.py) -> camera crop -> colour grade -> crossfade into the next shot
+frame = shot image (scenes.py) -> camera crop -> colour grade -> transition into the next shot
         -> overlays (hook bar, sticker, icon cards, pill, captions, title card, end card) -> fade out
 """
 import os, math, subprocess
@@ -10,7 +10,7 @@ from multiprocessing import Pool
 from .config import W, H, FPS, SS, XF
 from .util import clamp, lerp, ease_io, ease_back, ffmpeg_exe
 from .canvas import blur
-from . import overlays as ov
+from . import overlays as ov, scenes, themes
 from .scenes import SHOTS, TALK
 from .audio import build_audio
 
@@ -22,6 +22,8 @@ def start(tl):
     """Make `tl` the current timeline and forget overlays cached for a previous one."""
     global TL
     TL = tl
+    themes.use(tl["type"], tl.get("theme", 0))
+    scenes.CACHE.clear()
     for k in [k for k in ov.CACHE if isinstance(k, tuple) or k in ("title", "end", "hook", "pill")]:
         del ov.CACHE[k]
 
@@ -37,7 +39,7 @@ def grade(fr):
     a = np.asarray(fr, np.float32)
     hl = blur(np.clip((a.mean(axis=2) - 200) / 55, 0, 1), 24)
     a = 255 - (255 - a) * (1 - 0.32 * hl[..., None])
-    a = 255 * (0.5 + (a / 255 - 0.5) * 1.07); a *= np.array([1.03, 1.0, 0.95], np.float32)
+    a = 255 * (0.5 + (a / 255 - 0.5) * 1.07); a *= np.array(themes.THEME["tint"], np.float32)
     if "vig" not in ov.CACHE:
         yy, xx = np.mgrid[0:H, 0:W]; dd = np.sqrt(((xx - W/2) / (W*0.7))**2 + ((yy - H/2) / (H*0.7))**2)
         ov.CACHE["vig"] = (1 - 0.35 * np.clip(dd - 0.55, 0, 1))[..., None].astype(np.float32)
@@ -81,7 +83,9 @@ def draw_cards(frame, s, ts):
     if not cards or ts <= 0.3:
         return
     xs = [W / 2] if len(cards) == 1 else [W / 2 - 175, W / 2 + 175]
-    y = 1400 if s.get("cam") in ("raja", "chatur") else 1020
+    y = 1020 if s.get("cam") == "wide" else 1400
+    if s.get("cam") == "both":                     # over the carpet, away from Chatur
+        xs = [x + (190 if themes.THEME["flip"] else -190) for x in xs] if len(cards) == 1 else xs
     for j, cd in enumerate(cards):
         img = cached(("card", cd["icon"], cd["label"]), lambda: ov.make_card(cd["icon"], cd["label"]))
         a = max(0.0, ts - 0.3 - j*0.25)
@@ -112,6 +116,19 @@ def draw_overlays(frame, T, si, s, end_at):
 
 
 # ---------------------------------------------------------------- frame
+def transition(a, b, u):
+    """Frame between shot a and shot b, u = 0..1, in the theme's style."""
+    cut = themes.THEME["cut"]
+    if cut == "slide":
+        x = int(W * ease_io(u)); out = Image.new("RGB", (W, H))
+        out.paste(a, (-x, 0)); out.paste(b, (W - x, 0))
+        return out
+    if cut == "zoom":                              # push into the old shot while the new one fades in
+        k = 1 + 0.5 * u * u; w, h = W / k, H / k
+        a = a.resize((W, H), Image.BILINEAR, box=((W - w) / 2, (H - h) / 2, (W + w) / 2, (H + h) / 2))
+    return Image.blend(a, b, ease_io(u))
+
+
 def render_frame(fi):
     T = fi / FPS; shots = TL["shots"]
     TALK.clear()                                   # mouth openness per speaker for this frame
@@ -121,8 +138,8 @@ def render_frame(fi):
             if i < len(ph["env"]): TALK[ph["spk"]] = ph["env"][i]
     si = next((i for i, s in enumerate(shots) if T < s["end"]), len(shots) - 1); s = shots[si]
     frame = render_shot(si, T - s["start"])
-    if si + 1 < len(shots) and T > s["end"] - XF:   # crossfade into the next shot
-        frame = Image.blend(frame, render_shot(si + 1, T - shots[si + 1]["start"]), ease_io((T - (s["end"] - XF)) / XF))
+    if si + 1 < len(shots) and T > s["end"] - XF:   # transition into the next shot
+        frame = transition(frame, render_shot(si + 1, T - shots[si + 1]["start"]), clamp((T - (s["end"] - XF)) / XF))
     last = shots[-1]
     draw_overlays(frame, T, si, s, end_at=last["start"] + last["narr_end"] + 0.4)
     if T > TL["total"] - 0.4:                      # fade to black

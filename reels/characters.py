@@ -7,10 +7,9 @@ import math
 import numpy as np
 from .config import SS, BLINK_OFF
 from .util import clamp, lerp, darker, cubic, blink
+from .themes import THEME
 from .canvas import sprite, put, E, POLY, LINE, ARC, CHORD, ribbon
 
-
-GOLD = (242, 188, 64); RED = (210, 40, 60)
 
 GOLD = (242, 188, 64); RED = (210, 40, 60)
 
@@ -23,8 +22,17 @@ C = {
     "G": dict(skin=(196, 142, 100), skin_d=(150, 104, 72), hair=(28, 22, 22), dhoti=(140, 30, 40), pleat=(160, 40, 50), border=(110, 20, 30), top=(176, 184, 196), legs=(140, 30, 40), feet=(80, 54, 36)),
 }
 
+def clothes(who):
+    """This character's colours in the current theme."""
+    return {**C[who], **THEME.get("people", {}).get(who, {})}
+
+def look_key(who):
+    """Sprite cache key part: the plain name, or name + theme colours."""
+    over = THEME.get("people", {}).get(who)
+    return (who, tuple(sorted(over.items()))) if over else who
+
 def L_back(cv, who, uy):
-    c = C[who]; m = cv.mask
+    c = clothes(who); m = cv.mask
     if who == "K":
         cv.soft(m(lambda d: E(cv, d, 0, -440 + uy, 210)), (255, 230, 160), 0.6, 40)
         path = cubic((40, -320 + uy), (150, -330 + uy), (140, -190 + uy), (200, -140 + uy), 30)
@@ -43,14 +51,14 @@ def L_back(cv, who, uy):
         cv.flat(m(lambda d: LINE(cv, d, [(100, -392 + uy), (66, -116 + uy)], 2, caps=False)), (240, 230, 205))
         for pt in ((100, -392), (66, -116)): cv.part(m(lambda d, pt=pt: E(cv, d, pt[0], pt[1] + uy, 9)), GOLD, gloss=0.6)
     if who == "R":
-        cv.part(m(lambda d: POLY(cv, d, [(-70, -336 + uy), (70, -336 + uy), (132, -40), (-132, -40)])), (140, 18, 34), sh=0.5, hl=0.2, rim=0.6)
+        cv.part(m(lambda d: POLY(cv, d, [(-70, -336 + uy), (70, -336 + uy), (132, -40), (-132, -40)])), c.get("cape", (140, 18, 34)), sh=0.5, hl=0.2, rim=0.6)
         cv.part(m(lambda d: LINE(cv, d, [(-132, -44), (132, -44)], 10)), GOLD, sh=0.3, gloss=0.4, cast=0)
     if who == "G":
         cv.part(m(lambda d: LINE(cv, d, [(112, -660), (112, 10)], 12)), (120, 82, 50), sh=0.45, hl=0.3, rim=0.6)
         cv.part(m(lambda d: POLY(cv, d, [(112, -715), (134, -650), (112, -628), (90, -650)])), (215, 222, 232), sh=0.3, hl=0.5, gloss=0.6, rim=0.8)
 
 def L_lower(cv, who, ph, sit):
-    c = C[who]; m = cv.mask
+    c = clothes(who); m = cv.mask
     if sit:
         cv.part(m(lambda d: E(cv, d, 0, -42, 114, 42)), c["dhoti"], sh=0.45, hl=0.25)
         for s in (-1, 1): cv.part(m(lambda d, s=s: E(cv, d, s*74, -20, 30, 13)), c["skin"], sh=0.35)
@@ -71,7 +79,7 @@ def L_lower(cv, who, ph, sit):
         cv.part(m(lambda d: POLY(cv, d, [(-88 + sway, -78), (0 + sway, -72), (88 + sway, -78), (87 + sway, -85), (0 + sway, -79), (-87 + sway, -85)])), GOLD, sh=0, hl=0.3, gloss=0.4, cast=0)
 
 def L_upper(cv, who, uy):
-    c = C[who]; m = cv.mask; Y = lambda pts: [(x, y + uy) for x, y in pts]
+    c = clothes(who); m = cv.mask; Y = lambda pts: [(x, y + uy) for x, y in pts]
     top = c.get("top", c["skin"])
     if who == "P":
         cv.part(m(lambda d: (POLY(cv, d, Y([(-62, -334), (62, -334), (68, -150), (44, -162), (22, -146), (0, -160), (-22, -146), (-44, -162), (-68, -150)])),
@@ -94,7 +102,7 @@ def L_upper(cv, who, uy):
         cv.part(m(lambda d: E(cv, d, 0, -276 + uy, 7)), (40, 170, 110), gloss=0.9, cast=0)
         cv.part(m(lambda d: POLY(cv, d, Y([(-58, -222), (58, -222), (60, -200), (-60, -200)]))), GOLD, sh=0.35, hl=0.4, gloss=0.5)
     if who == "C":
-        cv.part(m(lambda d: POLY(cv, d, Y([(-64, -330), (-36, -338), (60, -212), (34, -202)]))), (232, 118, 40), sh=0.45, hl=0.3)
+        cv.part(m(lambda d: POLY(cv, d, Y([(-64, -330), (-36, -338), (60, -212), (34, -202)]))), c.get("sash", (232, 118, 40)), sh=0.45, hl=0.3)
     if who == "G":
         cv.part(m(lambda d: E(cv, d, 0, -270 + uy, 30, 34)), (210, 216, 226), sh=0.4, hl=0.5, gloss=0.5)
         cv.part(m(lambda d: E(cv, d, 0, -270 + uy, 13)), GOLD, gloss=0.7, cast=0.1)
@@ -143,7 +151,7 @@ def arm_geom(pose, g, ph):
     return L, R
 
 def L_arms(cv, who, uy, pose, g, ph):
-    c = C[who]; m = cv.mask; sk = c["skin"]
+    c = clothes(who); m = cv.mask; sk = c["skin"]
     L, R = arm_geom(pose, g, ph)
     Y = lambda pts: [(x, y + uy) for x, y in pts]
     for arm in (R, L):
@@ -176,7 +184,7 @@ def L_arms(cv, who, uy, pose, g, ph):
         cv.part(m(lambda d: POLY(cv, d, Y([(-17, -266), (17, -266), (0, -330)]))), sk, sh=0.4, hl=0.3, cast=0.3)
 
 def L_head(cv, who, uy):
-    c = C[who]; m = cv.mask; sk, skd = c["skin"], c["skin_d"]; hy = -410 + uy
+    c = clothes(who); m = cv.mask; sk, skd = c["skin"], c["skin_d"]; hy = -410 + uy
     cv.part(m(lambda d: POLY(cv, d, [(-18, hy + 50), (18, hy + 50), (18, hy + 84), (-18, hy + 84)])), skd, sh=0.3, hl=0.1, rim=0.3)
     for s in (-1, 1): cv.part(m(lambda d, s=s: E(cv, d, s*80, hy + 6, 16, 21)), sk, sh=0.45)
     cv.part(m(lambda d: E(cv, d, 0, hy, 82, 86)), sk, sh=0.42, hl=0.32, rim=0.65, cast=0.3)
@@ -274,7 +282,7 @@ def L_head(cv, who, uy):
 
 def L_eyes(cv, who, uy, brow, bl, lx, ly, closed):
     m = cv.mask; ey = -400 + uy; ink = (25, 15, 25)
-    brc = C[who]["hair"] if who == "P" else (30, 20, 35)
+    brc = clothes(who)["hair"] if who == "P" else (30, 20, 35)
     for s in (-1, 1):
         ex = s * 32
         if closed:
@@ -325,19 +333,19 @@ def blinkq(t, who):
     return 1.0 if b > 0.75 else (0.5 if b > 0.3 else 0.1)
 
 def char(frame, pen, who, X, Y, sc, t, pose="stand", mood="smile", talk=0.0, look=(0, 0), walking=False, sit=False):
-    s = sc * SS
+    s = sc * SS; lk = look_key(who)
     q = int(((t * 6.5) % (2*math.pi)) / (2*math.pi) * 8) % 8 if walking else None
     ph = q * 2*math.pi / 8 if walking else None
     bob = -abs(math.sin(ph)) * 7 if walking else 0
     sob = math.sin(t * 16) * 2.5 if (mood == "sad" and talk < 0.05) else 0
     dy = (bob + sob) * sc; uy = 118 if sit else 0
-    put(frame, sprite(("back", who, uy, sc), BB["back"], s, lambda cv: L_back(cv, who, uy)), X, Y + dy)
-    put(frame, sprite(("lower", who, q, sit, sc), BB["lower"], s, lambda cv: L_lower(cv, who, ph, sit)), X, Y)
-    put(frame, sprite(("upper", who, uy, sc), BB["upper"], s, lambda cv: L_upper(cv, who, uy)), X, Y + dy)
+    put(frame, sprite(("back", lk, uy, sc), BB["back"], s, lambda cv: L_back(cv, who, uy)), X, Y + dy)
+    put(frame, sprite(("lower", lk, q, sit, sc), BB["lower"], s, lambda cv: L_lower(cv, who, ph, sit)), X, Y)
+    put(frame, sprite(("upper", lk, uy, sc), BB["upper"], s, lambda cv: L_upper(cv, who, uy)), X, Y + dy)
     g = 0.0
     if pose in ("talk", "bless"): g = round(math.sin(t * 3.3) * min(1, talk * 4) * 2) / 2 * 10
     aq = q if (walking and pose == "stand") else None
-    arms = lambda: put(frame, sprite(("arms", who, uy, sc, pose, g, aq), BB["arms"], s, lambda cv: L_arms(cv, who, uy, pose, g, ph if aq is not None else None)), X, Y + dy)
+    arms = lambda: put(frame, sprite(("arms", lk, uy, sc, pose, g, aq), BB["arms"], s, lambda cv: L_arms(cv, who, uy, pose, g, ph if aq is not None else None)), X, Y + dy)
     if pose != "wipe": arms()
     put(frame, sprite(("head", who, uy, sc), BB["head"], s, lambda cv: L_head(cv, who, uy)), X, Y + dy)
     closed = mood == "happy" and talk < 0.05

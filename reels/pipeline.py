@@ -10,7 +10,7 @@ A series has 2-3 parts and each run posts the next part. When a series ends, the
 """
 import os, sys, json, glob, argparse, random, datetime as dt
 from .config import ROOT, OUT, STATE, FORMATS, KINDS
-from . import timeline, render, writer, youtube
+from . import timeline, render, themes, writer, youtube
 
 HISTORY = os.path.join(STATE, "history.json")        # every uploaded video
 SERIES = os.path.join(STATE, "series.json")          # {"active": series + "next" part index, "last_kind": ...}
@@ -50,6 +50,12 @@ def warn(title, msg):
         print(f"::warning title={title}::{msg}", flush=True)
 
 
+def next_theme(kind, history):
+    """The look after the one used by the last series of this kind (round and round)."""
+    last = [h.get("theme", 0) for h in history if h.get("type") == kind]
+    return (last[-1] + 1) % len(themes.THEMES[kind]) if last else 0
+
+
 def new_series(kind, today, history, yt):
     trends = writer.trending(yt)
     log(f"writing a new {kind} series ({len(trends)} trending titles)")
@@ -63,7 +69,7 @@ def new_series(kind, today, history, yt):
         warn("Claude script failed, sample used", repr(e))
         open(LAST_ERROR, "w", encoding="utf-8").write(f"{dt.datetime.now(IST):%Y-%m-%d %H:%M} IST\n{e}\n")
         series = sample_series(kind, history)
-    return dict(series, next=0)
+    return dict(series, next=0, theme=next_theme(kind, history))
 
 
 def todays_part(a, state, history, today, yt):
@@ -94,6 +100,7 @@ def main():
     ap.add_argument("--preview", action="store_true", help="only render a contact sheet")
     ap.add_argument("--post-time", default="now", help="publish time IST, HH:MM, or 'now' (see reels/schedule.py)")
     ap.add_argument("--slot", default="extra", help="which daily slot this video fills (recorded in the history)")
+    ap.add_argument("--theme", type=int, help="look number (reels/themes.py); default: the series' own")
     ap.add_argument("--date", help="publish date IST, YYYY-MM-DD (default today)")
     a = ap.parse_args()
 
@@ -107,7 +114,8 @@ def main():
     kind, n = series.get("type", KINDS[0]), len(series["parts"])
     part = series["parts"][idx]
     badge = (part.get("label") or FORMATS[kind]["label"]).upper()
-    script = timeline.clean_script(dict(part, type=kind, label=f"{badge} · PART {idx + 1}/{n}" if n > 1 else badge))
+    script = timeline.clean_script(dict(part, type=kind, theme=a.theme if a.theme is not None else series.get("theme", 0),
+                                       label=f"{badge} · PART {idx + 1}/{n}" if n > 1 else badge))
     save(os.path.join(OUT, "script.json"), dict(part, type=kind))
     log(f"{series.get('series_title')!r} part {idx + 1}/{n} ({kind}): {script['yt_title']!r}, {len(script['shots'])} shots")
 
@@ -128,7 +136,7 @@ def main():
     vid, status = youtube.upload(yt, mp4, script["yt_title"], script["yt_description"], script.get("tags", []), publish)
     log(f"uploaded https://youtube.com/shorts/{vid} ({status})")
 
-    entry = dict(date=str(today), slot=a.slot, type=kind, series=series.get("series_title"), part=f"{idx + 1}/{n}",
+    entry = dict(date=str(today), slot=a.slot, type=kind, series=series.get("series_title"), part=f"{idx + 1}/{n}", theme=script["theme"],
                  title=script["yt_title"], seconds=round(tl["total"], 1), video_id=vid)
     if series.get("_story"): entry["story"] = series["_story"]
     save(HISTORY, (history + [entry])[-200:])
