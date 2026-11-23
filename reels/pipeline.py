@@ -157,9 +157,7 @@ def run():
         if os.environ.get("GITHUB_ACTIONS"):
             where = "".join(traceback.format_tb(e.__traceback__)[-4:])
             with open(LAST_CRASH, "w", encoding="utf-8") as f:
-                f.write(f"{dt.datetime.now(IST):%Y-%m-%d %H:%M} IST
-{where}{type(e).__name__}: {str(e)[:600]}
-")
+                f.write(f"{dt.datetime.now(IST):%Y-%m-%d %H:%M} IST\n{where}{type(e).__name__}: {str(e)[:600]}\n")
             warn("Run stopped", f"{type(e).__name__}: {e}")
         raise
 
