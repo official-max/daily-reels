@@ -1,4 +1,381 @@
 {
- "active": null,
+ "active": {
+  "series_title": "Do Sikkon Ka Chamatkar",
+  "parts": [
+   {
+    "topic": "Arjun ne garib brahmin ko sone ki potli di, par chor le gaya",
+    "hook": "Paisa *tikta* kyon nahi?",
+    "p_name": "Garib Brahmin",
+    "label": "KRISHNA KATHA",
+    "title_line1": "Mehnat Bahut",
+    "title_line2": "Paisa Zero?",
+    "title_sub": "Krishna Arjun aur ek garib",
+    "end_text": "RADHE RADHE",
+    "end_sub": "Part 2 kal zaroor dekhna",
+    "yt_title": "Sone Ki Potli Mili, Phir Bhi Khaali Haath? 😢 Do Sikkon Ka Chamatkar | Part 1 #shorts",
+    "yt_description": "Mehnat karta hai, phir bhi paisa tikta nahi... kya aapke saath bhi aisa hota hai?\nShri Krishna aur Arjun ki ek garib brahmin se mulaqat ki kahani.\nAage kya hua? Part 2 kal!\n#krishna #krishnakatha #arjun #bhakti #radheradhe #hindikahani #shorts",
+    "tags": [
+     "krishna katha",
+     "krishna arjun",
+     "krishna story hindi",
+     "garib brahmin kahani",
+     "bhakti kahani",
+     "moral story hindi",
+     "radhe radhe",
+     "krishna leela",
+     "hindi shorts",
+     "devotional story"
+    ],
+    "shots": [
+     {
+      "scene": "walk",
+      "mood": "sad",
+      "sticker": "EK GARIB KA DARD",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "क्या आपने भी कभी सोचा है... मेहनत करता हूँ, फिर भी पैसा टिकता क्यों नहीं?",
+        "caption": "Kya aapne bhi kabhi socha hai... mehnat karta hoon, phir bhi *paisa tikta* kyon nahi?"
+       },
+       {
+        "speaker": "N",
+        "hindi": "एक दिन कृष्ण और अर्जुन वन से गुज़र रहे थे।",
+        "caption": "Ek din *Krishna* aur *Arjun* van se guzar rahe the."
+       }
+      ]
+     },
+     {
+      "scene": "meet",
+      "mood": "sad",
+      "sticker": "BHOOKHA PARIVAAR",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "P",
+        "hindi": "प्रभु, घर में बच्चे भूखे हैं... दो दिन से चूल्हा नहीं जला।",
+        "caption": "Prabhu, ghar mein bachche *bhookhe* hain... do din se chulha nahi jala."
+       },
+       {
+        "speaker": "A",
+        "hindi": "माधव, इसकी मदद मैं करूँगा।",
+        "caption": "Madhav, iski *madad* main karunga."
+       }
+      ]
+     },
+     {
+      "scene": "meet",
+      "mood": "happy",
+      "sticker": "SONE KI POTLI",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "अर्जुन ने सोने की मुहरों से भरी पोटली उसके हाथ में रख दी।",
+        "caption": "Arjun ne *sone ki mohron* se bhari potli uske haath mein rakh di."
+       },
+       {
+        "speaker": "P",
+        "hindi": "आज से मेरे सारे दुख खत्म!",
+        "caption": "Aaj se mere saare *dukh khatam*!"
+       }
+      ]
+     },
+     {
+      "scene": "walk",
+      "mood": "neutral",
+      "sticker": "KISI KI NAZAR...",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "पर रास्ते में... एक चोर उसकी पोटली पर नज़र गड़ाए बैठा था।",
+        "caption": "Par raaste mein... ek *chor* uski potli par nazar gadaaye baitha tha."
+       }
+      ]
+     },
+     {
+      "scene": "meet",
+      "mood": "shock",
+      "sticker": "AGLI SUBAH",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "P",
+        "hindi": "प्रभु, चोर सब लूट ले गया... मेरी किस्मत ही खराब है!",
+        "caption": "Prabhu, chor sab *loot* le gaya... meri *kismat* hi kharab hai!"
+       }
+      ]
+     },
+     {
+      "scene": "meet",
+      "mood": "neutral",
+      "sticker": "AB KYA HOGA?",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "A",
+        "hindi": "कोई बात नहीं, इस बार मैं अनमोल रत्न दूँगा!",
+        "caption": "Koi baat nahi, is baar main *anmol ratna* dunga!"
+       },
+       {
+        "speaker": "N",
+        "hindi": "आगे क्या हुआ? पार्ट दो कल!",
+        "caption": "Aage kya hua? *Part 2* kal!"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "topic": "Anmol ratna bhi nadi mein kho gaya, Krishna ne diye sirf do sikke",
+    "hook": "Ratna bhi *gaya*, ab kya?",
+    "p_name": "Garib Brahmin",
+    "label": "KRISHNA KATHA",
+    "title_line1": "Ratna Bhi Gaya",
+    "title_line2": "Ab Do Sikke?",
+    "title_sub": "Krishna ki ajeeb leela",
+    "end_text": "RADHE RADHE",
+    "end_sub": "Part 3 kal, mat bhoolna",
+    "yt_title": "Anmol Ratna Bhi Kho Gaya! Krishna Ne Diye Sirf Do Sikke? 😲 Part 2 #shorts",
+    "yt_description": "Sona chor le gaya, ab anmol ratna bhi nadi mein beh gaya.\nTab Shri Krishna ne garib brahmin ko diye sirf do sikke... par kyon?\nAage kya hua? Part 3 kal!\n#krishna #krishnakatha #arjun #krishnaleela #bhakti #radheradhe #shorts",
+    "tags": [
+     "krishna katha",
+     "krishna arjun story",
+     "do sikke kahani",
+     "krishna leela",
+     "bhakti story hindi",
+     "moral story",
+     "radhe radhe",
+     "hindi shorts",
+     "garib brahmin",
+     "devotional"
+    ],
+    "shots": [
+     {
+      "scene": "walk",
+      "mood": "neutral",
+      "sticker": "KAL KYA HUA?",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "कल अर्जुन का दिया सोना चोर ले गया था... आज अर्जुन ने बड़ा दांव खेला।",
+        "caption": "Kal Arjun ka diya *sona* chor le gaya tha... aaj Arjun ne bada *daanv* khela."
+       }
+      ]
+     },
+     {
+      "scene": "meet",
+      "mood": "happy",
+      "sticker": "ANMOL RATNA",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "A",
+        "hindi": "यह लो, एक अनमोल रत्न... इसे संभालकर रखना।",
+        "caption": "Yeh lo, ek *anmol ratna*... ise sambhaal kar rakhna."
+       },
+       {
+        "speaker": "P",
+        "hindi": "इसे घड़े में छुपा दूँगा, कोई नहीं ढूँढ पाएगा!",
+        "caption": "Ise *ghade* mein chhupa dunga, koi nahi dhoondh paayega!"
+       }
+      ]
+     },
+     {
+      "scene": "meet",
+      "mood": "shock",
+      "sticker": "NADI KINARE",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "पर उसकी पत्नी उसी घड़े को लेकर नदी पर पानी भरने गई... और रत्न बह गया।",
+        "caption": "Par uski patni usi ghade ko lekar nadi par gayi... aur *ratna beh gaya*."
+       }
+      ]
+     },
+     {
+      "scene": "meet",
+      "mood": "sad",
+      "sticker": "PHIR KHAALI HAATH",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "P",
+        "hindi": "प्रभु, शायद भगवान ही मुझसे रूठे हैं।",
+        "caption": "Prabhu, shayad Bhagwan hi mujhse *roothe* hain."
+       },
+       {
+        "speaker": "A",
+        "hindi": "माधव, अब तो मैं भी हार गया।",
+        "caption": "Madhav, ab to main bhi *haar* gaya."
+       }
+      ]
+     },
+     {
+      "scene": "meet",
+      "mood": "happy",
+      "sticker": "SIRF DO SIKKE?",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "तभी श्रीकृष्ण मुस्कुराए, और उसके हाथ में बस दो सिक्के रख दिए।",
+        "caption": "Tabhi Shri Krishna muskuraye, aur uske haath mein bas *do sikke* rakh diye."
+       },
+       {
+        "speaker": "A",
+        "hindi": "सोना और रत्न नहीं बचा, दो सिक्कों से क्या होगा, केशव?",
+        "caption": "Sona aur ratna nahi bacha, *do sikkon* se kya hoga, Keshav?"
+       }
+      ]
+     },
+     {
+      "scene": "divine",
+      "mood": "happy",
+      "sticker": "KRISHNA KI LEELA",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "K",
+        "hindi": "अर्जुन, देखते जाओ... असली खेल अब शुरू होगा।",
+        "caption": "Arjun, dekhte jao... *asli khel* ab shuru hoga."
+       },
+       {
+        "speaker": "N",
+        "hindi": "दो सिक्के क्या चमत्कार करेंगे? आगे क्या हुआ? पार्ट तीन कल!",
+        "caption": "Do sikke kya *chamatkar* karenge? Aage kya hua? *Part 3* kal!"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "topic": "Do sikkon se machhli bachai, ratna aur sona dono laut aaye",
+    "hook": "Do sikkon ka *chamatkar*!",
+    "p_name": "Garib Brahmin",
+    "label": "KRISHNA KATHA",
+    "title_line1": "Do Sikke Aur",
+    "title_line2": "Bada Chamatkar",
+    "title_sub": "Krishna ki anmol seekh",
+    "end_text": "RADHE RADHE",
+    "end_sub": "Aaj ek ki madad karna",
+    "yt_title": "Do Sikkon Ne Lautaya Sona Aur Ratna! 🙏 Do Sikkon Ka Chamatkar | Part 3 #shorts",
+    "yt_description": "Garib brahmin ne do sikkon se ek machhli ki jaan bachayi... aur chamatkar ho gaya.\nShri Krishna ki seekh: doosron ka dukh baanto, tumhara dukh prabhu baant lenge.\nComment mein likho: Radhe Radhe!\n#krishna #krishnakatha #arjun #moralstory #bhakti #radheradhe #shorts",
+    "tags": [
+     "krishna katha",
+     "krishna arjun",
+     "do sikkon ka chamatkar",
+     "krishna ki seekh",
+     "moral story hindi",
+     "bhakti kahani",
+     "radhe radhe",
+     "madad ki kahani",
+     "hindi shorts",
+     "devotional story"
+    ],
+    "shots": [
+     {
+      "scene": "walk",
+      "mood": "neutral",
+      "sticker": "BAS DO SIKKE",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "कल श्रीकृष्ण ने गरीब ब्राह्मण को सिर्फ दो सिक्के दिए थे... अर्जुन हैरान थे।",
+        "caption": "Kal Shri Krishna ne garib brahmin ko sirf *do sikke* diye the... Arjun *hairaan* the."
+       }
+      ]
+     },
+     {
+      "scene": "meet",
+      "mood": "sad",
+      "sticker": "TADAPTI MACHHLI",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "रास्ते में उसने देखा, एक मछुआरे के जाल में मछली तड़प रही थी।",
+        "caption": "Raaste mein usne dekha, ek machhuaare ke jaal mein *machhli tadap* rahi thi."
+       },
+       {
+        "speaker": "P",
+        "hindi": "मेरी तरह यह भी परेशान है... ये लो सिक्के, इसे छोड़ दो।",
+        "caption": "Meri tarah yeh bhi pareshaan hai... yeh lo sikke, ise *chhod do*."
+       }
+      ]
+     },
+     {
+      "scene": "meet",
+      "mood": "shock",
+      "sticker": "MACHHLI KE MUNH MEIN",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "उसने मछली को पानी में छोड़ा, तो उसके मुँह से वही रत्न निकला!",
+        "caption": "Usne machhli ko paani mein chhoda, to uske munh se *wahi ratna* nikla!"
+       },
+       {
+        "speaker": "P",
+        "hindi": "मिल गया! मिल गया!",
+        "caption": "*Mil gaya*! Mil gaya!"
+       }
+      ]
+     },
+     {
+      "scene": "meet",
+      "mood": "shock",
+      "sticker": "CHOR KA DAR",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "पास छिपे चोर ने सोचा, मुझे पकड़ लिया... और डरकर सोने की पोटली लौटा दी।",
+        "caption": "Paas chhipe chor ne socha, mujhe pakad liya... aur darkar *potli lauta* di."
+       }
+      ]
+     },
+     {
+      "scene": "meet",
+      "mood": "happy",
+      "sticker": "ARJUN KA SAWAAL",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "A",
+        "hindi": "माधव, जो सोना और रत्न न कर सके, वो दो सिक्कों ने कैसे किया?",
+        "caption": "Madhav, jo sona aur ratna na kar sake, woh *do sikkon* ne kaise kiya?"
+       }
+      ]
+     },
+     {
+      "scene": "divine",
+      "mood": "happy",
+      "sticker": "AAJ KI SEEKH",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "K",
+        "hindi": "दूसरों का दुख बाँटो... तुम्हारा दुख प्रभु खुद बाँट लेंगे।",
+        "caption": "Doosron ka *dukh baanto*... tumhara dukh Prabhu khud baant lenge."
+       },
+       {
+        "speaker": "N",
+        "hindi": "आज किसी एक की मदद ज़रूर करना... राधे राधे।",
+        "caption": "Aaj kisi ek ki *madad* zaroor karna... *Radhe Radhe*."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "type": "devotional",
+  "next": 0,
+  "theme": 1
+ },
  "last_kind": "paheli"
 }
