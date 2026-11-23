@@ -4,7 +4,8 @@ Instructions for an AI coding assistant (for example Claude Code) helping a pers
 The person may write in Hinglish; reply in their language and keep steps short.
 
 ## What this project does
-A GitHub Actions workflow runs every hour. When one of the daily slots (12:00, 16:00, 19:00 IST) is due, it:
+A GitHub Actions workflow is set to run every hour (GitHub often runs it hours late). Each run fills every free slot
+(12:00, 16:00, 19:00 IST) of the next 24 hours, at most 3 videos. For each one it:
 1. Asks Claude (via the Claude Code CLI) to write a multi-part series: a royal-court riddle ("paheli", 2 parts) or a Shri Krishna story (2-3 parts).
 2. Renders a 1080x1920 cartoon Short in Python (Pillow + numpy + edge-tts voices + ffmpeg).
 3. Uploads it to YouTube, scheduled for the slot.
@@ -79,5 +80,5 @@ After that nothing is needed: the hourly schedule fills the three daily slots.
 | Same sample story every time | `state/last_error.txt`. `invalid_credential_header` = bad `CLAUDE_CODE_OAUTH_TOKEN` |
 | Run fails at "Make the reel" with YouTube errors | the three `YT_*` secrets; app must be "In production" |
 | `quotaExceeded` from YouTube | the Google project's daily quota (about 6 uploads); use one project per channel |
-| A slot was skipped | normal for GitHub's cron; the next hourly run fills it (published at once) |
+| A run took 10 seconds and made nothing | normal: the next 24 hours are already scheduled |
 | Change posting times | `SLOTS` in `reels/schedule.py` |

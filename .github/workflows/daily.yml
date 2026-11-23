@@ -2,8 +2,8 @@ name: Daily Reel
 
 on:
   schedule:
-    # Every hour. reels/schedule.py decides whether a video is due: 3 a day, published 12:00, 16:00 and 19:00 IST,
-    # each made up to 3 hours early. GitHub's cron can be late or skip runs; the next hourly run then fills the gap.
+    # Every hour, but GitHub's cron is often hours late, so each run fills every free slot of the next 24 hours
+    # (reels/schedule.py: 3 a day, 12:00, 16:00 and 19:00 IST). YouTube then publishes them on time.
     - cron: "17 * * * *"
   workflow_dispatch:
     inputs:
@@ -11,7 +11,7 @@ on:
         description: "auto / paheli / devotional (paheli or devotional starts a new series of that kind)"
         default: "auto"
       upload:
-        description: "Upload to YouTube? (true/false). A manual upload fills the next free slot."
+        description: "Upload to YouTube? (true/false). Fills the free slots of the next 24 hours."
         default: "true"
 
 permissions:
@@ -26,19 +26,18 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 150
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}     # newest state, even if this run waited in the queue or is a re-run
 
       - name: Is a video due?
         id: due
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then DUE=$(python3 -m reels.schedule --force); else DUE=$(python3 -m reels.schedule); fi
           echo "due: $DUE"
-          if [ "$DUE" = "none" ]; then echo "go=false" >> "$GITHUB_OUTPUT"; exit 0; fi
-          echo "go=true" >> "$GITHUB_OUTPUT"
-          echo "slot=${DUE% *}" >> "$GITHUB_OUTPUT"
-          echo "publish=${DUE#* }" >> "$GITHUB_OUTPUT"
+          if [ "$DUE" = "none" ]; then echo "go=false" >> "$GITHUB_OUTPUT"; else echo "go=true" >> "$GITHUB_OUTPUT"; fi
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         if: steps.due.outputs.go == 'true'
         with:
           python-version: "3.12"
@@ -52,12 +51,12 @@ jobs:
 
       - name: Restore character sprite cache
         if: steps.due.outputs.go == 'true'
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: out/reel_sprites
           key: sprites-${{ hashFiles('reels/characters.py', 'reels/canvas.py') }}
 
-      - name: Make the reel
+      - name: Make the reels
         if: steps.due.outputs.go == 'true'
         env:
           # Either one works. CLAUDE_CODE_OAUTH_TOKEN uses your Claude Pro/Max subscription (`claude setup-token`).
@@ -67,26 +66,38 @@ jobs:
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
         run: |
-          ARGS="--type ${{ github.event.inputs.type || 'auto' }} --slot ${{ steps.due.outputs.slot }} --post-time ${{ steps.due.outputs.publish }}"
-          if [ "${{ github.event.inputs.upload }}" = "false" ]; then ARGS="$ARGS --no-upload"; fi
-          python -m reels.pipeline $ARGS
+          TYPE="${{ github.event.inputs.type || 'auto' }}"
+          if [ "${{ github.event.inputs.upload }}" = "false" ]; then python -m reels.pipeline --type "$TYPE" --no-upload; exit 0; fi
+          FORCE=""; if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then FORCE="--force"; fi
+          # at most 3 videos per run: YouTube's free quota allows about 6 uploads a day
+          for i in 1 2 3; do
+            DUE=$(python -m reels.schedule $FORCE)
+            echo "due: $DUE"
+            if [ "$DUE" = "none" ]; then break; fi
+            read -r DAY SLOT PUBLISH <<< "$DUE"
+            rm -rf out/voice
+            python -m reels.pipeline --type "$TYPE" --date "$DAY" --slot "$SLOT" --post-time "$PUBLISH"
+            mv out/reel.mp4 "out/reel_$i.mp4"
+            TYPE=auto; FORCE=""      # a forced kind / far-away slot applies to the first video only
+          done
 
       - name: Keep the video for 7 days (download from the run page)
         if: always() && steps.due.outputs.go == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: reel-${{ github.run_number }}
           path: |
-            out/reel.mp4
+            out/reel*.mp4
             out/script.json
           retention-days: 7
           if-no-files-found: ignore
 
       - name: Save state
-        if: success() && steps.due.outputs.go == 'true'
+        if: always() && steps.due.outputs.go == 'true'
         run: |
           git config user.name "daily-reels-bot"
           git config user.email "daily-reels-bot@users.noreply.github.com"
+          # runs even if a later video failed, so finished uploads are never repeated
           git add state/
           git diff --cached --quiet && exit 0
           git commit -m "state: $(date -u '+%F %H:%M') UTC"

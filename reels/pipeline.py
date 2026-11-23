@@ -1,7 +1,7 @@
 """
-Daily run:  today's part of the active series -> render -> YouTube upload -> save state.
+One video:  next part of the active series -> render -> YouTube upload -> save state.
 
-A series has 2-3 parts and one part is posted per day. When a series ends, the next one is the other format
+A series has 2-3 parts and each run posts the next part. When a series ends, the next one is the other format
 (paheli <-> devotional). The active series lives in state/series.json, so all parts of a story stay consistent.
 
     python -m reels.pipeline                                            # daily run (needs the secrets in env)
@@ -94,10 +94,11 @@ def main():
     ap.add_argument("--preview", action="store_true", help="only render a contact sheet")
     ap.add_argument("--post-time", default="now", help="publish time IST, HH:MM, or 'now' (see reels/schedule.py)")
     ap.add_argument("--slot", default="extra", help="which daily slot this video fills (recorded in the history)")
+    ap.add_argument("--date", help="publish date IST, YYYY-MM-DD (default today)")
     a = ap.parse_args()
 
     os.makedirs(OUT, exist_ok=True)
-    today = dt.datetime.now(IST).date()
+    today = dt.date.fromisoformat(a.date) if a.date else dt.datetime.now(IST).date()      # the day it is published
     history = load(HISTORY, [])
     state = load(SERIES, {"active": None, "last_kind": None})
     yt = None if a.no_upload else youtube.client()

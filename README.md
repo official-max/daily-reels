@@ -13,10 +13,10 @@ GitHub Actions par chalta hai, laptop on rakhne ki zaroorat nahi.
 ## Roz kya hota hai
 
 ```
-Har ghante GitHub check karta hai: koi slot (12 PM / 4 PM / 7 PM) 3 ghante mein hai ya chhoot gaya?  ── haan ──►
+GitHub jab bhi chale: agle 24 ghante mein koi khaali slot (12 PM / 4 PM / 7 PM) hai ya aaj ka chhoot gaya?  ── haan ──►
   ├─ state/series.json mein chal rahi series ka agla part?  ── nahi ──► Claude se nayi series (sab parts)
   ├─ awaaz (edge-tts) → animation → reel.mp4
-  ├─ YouTube upload, 3 ghante baad publish (12 PM / 4 PM / 7 PM)
+  ├─ YouTube upload, slot ke time par schedule (ek run mein 3 videos tak)
   └─ state/ commit (history, series, aur fail hua ho to last_error.txt)
 ```
 Claude fail ho jaye to `samples/` ki series use hoti hai, taaki us din ki video na chhoote.
