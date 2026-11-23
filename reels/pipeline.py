@@ -8,13 +8,14 @@ A series has 2-3 parts and each run posts the next part. When a series ends, the
     python -m reels.pipeline --no-upload                                # test: render today's part, upload nothing
     python -m reels.pipeline --script samples/paheli_01.json --part 2 --preview
 """
-import os, sys, json, glob, argparse, random, datetime as dt
+import os, sys, json, glob, argparse, random, traceback, datetime as dt
 from .config import ROOT, OUT, STATE, FORMATS, KINDS
 from . import timeline, render, themes, writer, youtube
 
 HISTORY = os.path.join(STATE, "history.json")        # every uploaded video
 SERIES = os.path.join(STATE, "series.json")          # {"active": series + "next" part index, "last_kind": ...}
 LAST_ERROR = os.path.join(STATE, "last_error.txt")   # why Claude failed last time (committed with the state)
+LAST_CRASH = os.path.join(STATE, "last_crash.txt")   # why the last run stopped; removed after the next good upload
 IST = dt.timezone(dt.timedelta(hours=5, minutes=30))
 
 
@@ -145,7 +146,23 @@ def main():
         if series["next"] >= n: state.update(active=None, last_kind=kind)    # series finished
         else: state["active"] = series
         save(SERIES, state)
+    if os.path.exists(LAST_CRASH): os.remove(LAST_CRASH)
+
+
+def run():
+    """main(), but the reason of a crash is kept in state/ and on the run's summary page."""
+    try:
+        main()
+    except Exception as e:
+        if os.environ.get("GITHUB_ACTIONS"):
+            where = "".join(traceback.format_tb(e.__traceback__)[-4:])
+            with open(LAST_CRASH, "w", encoding="utf-8") as f:
+                f.write(f"{dt.datetime.now(IST):%Y-%m-%d %H:%M} IST
+{where}{type(e).__name__}: {str(e)[:600]}
+")
+            warn("Run stopped", f"{type(e).__name__}: {e}")
+        raise
 
 
 if __name__ == "__main__":
-    main()
+    run()

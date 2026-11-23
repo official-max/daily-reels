@@ -1,5 +1,5 @@
 """Voices (edge-tts), lip-sync envelopes, synthesized music (tanpura, bansuri, pads) and sound effects, mixed to WAV."""
-import os, math, random, subprocess, wave
+import os, math, random, subprocess, wave, asyncio
 import numpy as np
 from .config import SR, FPS, VOICES
 from .themes import THEME
@@ -9,9 +9,18 @@ from .util import ffmpeg_exe
 async def tts_all(items):
     import edge_tts
     for path, text, spk in items:
-        if not os.path.exists(path):
-            v, rate, pitch = VOICES[spk]
-            await edge_tts.Communicate(text, v, rate=rate, pitch=pitch).save(path)
+        if os.path.exists(path): continue
+        v, rate, pitch = VOICES[spk]
+        for wait in (5, 20, 60, None):             # free online service: short outages are normal
+            try:
+                await asyncio.wait_for(edge_tts.Communicate(text, v, rate=rate, pitch=pitch).save(path + ".part"), 60)
+                if not os.path.getsize(path + ".part"): raise RuntimeError("empty voice file")
+                break
+            except Exception as e:
+                if wait is None: raise
+                print(f"voice failed ({e!r}), trying again in {wait}s", flush=True)
+                await asyncio.sleep(wait)
+        os.replace(path + ".part", path)
 
 def decode(path):
     raw = subprocess.run([ffmpeg_exe(), "-v", "quiet", "-i", path, "-f", "f32le", "-ac", "1", "-ar", str(SR), "-"],

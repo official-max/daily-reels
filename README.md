@@ -89,3 +89,4 @@ python -m reels.pipeline --script samples/paheli_01.json --part 2 --preview     
 | Voices, caption names | `config.py` |
 | Naya format (jaise Ramayan) | `config.FORMATS` + scene `scenes.py` mein + characters `characters.py` mein + `writer.FORMAT_TEXT` |
 | Claude kyun fail hua | `state/last_error.txt` |
+| Run kyun ruka | `state/last_crash.txt` |
