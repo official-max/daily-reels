@@ -1,288 +1,361 @@
 {
  "active": {
-  "series_title": "Mazdoor Ki Paheli",
+  "series_title": "Haar Ke Baad Gita",
   "parts": [
    {
-    "topic": "Mazdoor apni mazdoori maangne darbar aata hai, Raja jaal bichhata hai: ek vaakya bolo, sach hua to faansi, jhooth hua to talwar",
-    "hook": "*Mazdoori* maangi, mili saza?",
-    "p_name": "Ramu Mazdoor",
-    "label": "PAHELI",
-    "title_line1": "Sach Ya Jhooth",
-    "title_line2": "Dono Mein Maut?",
-    "title_sub": "Raja Ka Khatarnaak Jaal",
+    "topic": "Ek yuvak teesri baar pariksha mein fail hokar sab chhodna chahta hai; Krishna aur Arjun use milte hain, Arjun ko Kurukshetra yaad aata hai",
+    "hook": "Teen baar fail, ab *haar*?",
+    "p_name": "Thaka Yuvak",
+    "label": "KRISHNA KATHA",
+    "title_line1": "Teen Baar Fail",
+    "title_line2": "Sab Chhod Dun?",
+    "title_sub": "Ek yuvak ka dard",
     "end_text": "COMMENT KARO",
-    "end_sub": "Sahi jawab Part 2 mein",
-    "yt_title": "Sach To Faansi, Jhooth To Talwar! 🤔 Mazdoor Ki Paheli | Part 1 #shorts",
-    "yt_description": "Teen mahine kaam kiya, par mazdoori nahi mili.\nRaja ne rakhi ek khatarnaak shart: sach bolo to faansi, jhooth bolo to talwar.\nRamu kya bolega? Apna jawab comment karo!\n#paheli #hindipaheli #rajakikahani #hindikahani #shorts #dimaagwalipaheli #moralstory",
+    "end_sub": "Kya aap bhi thake ho?",
+    "yt_title": "Teen Baar Fail, Ab Sab Chhod Dun? 😢 Haar Ke Baad Gita | Part 1 #shorts",
+    "yt_description": "Teen baar mehnat ki, teen baar haara... ab kya kare?\nBanyan ke neeche baithe ek thake yuvak se mile Shri Krishna aur Arjun.\nAage kya hua? Part 2 kal!\n#krishna #gita #krishnakatha #motivation #radheradhe #shorts #arjun",
     "tags": [
-     "paheli",
-     "hindi paheli",
-     "raja ki kahani",
-     "hindi kahani",
-     "mazdoor ki kahani",
-     "logic puzzle hindi",
-     "chatur kahani",
-     "moral story hindi",
-     "riddle in hindi",
-     "shorts"
+     "krishna katha",
+     "gita gyan",
+     "krishna arjun",
+     "motivation hindi",
+     "exam fail motivation",
+     "karm yog",
+     "bhagavad gita",
+     "radhe radhe",
+     "hindi shorts",
+     "devotional story"
     ],
     "shots": [
      {
-      "scene": "darbar",
+      "scene": "walk",
       "mood": "sad",
-      "sticker": "TEEN MAHINE BINA PAISA",
+      "sticker": "EK DARD BHARI AWAAZ",
       "cards": [],
       "lines": [
        {
         "speaker": "N",
-        "hindi": "तीन महीने काम किया, पर एक पैसा नहीं मिला... घर में बच्चे भूखे थे।",
-        "caption": "Teen mahine kaam kiya, par *ek paisa* nahi mila... ghar mein bachche *bhookhe* the."
+        "hindi": "तीन बार पूरी मेहनत की... और तीनों बार हार गया। क्या भगवान भी साथ छोड़ देते हैं?",
+        "caption": "Teen baar poori *mehnat* ki... aur teenon baar *haar* gaya. Kya Bhagwan bhi saath chhod dete hain?"
        },
        {
         "speaker": "N",
-        "hindi": "मज़दूर रामू अपनी मज़दूरी माँगने राजा के दरबार पहुँचा।",
-        "caption": "Mazdoor Ramu apni *mazdoori* maangne Raja ke darbar pahuncha."
+        "hindi": "वन में चलते कृष्ण और अर्जुन ने, किसी के रोने की आवाज़ सुनी।",
+        "caption": "Van mein chalte Krishna aur Arjun ne, kisi ke *rone* ki awaaz suni."
        }
       ]
      },
      {
-      "scene": "darbar",
+      "scene": "meet",
       "mood": "sad",
-      "sticker": "HAQ KI MAANG",
+      "sticker": "TEESRI BAAR FAIL",
       "cards": [],
       "lines": [
        {
-        "speaker": "C",
-        "hindi": "महाराज, आपके महल की दीवार मैंने बनाई... बस मेरी मेहनत का पैसा दे दीजिए।",
-        "caption": "Maharaj, aapke mahal ki deewar maine banayi... bas meri *mehnat ka paisa* de dijiye."
-       }
-      ]
-     },
-     {
-      "scene": "darbar",
-      "mood": "angry",
-      "sticker": "",
-      "cards": [
-       {
-        "icon": "gallows",
-        "label": "Sach = Faansi"
+        "speaker": "P",
+        "hindi": "बस... अब और नहीं होगा। नौकरी की परीक्षा में फिर फेल हो गया।",
+        "caption": "Bas... ab aur nahi hoga. Naukri ki pariksha mein phir *fail* ho gaya."
        },
        {
-        "icon": "sword",
-        "label": "Jhooth=Talwar"
-       }
-      ],
-      "lines": [
-       {
-        "speaker": "R",
-        "hindi": "पैसा चाहिए? तो एक वाक्य बोलो। सच निकला तो फाँसी, झूठ निकला तो तलवार!",
-        "caption": "Paisa chahiye? To ek vaakya bolo. *Sach* nikla to faansi, *jhooth* nikla to talwar!"
+        "speaker": "P",
+        "hindi": "माँ की दवा, पिताजी का कर्ज़... सब मुझसे उम्मीद लगाए हैं।",
+        "caption": "Maa ki dawa, pitaji ka *karz*... sab mujhse *ummeed* lagaye hain."
        }
       ]
      },
      {
-      "scene": "darbar",
-      "mood": "angry",
-      "sticker": "",
-      "cards": [
-       {
-        "icon": "coin",
-        "label": "Bache = Dugna"
-       }
-      ],
-      "lines": [
-       {
-        "speaker": "R",
-        "hindi": "और अगर बच गए... तो तीन महीने की मज़दूरी, दुगनी मिलेगी!",
-        "caption": "Aur agar bach gaye... to teen mahine ki mazdoori, *dugni* milegi!"
-       }
-      ]
-     },
-     {
-      "scene": "darbar",
-      "mood": "shock",
-      "sticker": "DARBAR MEIN SANNATA",
-      "cards": [],
-      "lines": [
-       {
-        "speaker": "N",
-        "hindi": "पूरा दरबार सन्न रह गया। सबको लगा, आज रामू की जान गई।",
-        "caption": "Poora darbar *sann* reh gaya. Sabko laga, aaj Ramu ki *jaan* gayi."
-       },
-       {
-        "speaker": "N",
-        "hindi": "पर रामू मुस्कुराया, और एक कदम आगे बढ़ा।",
-        "caption": "Par Ramu *muskuraya*, aur ek kadam aage badha."
-       }
-      ]
-     },
-     {
-      "scene": "darbar",
+      "scene": "meet",
       "mood": "neutral",
-      "sticker": "AB KYA BOLEGA?",
+      "sticker": "",
       "cards": [],
       "lines": [
        {
-        "speaker": "C",
-        "hindi": "महाराज, मेरा वाक्य सुनिए...",
-        "caption": "Maharaj, mera *vaakya* suniye..."
+        "speaker": "A",
+        "hindi": "केशव, इसकी मेहनत सच्ची थी... फिर भी हार क्यों?",
+        "caption": "Keshav, iski mehnat *sachchi* thi... phir bhi haar *kyun*?"
+       }
+      ]
+     },
+     {
+      "scene": "meet",
+      "mood": "angry",
+      "sticker": "SAB CHHOD DUN?",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "P",
+        "hindi": "किताबें जला दूँगा। सब छोड़ दूँगा। जब फल ही नहीं मिलता, तो कर्म क्यों?",
+        "caption": "Kitaabein jala dunga. Sab *chhod* dunga. Jab phal hi nahi milta, to *karm* kyun?"
+       }
+      ]
+     },
+     {
+      "scene": "meet",
+      "mood": "shock",
+      "sticker": "ARJUN CHAUNK GAYE",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "A",
+        "hindi": "केशव... कुरुक्षेत्र में मैंने भी ऐसे ही धनुष नीचे रख दिया था!",
+        "caption": "Keshav... *Kurukshetra* mein maine bhi aise hi *dhanush* neeche rakh diya tha!"
+       }
+      ]
+     },
+     {
+      "scene": "divine",
+      "mood": "happy",
+      "sticker": "KURUKSHETRA KI YAAD",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "K",
+        "hindi": "हाँ पार्थ... और जो उत्तर तब तुम्हें मिला था, आज इसे भी मिलेगा।",
+        "caption": "Haan Parth... aur jo *uttar* tab tumhe mila tha, aaj ise bhi *milega*."
        },
        {
         "speaker": "N",
-        "hindi": "रामू ने क्या कहा? जवाब कमेंट करो, सही जवाब मिलेगा पार्ट दो में!",
-        "caption": "Ramu ne kya kaha? *Jawab comment karo*, sahi jawab milega Part 2 mein!"
+        "hindi": "आगे क्या हुआ? पार्ट दो कल!",
+        "caption": "Aage kya hua? *Part 2* kal!"
        }
       ]
      }
     ]
    },
    {
-    "topic": "Ramu ka jawab: 'Aap mera sir talwar se katenge' - jo Raja ki shart ko hi tod deta hai",
-    "hook": "Ek vaakya ne bachayi *jaan*",
-    "p_name": "Ramu Mazdoor",
-    "label": "PAHELI",
-    "title_line1": "Ramu Ka Jawab",
-    "title_line2": "Jaal Toot Gaya",
-    "title_sub": "Ek Vaakya, Raja Chup",
-    "end_text": "SHARE KARO",
-    "end_sub": "Himmat + Dimaag = Jeet",
-    "yt_title": "Raja Ka Jaal Ulta Pada! 😲 Mazdoor Ki Paheli | Part 2 #shorts",
-    "yt_description": "Sach bolo to faansi, jhooth bolo to talwar... Ramu ne aisa kya kaha ki Raja kuch na kar saka?\nDekho ek vaakya ka kamaal aur yaad rakho aaj ki seekh.\n#paheli #paheliKaJawab #rajakikahani #hindikahani #shorts #moralstory #dimaagwalipaheli",
+    "topic": "Arjun apni Kurukshetra ki niraasha batate hain; Krishna sikhate hain ki adhikaar karm par hai, phal par nahi",
+    "hook": "Arjun bhi *toote* the!",
+    "p_name": "Thaka Yuvak",
+    "label": "KRISHNA KATHA",
+    "title_line1": "Arjun Bhi Toote",
+    "title_line2": "The Ek Din!",
+    "title_sub": "Kurukshetra ki yaad",
+    "end_text": "COMMENT KARO",
+    "end_sub": "Part 3 kal zaroor dekho",
+    "yt_title": "Mahan Arjun Bhi Haar Maan Gaye The? 😲 Haar Ke Baad Gita | Part 2 #shorts",
+    "yt_description": "Thake yuvak ko Arjun ne sunayi apni Kurukshetra ki kahani.\nShri Krishna ne diya Gita ka sabse bada sutra: karm par adhikaar, phal par nahi.\nPar Krishna ne kaunsa kaam diya? Part 3 kal!\n#krishna #gita #arjun #karmyog #motivation #radheradhe #shorts",
     "tags": [
-     "paheli ka jawab",
-     "hindi paheli",
-     "raja ki kahani",
-     "logic paradox hindi",
-     "mazdoor ki kahani",
-     "chatur kahani",
-     "moral story hindi",
-     "riddle answer hindi",
-     "hindi kahani",
+     "krishna arjun samvad",
+     "gita saar",
+     "karm karo phal ki chinta",
+     "kurukshetra",
+     "arjun vishad",
+     "krishna katha",
+     "hindi motivation",
+     "bhagavad gita hindi",
+     "radhe krishna",
      "shorts"
     ],
     "shots": [
      {
-      "scene": "darbar",
+      "scene": "walk",
       "mood": "neutral",
-      "sticker": "KAL KI PAHELI",
+      "sticker": "KAL KYA HUA",
       "cards": [],
       "lines": [
        {
         "speaker": "N",
-        "hindi": "सच बोले तो फाँसी, झूठ बोले तो तलवार... रामू ने क्या कहा?",
-        "caption": "Sach bole to *faansi*, jhooth bole to *talwar*... Ramu ne kya kaha?"
+        "hindi": "कल, परीक्षा में हारा एक युवक सब छोड़ने चला था... और अर्जुन को कुरुक्षेत्र याद आया।",
+        "caption": "Kal, pariksha mein haara ek yuvak sab *chhodne* chala tha... aur Arjun ko *Kurukshetra* yaad aaya."
        }
       ]
      },
      {
-      "scene": "darbar",
-      "mood": "neutral",
-      "sticker": "RAMU KA JAWAB",
+      "scene": "meet",
+      "mood": "sad",
+      "sticker": "ARJUN BHI TOOTE THE",
       "cards": [],
       "lines": [
        {
-        "speaker": "C",
-        "hindi": "महाराज, आप मेरा सिर तलवार से काटेंगे।",
-        "caption": "Maharaj, aap mera sir *talwar* se kaatenge."
-       },
-       {
-        "speaker": "N",
-        "hindi": "पूरा दरबार सोच में पड़ गया।",
-        "caption": "Poora darbar *soch* mein pad gaya."
+        "speaker": "A",
+        "hindi": "भाई, मैं भी एक दिन रथ में बैठकर रो पड़ा था, अपना गांडीव छोड़ दिया था।",
+        "caption": "Bhai, main bhi ek din rath mein baithkar *ro* pada tha, apna *Gandiv* chhod diya tha."
        }
       ]
      },
      {
-      "scene": "darbar",
+      "scene": "meet",
       "mood": "shock",
       "sticker": "",
-      "cards": [
-       {
-        "icon": "sword",
-        "label": "Talwar = Sach"
-       },
-       {
-        "icon": "gallows",
-        "label": "Sach = Faansi"
-       }
-      ],
+      "cards": [],
       "lines": [
        {
-        "speaker": "R",
-        "hindi": "अगर तलवार चलाई, तो इसकी बात सच हो गई... और सच की सज़ा फाँसी है!",
-        "caption": "Agar talwar chalayi, to iski baat *sach* ho gayi... aur sach ki saza *faansi* hai!"
+        "speaker": "P",
+        "hindi": "आप? महान धनुर्धर अर्जुन... भी हार मान गए थे?",
+        "caption": "Aap? Mahaan dhanurdhar *Arjun*... bhi haar *maan* gaye the?"
        }
       ]
      },
      {
-      "scene": "darbar",
-      "mood": "shock",
-      "sticker": "",
-      "cards": [
-       {
-        "icon": "gallows",
-        "label": "Faansi=Jhooth"
-       },
-       {
-        "icon": "sword",
-        "label": "Jhooth=Talwar"
-       }
-      ],
-      "lines": [
-       {
-        "speaker": "R",
-        "hindi": "और फाँसी दी, तो बात झूठ हो गई... तब तो तलवार चाहिए!",
-        "caption": "Aur faansi di, to baat *jhooth* ho gayi... tab to *talwar* chahiye!"
-       }
-      ]
-     },
-     {
-      "scene": "darbar",
+      "scene": "meet",
       "mood": "happy",
-      "sticker": "",
-      "cards": [
-       {
-        "icon": "coin",
-        "label": "Dugni Mazdoori"
-       }
-      ],
+      "sticker": "KARM = TUMHARA",
+      "cards": [],
       "lines": [
        {
-        "speaker": "C",
-        "hindi": "महाराज, आपका जाल आप ही में उलझ गया। अब शर्त के मुताबिक़ मेरी मज़दूरी दीजिए।",
-        "caption": "Maharaj, aapka *jaal* aap hi mein ulajh gaya. Ab shart ke mutabik meri *mazdoori* dijiye."
-       },
-       {
-        "speaker": "R",
-        "hindi": "शाबाश! इसे दुगनी मज़दूरी दो।",
-        "caption": "*Shabaash!* Ise dugni mazdoori do."
+        "speaker": "K",
+        "hindi": "हाँ। तब मैंने पार्थ से कहा था, तुम्हारा अधिकार कर्म पर है, फल पर नहीं।",
+        "caption": "Haan. Tab maine Parth se kaha tha, tumhara adhikaar *karm* par hai, *phal* par nahi."
        }
       ]
      },
      {
-      "scene": "darbar",
-      "mood": "happy",
-      "sticker": "AAJ KI SEEKH",
+      "scene": "meet",
+      "mood": "sad",
+      "sticker": "PHAL KI CHINTA?",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "P",
+        "hindi": "पर प्रभु, अगर फल की चिंता न करूँ, तो मेहनत किसके लिए करूँ?",
+        "caption": "Par Prabhu, agar phal ki *chinta* na karun, to mehnat *kiske* liye karun?"
+       },
+       {
+        "speaker": "K",
+        "hindi": "चिंता फल की करोगे, तो हाथ काँपेंगे। ध्यान कर्म पर रखो, तो मन टिकेगा।",
+        "caption": "Chinta phal ki karoge, to haath *kaanpenge*. Dhyaan karm par rakho, to *man* tikega."
+       }
+      ]
+     },
+     {
+      "scene": "divine",
+      "mood": "neutral",
+      "sticker": "EK ANOKHA KAAM",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "K",
+        "hindi": "कल सुबह से एक काम करना... फिर देखना, क्या बदलता है।",
+        "caption": "Kal subah se *ek kaam* karna... phir dekhna, kya *badalta* hai."
+       },
+       {
+        "speaker": "N",
+        "hindi": "आगे क्या हुआ? पार्ट तीन कल!",
+        "caption": "Aage kya hua? *Part 3* kal!"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "topic": "Yuvak roz sirf aaj ka kaam poora karta hai, darr ghatta hai; Krishna sikhate hain ki haar-jeet mein samaan rehna hi yog hai",
+    "hook": "Krishna ki *seekh* ne badla",
+    "p_name": "Thaka Yuvak",
+    "label": "KRISHNA KATHA",
+    "title_line1": "Karm Tumhara",
+    "title_line2": "Phal Prabhu Ka",
+    "title_sub": "Gita ki seedhi seekh",
+    "end_text": "RADHE RADHE",
+    "end_sub": "Share karo, himmat do",
+    "yt_title": "Krishna Ke Ek Kaam Ne Badal Di Zindagi! 🙏 Haar Ke Baad Gita | Part 3 #shorts",
+    "yt_description": "Krishna ne thake yuvak ko diya sirf ek kaam: aaj ki mehnat poori karo.\nDarr gaya, man laga, aur himmat lauti.\nSeekh: Mehnat tumhari, nateeja Prabhu ka.\n#krishna #gita #karmyog #motivation #studymotivation #radheradhe #shorts",
+    "tags": [
+     "krishna seekh",
+     "gita motivation",
+     "karm yog",
+     "study motivation hindi",
+     "haar jeet",
+     "krishna katha",
+     "bhagavad gita",
+     "radhe radhe",
+     "hindi shorts",
+     "devotional story"
+    ],
+    "shots": [
+     {
+      "scene": "walk",
+      "mood": "neutral",
+      "sticker": "AAKHRI BHAAG",
       "cards": [],
       "lines": [
        {
         "speaker": "N",
-        "hindi": "डर के आगे हार मत मानो... दिमाग़ से सोचो।",
-        "caption": "Darr ke aage haar mat maano... *dimaag* se socho."
+        "hindi": "अर्जुन की कहानी सुनकर युवक रुका... और कृष्ण ने उसे एक काम दिया।",
+        "caption": "Arjun ki kahani sunkar yuvak *ruka*... aur Krishna ne use *ek kaam* diya."
+       }
+      ]
+     },
+     {
+      "scene": "meet",
+      "mood": "neutral",
+      "sticker": "SIRF AAJ KA KAAM",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "K",
+        "hindi": "रोज़ बस आज का पाठ पूरा करना। रिज़ल्ट नहीं, सिर्फ़ आज की मेहनत गिनना।",
+        "caption": "Roz bas *aaj* ka paath poora karna. Result nahi, sirf aaj ki *mehnat* ginna."
+       }
+      ]
+     },
+     {
+      "scene": "meet",
+      "mood": "neutral",
+      "sticker": "ROZ EK SAWAAL",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "युवक ने किताबें फिर खोलीं। हर रात बस इतना पूछता, आज पूरा किया?",
+        "caption": "Yuvak ne kitaabein *phir* kholin. Har raat bas itna poochhta, aaj *poora* kiya?"
+       }
+      ]
+     },
+     {
+      "scene": "meet",
+      "mood": "happy",
+      "sticker": "DAR GAYA, MAN LAGA",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "P",
+        "hindi": "प्रभु, अजीब बात है... डर कम हो गया, और पढ़ाई में मन लगने लगा।",
+        "caption": "Prabhu, ajeeb baat hai... *darr* kam ho gaya, aur padhai mein *man* lagne laga."
+       },
+       {
+        "speaker": "A",
+        "hindi": "यही तो मेरे साथ हुआ था, मन शांत हुआ तो धनुष फिर उठा।",
+        "caption": "Yahi to mere saath hua tha, man *shaant* hua to dhanush *phir* utha."
+       }
+      ]
+     },
+     {
+      "scene": "meet",
+      "mood": "happy",
+      "sticker": "",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "P",
+        "hindi": "इस बार जो भी नतीजा आए, मैं हार कर नहीं बैठूँगा।",
+        "caption": "Is baar jo bhi *nateeja* aaye, main haar kar *nahi* baithunga."
+       }
+      ]
+     },
+     {
+      "scene": "divine",
+      "mood": "happy",
+      "sticker": "KARM KARO",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "K",
+        "hindi": "हार और जीत में मन एक-सा रखो, यही योग है। कर्म करते रहो।",
+        "caption": "Haar aur jeet mein man *ek-sa* rakho, yahi *yog* hai. Karm karte raho."
        },
        {
         "speaker": "N",
-        "hindi": "अपने हक़ की बात, हिम्मत और समझदारी से माँगो!",
-        "caption": "Apne *haq* ki baat, himmat aur *samajhdaari* se maango!"
+        "hindi": "याद रखो... मेहनत तुम्हारी, नतीजा प्रभु का। राधे राधे!",
+        "caption": "Yaad rakho... *mehnat* tumhari, nateeja *Prabhu* ka. Radhe Radhe!"
        }
       ]
      }
     ]
    }
   ],
-  "type": "paheli",
+  "type": "devotional",
   "next": 1,
-  "theme": 1
+  "theme": 2
  },
- "last_kind": "devotional"
+ "last_kind": "paheli"
 }
