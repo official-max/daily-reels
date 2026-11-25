@@ -4,7 +4,7 @@ Is repo mein **2 YouTube channel** hain, dono apne folder mein alag:
 
 | Folder | Channel | Kya | Haalat |
 |---|---|---|---|
-| [paheli-krishna/](paheli-krishna) | [Paheli aur Krishna katha](https://www.youtube.com/@JatinOfficial-t9y) | Roz 3 Shorts, apne aap | Chal raha hai |
+| [paheli-krishna/](paheli-krishna) | [Chatur Darbar](https://www.youtube.com/@JatinOfficial-t9y) | Roz 3 Shorts, apne aap | Chal raha hai |
 | [pushpak-katha/](pushpak-katha) | [Pushpak Katha](https://www.youtube.com/@PushpakKatha) | Poori Valmiki Ramayan, 732 bhaag | Taiyari |
 
 | Saajhi cheezein | Kaam |

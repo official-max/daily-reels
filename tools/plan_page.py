@@ -26,7 +26,7 @@ def when(d, s): x = dt.date.fromisoformat(d); return f"{DAYS[x.weekday()]} {x:%d
 def daily(now):
     hist = [h for h in load(OLD, "state", "history.json", default=[]) if h.get("date") and h.get("slot") in SLOTS]
     hist.sort(key=lambda h: (h["date"], h["slot"])); state = load(OLD, "state", "series.json", default={}) or {}
-    out = ["## 1. Paheli aur Krishna katha (chal raha hai, apne aap)", "", "Roz 3 video: **12:00, 16:00, 19:00** (IST).", ""]
+    out = ["## 1. Chatur Darbar: paheli aur Krishna katha (chal raha hai, apne aap)", "", "Roz 3 video: **12:00, 16:00, 19:00** (IST).", ""]
     done = {(h["date"], h["slot"]): h for h in hist}
     out += ["### Aane wali", "", "| Kab | Haalat | Video |", "|---|---|---|"]
     ahead = [(str(now.date() + dt.timedelta(days=i)), s) for i in range(3) for s in SLOTS]
