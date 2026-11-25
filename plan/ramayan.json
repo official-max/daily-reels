@@ -638,6 +638,84 @@
  },
  {
   "bhaag": 50,
+  "naam": "Vali aur Sugriv ka janm",
+  "kaand": "Uttar",
+  "sarg": "37b",
+  "link": "https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424804.html",
+  "shabd": 1049,
+  "kya_aaya": null,
+  "baaki": null,
+  "ruke": null,
+  "video_id": null,
+  "date": null
+ },
+ {
+  "bhaag": 51,
+  "naam": "Ravan aur Sanatkumar",
+  "kaand": "Uttar",
+  "sarg": "37c",
+  "link": "https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424805.html",
+  "shabd": 501,
+  "kya_aaya": null,
+  "baaki": null,
+  "ruke": null,
+  "video_id": null,
+  "date": null
+ },
+ {
+  "bhaag": 52,
+  "naam": "Sanatkumar ne Vishnu ji ka roop bataya",
+  "kaand": "Uttar",
+  "sarg": "37d",
+  "link": "https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424806.html",
+  "shabd": 631,
+  "kya_aaya": null,
+  "baaki": null,
+  "ruke": null,
+  "video_id": null,
+  "date": null
+ },
+ {
+  "bhaag": 53,
+  "naam": "Ravan ne Sita haran kyon kiya",
+  "kaand": "Uttar",
+  "sarg": "37e",
+  "link": "https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424807.html",
+  "shabd": 219,
+  "kya_aaya": null,
+  "baaki": null,
+  "ruke": null,
+  "video_id": null,
+  "date": null
+ },
+ {
+  "bhaag": 54,
+  "naam": "Ravan aur Narad ki bhent (1/2)",
+  "kaand": "Uttar",
+  "sarg": "37f",
+  "link": "https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424808.html",
+  "shabd": 1337,
+  "kya_aaya": null,
+  "baaki": null,
+  "ruke": null,
+  "video_id": null,
+  "date": null
+ },
+ {
+  "bhaag": 55,
+  "naam": "Ravan aur Narad ki bhent (2/2)",
+  "kaand": "Uttar",
+  "sarg": "37f",
+  "link": "https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424808.html",
+  "shabd": 1337,
+  "kya_aaya": null,
+  "baaki": null,
+  "ruke": null,
+  "video_id": null,
+  "date": null
+ },
+ {
+  "bhaag": 56,
   "naam": "Raja Dashrath ka rajya",
   "kaand": "Baal",
   "sarg": "5",
@@ -650,7 +728,7 @@
   "date": null
  },
  {
-  "bhaag": 51,
+  "bhaag": 57,
   "naam": "Ayodhya nagri",
   "kaand": "Baal",
   "sarg": "6",
@@ -663,7 +741,7 @@
   "date": null
  },
  {
-  "bhaag": 52,
+  "bhaag": 58,
   "naam": "Ayodhya ka raj-kaaj",
   "kaand": "Baal",
   "sarg": "7",
@@ -676,7 +754,7 @@
   "date": null
  },
  {
-  "bhaag": 53,
+  "bhaag": 59,
   "naam": "Dashrath ki santaan ki ichchha",
   "kaand": "Baal",
   "sarg": "8",
@@ -689,7 +767,7 @@
   "date": null
  },
  {
-  "bhaag": 54,
+  "bhaag": 60,
   "naam": "Sumantra ne sunayi purani katha",
   "kaand": "Baal",
   "sarg": "9",
@@ -702,7 +780,7 @@
   "date": null
  },
  {
-  "bhaag": 55,
+  "bhaag": 61,
   "naam": "Rishyashring Lompad ke darbar mein",
   "kaand": "Baal",
   "sarg": "10",
@@ -715,7 +793,7 @@
   "date": null
  },
  {
-  "bhaag": 56,
+  "bhaag": 62,
   "naam": "Rishyashring Ayodhya aaye",
   "kaand": "Baal",
   "sarg": "11",
@@ -728,7 +806,7 @@
   "date": null
  },
  {
-  "bhaag": 57,
+  "bhaag": 63,
   "naam": "Rishyashring yagya ke liye maane",
   "kaand": "Baal",
   "sarg": "12",
@@ -741,7 +819,7 @@
   "date": null
  },
  {
-  "bhaag": 58,
+  "bhaag": 64,
   "naam": "Yagya ki shuruaat",
   "kaand": "Baal",
   "sarg": "13",
@@ -754,7 +832,7 @@
   "date": null
  },
  {
-  "bhaag": 59,
+  "bhaag": 65,
   "naam": "Yagya ki vidhi",
   "kaand": "Baal",
   "sarg": "14",
@@ -767,7 +845,7 @@
   "date": null
  },
  {
-  "bhaag": 60,
+  "bhaag": 66,
   "naam": "Vishnu ji ka avatar lene ka nishchay",
   "kaand": "Baal",
   "sarg": "15",
@@ -780,7 +858,7 @@
   "date": null
  },
  {
-  "bhaag": 61,
+  "bhaag": 67,
   "naam": "Dashrath ke chaar putron ka vardaan",
   "kaand": "Baal",
   "sarg": "16",
@@ -793,7 +871,7 @@
   "date": null
  },
  {
-  "bhaag": 62,
+  "bhaag": 68,
   "naam": "Devtaon ka vanar roop mein janm",
   "kaand": "Baal",
   "sarg": "17",
@@ -806,7 +884,7 @@
   "date": null
  },
  {
-  "bhaag": 63,
+  "bhaag": 69,
   "naam": "Ram, Lakshman, Bharat, Shatrughna ka janm",
   "kaand": "Baal",
   "sarg": "18",
@@ -819,7 +897,7 @@
   "date": null
  },
  {
-  "bhaag": 64,
+  "bhaag": 70,
   "naam": "Vishwamitra ki maang",
   "kaand": "Baal",
   "sarg": "19",
@@ -832,7 +910,7 @@
   "date": null
  },
  {
-  "bhaag": 65,
+  "bhaag": 71,
   "naam": "Dashrath ka sankoch",
   "kaand": "Baal",
   "sarg": "20",
@@ -845,7 +923,7 @@
   "date": null
  },
  {
-  "bhaag": 66,
+  "bhaag": 72,
   "naam": "Dashrath maan gaye",
   "kaand": "Baal",
   "sarg": "21",
@@ -858,7 +936,7 @@
   "date": null
  },
  {
-  "bhaag": 67,
+  "bhaag": 73,
   "naam": "Ram-Lakshman Vishwamitra ke saath chale",
   "kaand": "Baal",
   "sarg": "22",
@@ -871,7 +949,7 @@
   "date": null
  },
  {
-  "bhaag": 68,
+  "bhaag": 74,
   "naam": "Kaam ke ashram mein",
   "kaand": "Baal",
   "sarg": "23",
@@ -884,7 +962,7 @@
   "date": null
  },
  {
-  "bhaag": 69,
+  "bhaag": 75,
   "naam": "Tadka ka bhayanak van",
   "kaand": "Baal",
   "sarg": "24",
@@ -897,7 +975,7 @@
   "date": null
  },
  {
-  "bhaag": 70,
+  "bhaag": 76,
   "naam": "Vishwamitra ne Ram ko samjhaya",
   "kaand": "Baal",
   "sarg": "25",
@@ -910,7 +988,7 @@
   "date": null
  },
  {
-  "bhaag": 71,
+  "bhaag": 77,
   "naam": "Tadka vadh",
   "kaand": "Baal",
   "sarg": "26",
