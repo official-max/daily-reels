@@ -83,6 +83,7 @@ section{padding:46px 0 6px}
 .path .now .n{background:var(--marigold);color:#fff}
 .path h3{font-size:18px}
 .path p{margin:2px 0 0;font-size:15px;color:var(--soft)}
+.khand{margin-bottom:12px;border:1px solid var(--line);border-radius:22px;background:#23103b}.khand summary{cursor:pointer;padding:16px 20px;display:flex;flex-wrap:wrap;gap:2px 14px;align-items:baseline;list-style:none}.khand summary::-webkit-details-marker{display:none}.khand summary::after{content:"+";margin-left:auto;font:800 26px/1 var(--head);color:var(--gold)}.khand[open] summary::after{content:"-"}.khand summary h3{font-size:21px}.khand summary span{color:var(--soft)}.khand .path{padding:0 16px 16px}
 .bar{height:14px;border-radius:99px;background:var(--panel);overflow:hidden;margin:0 0 18px}
 .bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--marigold),var(--gold))}
 .msg{background:var(--plum);border-radius:20px;padding:20px}
@@ -170,14 +171,18 @@ function channel(ch, lists) {
     wk.append(el("article", "card" + (x.day === wday(today) ? " today" : ""), null, pic(`img/${x.day}.jpg`, ""), el("span", "d", x.din), el("div", "in", null, el("h3", "", x.naam), el("p", "", x.granth), n ? chip("wait", `Bhaag ${n.bhaag}: ${n.naam}`) : chip("off", parts.length ? "List poori" : "Kahani chun rahe hain"))));
     if (!parts.length) continue;
     let d = null; if (ch.start) { d = ch.start > today ? ch.start : today; d = plus(d, (x.day - wday(d) + 7) % 7); }
-    const ol = el("ol", "path"), dn = parts.filter(p => p.video_id).length;
+    const box = el("div"), dn = parts.filter(p => p.video_id).length; let ol, khand;
     for (const p of parts) {
+      if (p.khand !== khand || !ol) {
+        khand = p.khand; ol = el("ol", "path"); const q = parts.filter(y => y.khand === khand), got = q.filter(y => y.video_id).length;
+        const dt = el("details", "khand", null, el("summary", "", null, el("h3", "", khand || x.naam), el("span", "", `Bhaag ${q[0].bhaag}-${q[q.length - 1].bhaag}` + (got ? `, ${got} aa chuke` : ""))), ol); dt.open = q.includes(n); box.append(dt);
+      }
       const seen = okId(p.video_id), k = p.video_id ? (p.date ? short(p.date) : "") : d ? short(d) : ""; if (!p.video_id && d) d = plus(d, 7);
       const info = el("p", "", null, url(el("a", "", `${p.kaand} kaand, sarg ${p.sarg}`), p.link)); if (k) info.append(`, ${k}`); if (p === n) info.append(" · ", "Agla"); if (seen) info.append(" · ", url(el("a", "", "Dekho"), "https://youtube.com/shorts/" + p.video_id));
       ol.append(el("li", p.video_id ? "done" : p === n ? "now" : "", null, el("span", "n", p.bhaag), el("div", "", null, el("h3", "", p.naam), info, p.video_id && p.kya_aaya ? el("p", "", "Kya aaya: " + p.kya_aaya) : null, p.video_id && p.ruke ? el("p", "", "Kahan ruke: " + p.ruke) : null)));
     }
-    const bar = el("i"); bar.style.width = Math.max(2, dn / parts.length * 100) + "%";
-    out.push(el("section", "", null, head(`${x.naam}: saare bhaag`, `${parts.length} mein se ${dn} bhaag aa chuke`), el("div", "bar", null, bar), ol));
+    const bar = el("i"); bar.style.width = Math.max(1, dn / parts.length * 100) + "%";
+    out.push(el("section", "", null, head(`${x.naam}: saare bhaag`, `${parts.length} mein se ${dn} bhaag aa chuke`), el("div", "bar", null, bar), box));
   }
   return out;
 }
