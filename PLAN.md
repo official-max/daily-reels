@@ -42,7 +42,7 @@ Shuru hone ki tareekh: **abhi tay nahi**. Tay hote hi neeche tareekhein apne aap
 | Din | Series | Granth | Agla bhaag |
 |---|---|---|---|
 | Somvaar | Shiv Mahagatha | Shiv Puran | List banni baaki |
-| Mangalvaar | Ramayan | Valmiki Ramayan | Bhaag 1: Ravan ka janm |
+| Mangalvaar | Ramayan | Valmiki Ramayan | Bhaag 1: Agastya rishi Ram ji ke darbar mein |
 | Budhvaar | Ganesh Leela | Ganesh Puran, Shiv Puran | List banni baaki |
 | Guruvaar | Krishna Leela | Bhagwat Puran, skandh 10 | List banni baaki |
 | Shukravaar | Bhakton ki Gatha | Bhagwat Puran, Ramcharitmanas | List banni baaki |
@@ -53,20 +53,29 @@ Shuru hone ki tareekh: **abhi tay nahi**. Tay hote hi neeche tareekhein apne aap
 
 | Bhaag | Kahani | Kaand, sarg | Kab | Haalat |
 |---|---|---|---|---|
-| 1 | Ravan ka janm | [Uttar 9](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424770.html) | tay nahi | **Agla** |
-| 2 | Ravan ki tapasya aur vardaan | [Uttar 10](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424771.html) | tay nahi | Baaki |
-| 3 | Kuber se Lanka kaise mili | [Uttar 11](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424772.html) | tay nahi | Baaki |
-| 4 | Ravan aur Kuber ka yuddh | [Uttar 13-15](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424774.html) | tay nahi | Baaki |
-| 5 | Kailash aur Ravan ka naam | [Uttar 16](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424777.html) | tay nahi | Baaki |
-| 6 | Vedvati ki katha | [Uttar 17](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424778.html) | tay nahi | Baaki |
-| 7 | Raja Dashrath ki santaan ki ichchha | [Baal 5-8](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc423855.html) | tay nahi | Baaki |
-| 8 | Rishyashring aur yagya | [Baal 9-14](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc423859.html) | tay nahi | Baaki |
-| 9 | Vishnu ji ka avatar lene ka vachan | [Baal 15-16](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc423865.html) | tay nahi | Baaki |
-| 10 | Devtaon ka vanar roop mein janm | [Baal 17](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc423867.html) | tay nahi | Baaki |
-| 11 | Ram, Lakshman, Bharat, Shatrughna ka janm | [Baal 18](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc423868.html) | tay nahi | Baaki |
-| 12 | Vishwamitra Ram ko maangne aaye | [Baal 19-22](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc423869.html) | tay nahi | Baaki |
-| 13 | Tadka van aur Tadka vadh | [Baal 23-26](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc423873.html) | tay nahi | Baaki |
+| 1 | Agastya rishi Ram ji ke darbar mein | [Uttar 1](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424762.html) | tay nahi | **Agla** |
+| 2 | Ravan ke pita Vishravas ka janm | [Uttar 2](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424763.html) | tay nahi | Baaki |
+| 3 | Kuber ko Lanka kaise mili | [Uttar 3](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424764.html) | tay nahi | Baaki |
+| 4 | Rakshas kaise bane | [Uttar 4](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424765.html) | tay nahi | Baaki |
+| 5 | Malyavan, Sumali aur Mali | [Uttar 5](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424766.html) | tay nahi | Baaki |
+| 6 | Devta Shiv ji aur Vishnu ji ki sharan mein | [Uttar 6](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424767.html) | tay nahi | Baaki |
+| 7 | Vishnu ji aur rakshason ka yuddh | [Uttar 7](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424768.html) | tay nahi | Baaki |
+| 8 | Malyavan se yuddh, rakshas Patal gaye | [Uttar 8](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424769.html) | tay nahi | Baaki |
+| 9 | Ravan ka janm | [Uttar 9](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424770.html) | tay nahi | Baaki |
+| 10 | Ravan ki tapasya aur vardaan | [Uttar 10](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424771.html) | tay nahi | Baaki |
+| 11 | Ravan ne Kuber se Lanka li | [Uttar 11](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424772.html) | tay nahi | Baaki |
+| 12 | Rakshason ke vivaah | [Uttar 12](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424773.html) | tay nahi | Baaki |
+| 13 | Ravan aur Kuber ka yuddh | [Uttar 13-15](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424774.html) | tay nahi | Baaki |
+| 14 | Kailash aur Ravan ka naam | [Uttar 16](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424777.html) | tay nahi | Baaki |
+| 15 | Vedvati ki katha | [Uttar 17](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424778.html) | tay nahi | Baaki |
+| 16 | Raja Dashrath ki santaan ki ichchha | [Baal 5-8](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc423855.html) | tay nahi | Baaki |
+| 17 | Rishyashring aur yagya | [Baal 9-14](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc423859.html) | tay nahi | Baaki |
+| 18 | Vishnu ji ka avatar lene ka vachan | [Baal 15-16](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc423865.html) | tay nahi | Baaki |
+| 19 | Devtaon ka vanar roop mein janm | [Baal 17](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc423867.html) | tay nahi | Baaki |
+| 20 | Ram, Lakshman, Bharat, Shatrughna ka janm | [Baal 18](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc423868.html) | tay nahi | Baaki |
+| 21 | Vishwamitra Ram ko maangne aaye | [Baal 19-22](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc423869.html) | tay nahi | Baaki |
+| 22 | Tadka van aur Tadka vadh | [Baal 23-26](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc423873.html) | tay nahi | Baaki |
 
 *Kram granth ki adhyay-soochi se liya hai. Har adhyay poora padhkar hi uski script banegi.*
 
-Aakhri update: 26-11-2026 01:40 IST
+Aakhri update: 26-11-2026 02:01 IST

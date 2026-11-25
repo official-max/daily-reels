@@ -1,6 +1,78 @@
 [
  {
   "bhaag": 1,
+  "naam": "Agastya rishi Ram ji ke darbar mein",
+  "kaand": "Uttar",
+  "sarg": "1",
+  "link": "https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424762.html",
+  "video_id": null,
+  "date": null
+ },
+ {
+  "bhaag": 2,
+  "naam": "Ravan ke pita Vishravas ka janm",
+  "kaand": "Uttar",
+  "sarg": "2",
+  "link": "https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424763.html",
+  "video_id": null,
+  "date": null
+ },
+ {
+  "bhaag": 3,
+  "naam": "Kuber ko Lanka kaise mili",
+  "kaand": "Uttar",
+  "sarg": "3",
+  "link": "https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424764.html",
+  "video_id": null,
+  "date": null
+ },
+ {
+  "bhaag": 4,
+  "naam": "Rakshas kaise bane",
+  "kaand": "Uttar",
+  "sarg": "4",
+  "link": "https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424765.html",
+  "video_id": null,
+  "date": null
+ },
+ {
+  "bhaag": 5,
+  "naam": "Malyavan, Sumali aur Mali",
+  "kaand": "Uttar",
+  "sarg": "5",
+  "link": "https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424766.html",
+  "video_id": null,
+  "date": null
+ },
+ {
+  "bhaag": 6,
+  "naam": "Devta Shiv ji aur Vishnu ji ki sharan mein",
+  "kaand": "Uttar",
+  "sarg": "6",
+  "link": "https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424767.html",
+  "video_id": null,
+  "date": null
+ },
+ {
+  "bhaag": 7,
+  "naam": "Vishnu ji aur rakshason ka yuddh",
+  "kaand": "Uttar",
+  "sarg": "7",
+  "link": "https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424768.html",
+  "video_id": null,
+  "date": null
+ },
+ {
+  "bhaag": 8,
+  "naam": "Malyavan se yuddh, rakshas Patal gaye",
+  "kaand": "Uttar",
+  "sarg": "8",
+  "link": "https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424769.html",
+  "video_id": null,
+  "date": null
+ },
+ {
+  "bhaag": 9,
   "naam": "Ravan ka janm",
   "kaand": "Uttar",
   "sarg": "9",
@@ -9,7 +81,7 @@
   "date": null
  },
  {
-  "bhaag": 2,
+  "bhaag": 10,
   "naam": "Ravan ki tapasya aur vardaan",
   "kaand": "Uttar",
   "sarg": "10",
@@ -18,8 +90,8 @@
   "date": null
  },
  {
-  "bhaag": 3,
-  "naam": "Kuber se Lanka kaise mili",
+  "bhaag": 11,
+  "naam": "Ravan ne Kuber se Lanka li",
   "kaand": "Uttar",
   "sarg": "11",
   "link": "https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424772.html",
@@ -27,7 +99,16 @@
   "date": null
  },
  {
-  "bhaag": 4,
+  "bhaag": 12,
+  "naam": "Rakshason ke vivaah",
+  "kaand": "Uttar",
+  "sarg": "12",
+  "link": "https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424773.html",
+  "video_id": null,
+  "date": null
+ },
+ {
+  "bhaag": 13,
   "naam": "Ravan aur Kuber ka yuddh",
   "kaand": "Uttar",
   "sarg": "13-15",
@@ -36,7 +117,7 @@
   "date": null
  },
  {
-  "bhaag": 5,
+  "bhaag": 14,
   "naam": "Kailash aur Ravan ka naam",
   "kaand": "Uttar",
   "sarg": "16",
@@ -45,7 +126,7 @@
   "date": null
  },
  {
-  "bhaag": 6,
+  "bhaag": 15,
   "naam": "Vedvati ki katha",
   "kaand": "Uttar",
   "sarg": "17",
@@ -54,7 +135,7 @@
   "date": null
  },
  {
-  "bhaag": 7,
+  "bhaag": 16,
   "naam": "Raja Dashrath ki santaan ki ichchha",
   "kaand": "Baal",
   "sarg": "5-8",
@@ -63,7 +144,7 @@
   "date": null
  },
  {
-  "bhaag": 8,
+  "bhaag": 17,
   "naam": "Rishyashring aur yagya",
   "kaand": "Baal",
   "sarg": "9-14",
@@ -72,7 +153,7 @@
   "date": null
  },
  {
-  "bhaag": 9,
+  "bhaag": 18,
   "naam": "Vishnu ji ka avatar lene ka vachan",
   "kaand": "Baal",
   "sarg": "15-16",
@@ -81,7 +162,7 @@
   "date": null
  },
  {
-  "bhaag": 10,
+  "bhaag": 19,
   "naam": "Devtaon ka vanar roop mein janm",
   "kaand": "Baal",
   "sarg": "17",
@@ -90,7 +171,7 @@
   "date": null
  },
  {
-  "bhaag": 11,
+  "bhaag": 20,
   "naam": "Ram, Lakshman, Bharat, Shatrughna ka janm",
   "kaand": "Baal",
   "sarg": "18",
@@ -99,7 +180,7 @@
   "date": null
  },
  {
-  "bhaag": 12,
+  "bhaag": 21,
   "naam": "Vishwamitra Ram ko maangne aaye",
   "kaand": "Baal",
   "sarg": "19-22",
@@ -108,7 +189,7 @@
   "date": null
  },
  {
-  "bhaag": 13,
+  "bhaag": 22,
   "naam": "Tadka van aur Tadka vadh",
   "kaand": "Baal",
   "sarg": "23-26",
