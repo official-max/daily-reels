@@ -1,5 +1,7 @@
 # Setting up daily-reels for a new YouTube channel
 
+> All paths below are inside the folder `paheli-krishna/` (run commands from there). The workflow is `.github/workflows/daily.yml` in the repo root.
+
 Instructions for an AI coding assistant (for example Claude Code) helping a person run this project for their own channel.
 The person may write in Hinglish; reply in their language and keep steps short.
 

@@ -25,6 +25,9 @@ jobs:
   reel:
     runs-on: ubuntu-latest
     timeout-minutes: 150
+    defaults:
+      run:
+        working-directory: paheli-krishna      # this channel's own folder
     steps:
       - uses: actions/checkout@v6
         with:
@@ -42,6 +45,7 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+          cache-dependency-path: paheli-krishna/requirements.txt
 
       - name: Install dependencies
         if: steps.due.outputs.go == 'true'
@@ -53,8 +57,8 @@ jobs:
         if: steps.due.outputs.go == 'true'
         uses: actions/cache@v5
         with:
-          path: out/reel_sprites
-          key: sprites-${{ hashFiles('reels/characters.py', 'reels/canvas.py') }}
+          path: paheli-krishna/out/reel_sprites
+          key: sprites-${{ hashFiles('paheli-krishna/reels/characters.py', 'paheli-krishna/reels/canvas.py') }}
 
       - name: Make the reels
         if: steps.due.outputs.go == 'true'
@@ -87,8 +91,8 @@ jobs:
         with:
           name: reel-${{ github.run_number }}
           path: |
-            out/reel*.mp4
-            out/script.json
+            paheli-krishna/out/reel*.mp4
+            paheli-krishna/out/script.json
           retention-days: 7
           if-no-files-found: ignore
 
@@ -98,9 +102,9 @@ jobs:
           git config user.name "daily-reels-bot"
           git config user.email "daily-reels-bot@users.noreply.github.com"
           # runs even if a later video failed, so finished uploads are never repeated
-          python3 -m reels.plan_page || true      # PLAN.md, the public "what comes next" page
+          python3 ../tools/plan_page.py || true      # PLAN.md, the public "what comes next" page
           git add state/
-          git add PLAN.md || true
+          git add ../PLAN.md || true
           git diff --cached --quiet && exit 0
           git commit -m "state: $(date -u '+%F %H:%M') UTC"
           # if someone pushed meanwhile, replay on top of it; on a clash in state/ the bot's fresh state wins

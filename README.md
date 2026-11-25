@@ -1,5 +1,14 @@
 # Daily Reels 🎬
 
+Is repo mein **2 channel** hain, dono apne folder mein alag:
+
+| Folder | Channel | Haalat |
+|---|---|---|
+| [paheli-krishna/](paheli-krishna) | Paheli aur Krishna katha | Roz 3 video, apne aap |
+| [pushpak-katha/](pushpak-katha) | Pushpak Katha (Ramayan) | Taiyari |
+
+Neeche ki jaankari **paheli-krishna** channel ki hai. Saare path usi folder ke andar ke hain, commands bhi wahin se chalao (`cd paheli-krishna`).
+
 Roz **3 Hindi cartoon Shorts** apne aap bante hain aur YouTube par **12 PM, 4 PM aur 7 PM (IST)** publish hote hain.
 GitHub Actions par chalta hai, laptop on rakhne ki zaroorat nahi.
 

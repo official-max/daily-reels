@@ -2,7 +2,7 @@
 
 Ye page har nayi video banne ke baad apne aap update hota hai.
 
-## 1. Daily Reels (chal raha hai, apne aap)
+## 1. Paheli aur Krishna katha (chal raha hai, apne aap)
 
 Roz 3 video: **12:00, 16:00, 19:00** (IST).
 
@@ -35,7 +35,7 @@ Agli run nayi series shuru karegi: **Paheli**
 | Ravi 22-11-2026, 16:00 | Krishna katha | Garib Bhakt Ka Bhog | 2/3 | [dekho](https://youtube.com/shorts/idNrMw4ffDc) |
 | Ravi 22-11-2026, 12:00 | Krishna katha | Garib Bhakt Ka Bhog | 1/3 | [dekho](https://youtube.com/shorts/BmV520VdkrU) |
 
-## 2. Naya Mythology channel (taiyari chal rahi hai)
+## 2. Pushpak Katha (taiyari chal rahi hai)
 
 Shuru hone ki tareekh: **abhi tay nahi**. Tay hote hi neeche tareekhein apne aap bhar jayengi.
 
@@ -855,4 +855,4 @@ Shuru hone ki tareekh: **abhi tay nahi**. Tay hote hi neeche tareekhein apne aap
 
 *Kram granth ki adhyay-soochi se liya hai. Har adhyay poora padhkar hi uski script banegi.*
 
-Aakhri update: 26-11-2026 02:32 IST
+Aakhri update: 26-11-2026 03:01 IST

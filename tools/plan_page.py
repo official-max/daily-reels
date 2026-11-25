@@ -1,12 +1,14 @@
 """Writes PLAN.md: what was posted, what comes next, and the plan of the new mythology channel.
 Standard library only. The workflow runs it after every video; a failure here must never stop a video.
 
-    python -m reels.plan_page
+    python tools/plan_page.py
 """
-import os, json, datetime as dt
+import os, sys, json, datetime as dt
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OLD, NEW = "paheli-krishna", "pushpak-katha"
+sys.path.insert(0, os.path.join(ROOT, OLD))
 from reels.schedule import SLOTS, IST, slot_time
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 KIND = {"paheli": "Paheli", "devotional": "Krishna katha"}
 DAYS = ["Som", "Mangal", "Budh", "Guru", "Shukr", "Shani", "Ravi"]
 
@@ -22,9 +24,9 @@ def when(d, s): x = dt.date.fromisoformat(d); return f"{DAYS[x.weekday()]} {x:%d
 
 
 def daily(now):
-    hist = [h for h in load("state", "history.json", default=[]) if h.get("date") and h.get("slot") in SLOTS]
-    hist.sort(key=lambda h: (h["date"], h["slot"])); state = load("state", "series.json", default={}) or {}
-    out = ["## 1. Daily Reels (chal raha hai, apne aap)", "", "Roz 3 video: **12:00, 16:00, 19:00** (IST).", ""]
+    hist = [h for h in load(OLD, "state", "history.json", default=[]) if h.get("date") and h.get("slot") in SLOTS]
+    hist.sort(key=lambda h: (h["date"], h["slot"])); state = load(OLD, "state", "series.json", default={}) or {}
+    out = ["## 1. Paheli aur Krishna katha (chal raha hai, apne aap)", "", "Roz 3 video: **12:00, 16:00, 19:00** (IST).", ""]
     done = {(h["date"], h["slot"]): h for h in hist}
     out += ["### Aane wali", "", "| Kab | Haalat | Video |", "|---|---|---|"]
     ahead = [(str(now.date() + dt.timedelta(days=i)), s) for i in range(3) for s in SLOTS]
@@ -40,14 +42,14 @@ def daily(now):
 
 
 def channel(now):
-    ch = load("plan", "channel.json")
+    ch = load(NEW, "plan", "channel.json")
     if not ch: return []
     start = dt.date.fromisoformat(ch["start"]) if ch.get("start") else None
-    out = ["", "## 2. Naya Mythology channel (taiyari chal rahi hai)", "", f"Shuru hone ki tareekh: **{start:%d-%m-%Y}**" if start else "Shuru hone ki tareekh: **abhi tay nahi**. Tay hote hi neeche tareekhein apne aap bhar jayengi.", "",
+    out = ["", "## 2. Pushpak Katha (taiyari chal rahi hai)", "", f"Shuru hone ki tareekh: **{start:%d-%m-%Y}**" if start else "Shuru hone ki tareekh: **abhi tay nahi**. Tay hote hi neeche tareekhein apne aap bhar jayengi.", "",
            "| Din | Series | Granth | Agla bhaag |", "|---|---|---|---|"]
     detail = []
     for s in ch["series"]:
-        parts = load("plan", s["file"], default=[]) if s.get("file") else []; todo = [p for p in parts if not p.get("video_id")]
+        parts = load(NEW, "plan", s["file"], default=[]) if s.get("file") else []; todo = [p for p in parts if not p.get("video_id")]
         nxt = f"Bhaag {todo[0]['bhaag']}: {todo[0]['naam']}" if todo else "List poori" if parts else "List banni baaki"
         out.append(f"| {s['din']} | {s['naam']} | {s['granth']} | {cell(nxt)} |")
         if not parts: continue

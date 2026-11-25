@@ -1,0 +1,5 @@
+numpy
+pillow
+skia-python
+edge-tts
+imageio-ffmpeg
