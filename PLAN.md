@@ -12,12 +12,12 @@ Roz 3 video: **12:00, 16:00, 19:00** (IST).
 |---|---|---|
 | Guru 26-11-2026, 12:00 | Taiyar, YouTube par schedule | Mahan Arjun Bhi Haar Maan Gaye The? 😲 Haar Ke Baad Gita / Part 2 #shorts |
 | Guru 26-11-2026, 16:00 | Taiyar, YouTube par schedule | Krishna Ke Ek Kaam Ne Badal Di Zindagi! 🙏 Haar Ke Baad Gita / Part 3 #shorts |
-| Guru 26-11-2026, 19:00 | Abhi banni baaki | - |
+| Guru 26-11-2026, 19:00 | Taiyar, YouTube par schedule | Bina Chhue Rekha Chhoti Kaise Kare? 🤔 Raja Ki Chaak Paheli / Part 1 #shorts |
 | Shukr 27-11-2026, 12:00 | Abhi banni baaki | - |
 | Shukr 27-11-2026, 16:00 | Abhi banni baaki | - |
 | Shukr 27-11-2026, 19:00 | Abhi banni baaki | - |
 
-Agli run nayi series shuru karegi: **Paheli**
+Chal rahi series: **Raja Ki Chaak Paheli**, agla part: **2**
 
 ### Pichhli 12
 
@@ -860,4 +860,4 @@ Shuru hone ki tareekh: **abhi tay nahi**. Tay hote hi neeche tareekhein apne aap
 
 *Kram granth ki adhyay-soochi se liya hai. Har adhyay poora padhkar hi uski script banegi.*
 
-Aakhri update: 26-11-2026 03:27 IST
+Aakhri update: 26-11-2026 03:48 IST
