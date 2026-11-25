@@ -3,7 +3,7 @@
 Roz **3 Hindi cartoon Shorts** apne aap bante hain aur YouTube par **12 PM, 4 PM aur 7 PM (IST)** publish hote hain.
 GitHub Actions par chalta hai, laptop on rakhne ki zaroorat nahi.
 
-📅 **Kaun si video kab aayegi: [PLAN.md](PLAN.md)** (har nayi video ke baad apne aap update hota hai)
+📅 **Kaun si video kab aayegi:** [live page](https://official-max.github.io/daily-reels/) ya [PLAN.md](PLAN.md) (dono apne aap update hote hain)
 
 - **Series mein kahaniyan**, roz ek part:
   - **Paheli** (raja ka darbar): Part 1 mein sawaal + "jawab comment karo", Part 2 mein jawab. 2 parts.

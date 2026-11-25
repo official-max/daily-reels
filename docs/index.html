@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Video Plan</title>
+<style>
+:root{--bg:#fff8ee;--card:#fff;--ink:#2b1a12;--soft:#7a6252;--line:#f0dfc8;--main:#c8321f;--gold:#e69a1c;--ok:#1c8a55}
+@media (prefers-color-scheme:dark){:root{--bg:#17100d;--card:#231915;--ink:#fbeedd;--soft:#bda48f;--line:#3a2a22;--main:#ff7a5c;--gold:#ffc04d;--ok:#58d399}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,"Segoe UI",Roboto,sans-serif}
+header{background:linear-gradient(120deg,#7a1420,#c8321f 55%,#e69a1c);color:#fff;padding:32px 16px 40px;text-align:center}
+h1{margin:0;font-size:clamp(26px,5vw,40px)}
+header p{margin:6px 0 0;opacity:.92}
+main{max-width:1060px;margin:-18px auto 40px;padding:0 16px}
+section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:18px}
+h2{margin:0 0 4px;font-size:22px}
+.note{color:var(--soft);margin:0 0 14px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.box{border:1px solid var(--line);border-radius:12px;padding:12px;min-width:0}
+.box.today{border:2px solid var(--gold)}
+.when{font-size:14px;color:var(--soft)}
+.name{font-weight:650;overflow-wrap:anywhere;margin:2px 0 8px}
+.tag{display:inline-block;font-size:13px;font-weight:600;border-radius:99px;padding:2px 10px;border:1px solid currentColor}
+.ok{color:var(--ok)}.wait{color:var(--gold)}.next{color:var(--main)}.off{color:var(--soft)}
+a{color:var(--main)}
+a.vid{display:block;text-decoration:none;color:inherit}
+a.vid img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;display:block;margin-bottom:8px;background:var(--line)}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:560px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+th{font-size:13px;color:var(--soft)}
+footer{text-align:center;color:var(--soft);font-size:14px;padding:0 16px 30px}
+</style>
+</head>
+<body>
+<header><h1>Video Plan</h1><p>Kaun si video kab aayegi</p></header>
+<main id="app"><section><p class="note">Load ho raha hai...</p></section></main>
+<footer id="foot"></footer>
+<script>
+const RAW = "https://raw.githubusercontent.com/official-max/daily-reels/main/", SLOTS = ["12:00", "16:00", "19:00"];
+const DIN = ["Ravi", "Som", "Mangal", "Budh", "Guru", "Shukr", "Shani"], KIND = {paheli: "Paheli", devotional: "Krishna katha"};
+const app = document.getElementById("app");
+// text only ever goes in as text, never as HTML
+function el(tag, cls, text, ...kids) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; e.append(...kids); return e; }
+function url(a, u) { if (/^https:\/\//.test(u)) { a.href = u; a.target = "_blank"; a.rel = "noopener"; } return a; }
+async function get(p) { const r = await fetch(RAW + p); if (!r.ok) throw new Error(p + " " + r.status); return r.json(); }
+const at = (d, s) => new Date(d + "T" + s + ":00+05:30");
+const ist = t => new Date(t.getTime() + 330 * 60000);                         // read with getUTC*
+const day = t => ist(t).toISOString().slice(0, 10);
+const nice = d => { const x = new Date(d + "T00:00:00Z"); return DIN[x.getUTCDay()] + " " + d.split("-").reverse().join("-"); };
+const plus = (d, n) => { const x = new Date(d + "T00:00:00Z"); x.setUTCDate(x.getUTCDate() + n); return x.toISOString().slice(0, 10); };
+const okId = v => /^[\w-]{11}$/.test(v || "");
+
+function daily(hist, state) {
+  const now = new Date(), today = day(now), done = {};
+  hist = hist.filter(h => h.date && SLOTS.includes(h.slot)); hist.forEach(h => done[h.date + h.slot] = h);
+  const s1 = el("section", "", null, el("h2", "", "Daily Reels: aane wali"));
+  const a = state.active;
+  s1.append(el("p", "note", a ? `Chal rahi series: ${a.series_title || ""}, agla part: ${(a.next || 0) + 1}` : `Agli series: ${state.last_kind === "devotional" ? "Paheli" : "Krishna katha"}`));
+  const g = el("div", "grid");
+  for (let i = 0, n = 0; i < 3 && n < 6; i++) for (const s of SLOTS) {
+    const d = plus(today, i); if (at(d, s) <= now || n >= 6) continue; n++; const h = done[d + s];
+    g.append(el("div", "box" + (d === today ? " today" : ""), null, el("div", "when", `${d === today ? "Aaj" : nice(d)}, ${s}`), el("div", "name", h ? h.title.replace(/#shorts/i, "").trim() : "Abhi banni baaki"), el("span", "tag " + (h ? "ok" : "wait"), h ? "Taiyar" : "Banegi")));
+  }
+  s1.append(g);
+  const past = hist.filter(h => at(h.date, h.slot) <= now).sort((x, y) => at(y.date, y.slot) - at(x.date, x.slot)).slice(0, 12);
+  const s2 = el("section", "", null, el("h2", "", "Pichhli videos"), el("p", "note", `${past.length} sabse nayi`)), g2 = el("div", "grid");
+  for (const h of past) {
+    const v = okId(h.video_id), b = v ? url(el("a", "box vid"), "https://youtube.com/shorts/" + h.video_id) : el("div", "box");
+    if (v) { const im = el("img"); im.loading = "lazy"; im.alt = ""; im.src = `https://i.ytimg.com/vi/${h.video_id}/mqdefault.jpg`; b.append(im); }
+    b.append(el("div", "when", `${nice(h.date)}, ${h.slot}`), el("div", "name", `${h.series || h.title}${h.part ? " (" + h.part + ")" : ""}`), el("span", "tag off", KIND[h.type] || h.type || "")); g2.append(b);
+  }
+  s2.append(g2); return [s1, s2];
+}
+
+function channel(ch, lists) {
+  const today = day(new Date()), s = el("section", "", null, el("h2", "", "Naya Mythology channel"), el("p", "note", ch.start ? `Shuru: ${nice(ch.start)}` : "Taiyari chal rahi hai. Shuru hone ki tareekh abhi tay nahi.")), g = el("div", "grid"), out = [s];
+  const wd = (new Date(today + "T00:00:00Z").getUTCDay() + 6) % 7;
+  for (const x of ch.series) {
+    const parts = lists[x.file] || [], todo = parts.filter(p => !p.video_id), n = todo[0];
+    g.append(el("div", "box" + (x.day === wd ? " today" : ""), null, el("div", "when", x.din + " | " + x.granth), el("div", "name", x.naam), el("span", "tag " + (n ? "next" : "off"), n ? `Agla: ${n.bhaag}. ${n.naam}` : parts.length ? "Season poora" : "List banni baaki")));
+    if (!parts.length) continue;
+    let d = null;
+    if (ch.start) { d = ch.start > today ? ch.start : today; const w = (new Date(d + "T00:00:00Z").getUTCDay() + 6) % 7; d = plus(d, (x.day - w + 7) % 7); }
+    const tb = el("tbody");
+    for (const p of parts) {
+      const c = el("td"); if (p.video_id && okId(p.video_id)) c.append(url(el("a", "", "Dekho"), "https://youtube.com/shorts/" + p.video_id)); else c.append(el("span", "tag " + (p === n ? "next" : "off"), p === n ? "Agla" : "Baaki"));
+      let k = p.video_id ? (p.date ? nice(p.date) : "-") : d ? nice(d) : "Tay nahi"; if (!p.video_id && d) d = plus(d, 7);
+      tb.append(el("tr", "", null, el("td", "", p.bhaag), el("td", "", p.naam), el("td", "", null, url(el("a", "", `${p.kaand} ${p.sarg}`), p.link)), el("td", "", k), c));
+    }
+    const hd = el("tr"); ["Bhaag", "Kahani", "Kaand, sarg", "Kab", "Haalat"].forEach(t => hd.append(el("th", "", t)));
+    out.push(el("section", "", null, el("h2", "", x.naam + ": Season 1"), el("p", "note", "Kram granth ki adhyay-soochi se. Har adhyay padhkar hi script banegi."), el("div", "scroll", null, el("table", "", null, el("thead", "", null, hd), tb))));
+  }
+  s.append(g); return out;
+}
+
+(async () => {
+  const out = [], bad = t => el("section", "", null, el("p", "note", t));
+  try { const [h, st] = await Promise.all([get("state/history.json"), get("state/series.json")]); out.push(...daily(h, st)); } catch (e) { out.push(bad("Daily Reels ka data abhi nahi khula. Thodi der mein page refresh karo.")); }
+  try {
+    const ch = await get("plan/channel.json"), lists = {};
+    await Promise.all(ch.series.filter(x => x.file).map(async x => { try { lists[x.file] = await get("plan/" + x.file); } catch (e) {} }));
+    out.push(...channel(ch, lists));
+  } catch (e) { out.push(bad("Naye channel ka data abhi nahi khula. Thodi der mein page refresh karo.")); }
+  app.replaceChildren(...out); const t = ist(new Date()); document.getElementById("foot").textContent = "Dekha gaya: " + t.toISOString().slice(0, 16).replace("T", " ") + " IST";
+})();
+</script>
+</body>
+</html>
