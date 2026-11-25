@@ -174,7 +174,7 @@ function channel(ch, lists) {
     for (const p of parts) {
       const seen = okId(p.video_id), k = p.video_id ? (p.date ? short(p.date) : "") : d ? short(d) : ""; if (!p.video_id && d) d = plus(d, 7);
       const info = el("p", "", null, url(el("a", "", `${p.kaand} kaand, sarg ${p.sarg}`), p.link)); if (k) info.append(`, ${k}`); if (p === n) info.append(" · ", "Agla"); if (seen) info.append(" · ", url(el("a", "", "Dekho"), "https://youtube.com/shorts/" + p.video_id));
-      ol.append(el("li", p.video_id ? "done" : p === n ? "now" : "", null, el("span", "n", p.bhaag), el("div", "", null, el("h3", "", p.naam), info)));
+      ol.append(el("li", p.video_id ? "done" : p === n ? "now" : "", null, el("span", "n", p.bhaag), el("div", "", null, el("h3", "", p.naam), info, p.video_id && p.kya_aaya ? el("p", "", "Kya aaya: " + p.kya_aaya) : null, p.video_id && p.ruke ? el("p", "", "Kahan ruke: " + p.ruke) : null)));
     }
     const bar = el("i"); bar.style.width = Math.max(2, dn / parts.length * 100) + "%";
     out.push(el("section", "", null, head(`${x.naam}: saare bhaag`, `${parts.length} mein se ${dn} bhaag aa chuke`), el("div", "bar", null, bar), ol));

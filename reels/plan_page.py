@@ -55,7 +55,7 @@ def channel(now):
         if start: d = max(start, now.date()); d += dt.timedelta(days=(s["day"] - d.weekday()) % 7)
         detail += ["", f"### {s['naam']}: saare bhaag", "", "| Bhaag | Kahani | Kaand, sarg | Kab | Haalat |", "|---|---|---|---|---|"]
         for p in parts:
-            if p.get("video_id"): k, st = p.get("date") or "-", "Aa gayi " + link(p["video_id"])
+            if p.get("video_id"): k, st = p.get("date") or "-", "Aa gayi " + link(p["video_id"]) + (f"<br>Kahan ruke: {cell(p['ruke'])}" if p.get("ruke") else "")
             else:
                 k = f"{d:%d-%m-%Y}" if d else "tay nahi"; st = "**Agla**" if p is todo[0] else "Baaki"
                 if d: d += dt.timedelta(days=7)
