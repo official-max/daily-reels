@@ -98,7 +98,9 @@ jobs:
           git config user.name "daily-reels-bot"
           git config user.email "daily-reels-bot@users.noreply.github.com"
           # runs even if a later video failed, so finished uploads are never repeated
+          python3 -m reels.plan_page || true      # PLAN.md, the public "what comes next" page
           git add state/
+          git add PLAN.md || true
           git diff --cached --quiet && exit 0
           git commit -m "state: $(date -u '+%F %H:%M') UTC"
           # if someone pushed meanwhile, replay on top of it; on a clash in state/ the bot's fresh state wins
