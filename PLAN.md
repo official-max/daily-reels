@@ -847,6 +847,17 @@ Shuru hone ki tareekh: **abhi tay nahi**. Tay hote hi neeche tareekhein apne aap
 
 </details>
 
+### Ramayan ke baad (isi kram mein)
+
+| Kram | Katha | Granth |
+|---|---|---|
+| 1 | Shiv Mahagatha | Shiv Puran |
+| 2 | Ganesh Leela | Ganesh Puran, Shiv Puran |
+| 3 | Krishna Leela | Bhagwat Puran, skandh 10 |
+| 4 | Bhakton ki Gatha | Bhagwat Puran, Ramcharitmanas |
+| 5 | Mahabharat | Mahabharat |
+| 6 | Paheli, Rahasya, What If | Pichhli kathaon par |
+
 *Kram granth ki adhyay-soochi se liya hai. Har adhyay poora padhkar hi uski script banegi.*
 
-Aakhri update: 26-11-2026 03:11 IST
+Aakhri update: 26-11-2026 03:27 IST

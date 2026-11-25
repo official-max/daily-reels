@@ -1,13 +1,25 @@
 # Daily Reels 🎬
 
-Is repo mein **2 channel** hain, dono apne folder mein alag:
+Is repo mein **2 YouTube channel** hain, dono apne folder mein alag:
 
-| Folder | Channel | Haalat |
-|---|---|---|
-| [paheli-krishna/](paheli-krishna) | Paheli aur Krishna katha | Roz 3 video, apne aap |
-| [pushpak-katha/](pushpak-katha) | Pushpak Katha (Ramayan) | Taiyari |
+| Folder | Channel | Kya | Haalat |
+|---|---|---|---|
+| [paheli-krishna/](paheli-krishna) | [Paheli aur Krishna katha](https://www.youtube.com/@JatinOfficial-t9y) | Roz 3 Shorts, apne aap | Chal raha hai |
+| [pushpak-katha/](pushpak-katha) | [Pushpak Katha](https://www.youtube.com/@PushpakKatha) | Poori Valmiki Ramayan, 732 bhaag | Taiyari |
 
-Neeche ki jaankari **paheli-krishna** channel ki hai. Saare path usi folder ke andar ke hain, commands bhi wahin se chalao (`cd paheli-krishna`).
+| Saajhi cheezein | Kaam |
+|---|---|
+| [Live page](https://official-max.github.io/daily-reels/) (`docs/`) | Dono channel ka plan; repo se seedha data padhta hai |
+| [PLAN.md](PLAN.md) | Wahi plan GitHub ke andar, `tools/plan_page.py` banata hai |
+| `.github/workflows/daily.yml` | paheli-krishna channel ko roz chalata hai |
+
+**Ramayan ke baad** Pushpak Katha par isi kram mein: Shiv Mahagatha, Ganesh Leela, Krishna Leela, Bhakton ki Gatha, Mahabharat, Paheli/Rahasya/What If. Kram `pushpak-katha/plan/channel.json` ke `baad` mein hai.
+
+---
+
+# paheli-krishna channel
+
+Neeche ke saare path `paheli-krishna/` ke andar ke hain, commands bhi wahin se chalao (`cd paheli-krishna`).
 
 Roz **3 Hindi cartoon Shorts** apne aap bante hain aur YouTube par **12 PM, 4 PM aur 7 PM (IST)** publish hote hain.
 GitHub Actions par chalta hai, laptop on rakhne ki zaroorat nahi.

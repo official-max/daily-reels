@@ -72,6 +72,7 @@ def channel(now):
                     if k_day >= (ch.get("per_day", 1) if s["day"] is None else 1): d += step; k_day = 0
             out_src = f"[{p['kaand']} {p['sarg']}]({p['link']})"; detail.append(f"| {p['bhaag']} | {cell(p['naam'])} | {out_src} | {k} | {st} |")
         detail += ["", "</details>"]
+    if ch.get("baad"): detail += ["", "### Ramayan ke baad (isi kram mein)", "", "| Kram | Katha | Granth |", "|---|---|---|"] + [f"| {i + 1} | {cell(x['naam'])} | {cell(x['granth'])} |" for i, x in enumerate(ch["baad"])]
     return out + detail + ["", "*Kram granth ki adhyay-soochi se liya hai. Har adhyay poora padhkar hi uski script banegi.*"]
 
 

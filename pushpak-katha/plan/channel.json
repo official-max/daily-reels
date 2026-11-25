@@ -10,5 +10,37 @@
    "granth": "Valmiki Ramayan, 7 kaand, 661 adhyay",
    "file": "ramayan.json"
   }
+ ],
+ "baad": [
+  {
+   "naam": "Shiv Mahagatha",
+   "granth": "Shiv Puran",
+   "img": "0.jpg"
+  },
+  {
+   "naam": "Ganesh Leela",
+   "granth": "Ganesh Puran, Shiv Puran",
+   "img": "2.jpg"
+  },
+  {
+   "naam": "Krishna Leela",
+   "granth": "Bhagwat Puran, skandh 10",
+   "img": "3.jpg"
+  },
+  {
+   "naam": "Bhakton ki Gatha",
+   "granth": "Bhagwat Puran, Ramcharitmanas",
+   "img": "4.jpg"
+  },
+  {
+   "naam": "Mahabharat",
+   "granth": "Mahabharat",
+   "img": "5.jpg"
+  },
+  {
+   "naam": "Paheli, Rahasya, What If",
+   "granth": "Pichhli kathaon par",
+   "img": "6.jpg"
+  }
  ]
 }
