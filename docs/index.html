@@ -167,7 +167,7 @@ function channel(ch, lists) {
   out.push(el("section", "", null, head("Naya Mythology channel", ch.start ? `Shuru: ${short(ch.start)}` : "Jald aa raha hai. Har din ek nayi mahagatha."), wk));
   for (const x of ch.series) {
     const parts = lists[x.file] || [], n = parts.find(p => !p.video_id);
-    wk.append(el("article", "card" + (x.day === wday(today) ? " today" : ""), null, pic(`img/${x.day}.jpg`, ""), el("span", "d", x.din), el("div", "in", null, el("h3", "", x.naam), el("p", "", x.granth), n ? chip("wait", `Bhaag ${n.bhaag}: ${n.naam}`) : chip("off", parts.length ? "Season poora" : "Kahani chun rahe hain"))));
+    wk.append(el("article", "card" + (x.day === wday(today) ? " today" : ""), null, pic(`img/${x.day}.jpg`, ""), el("span", "d", x.din), el("div", "in", null, el("h3", "", x.naam), el("p", "", x.granth), n ? chip("wait", `Bhaag ${n.bhaag}: ${n.naam}`) : chip("off", parts.length ? "List poori" : "Kahani chun rahe hain"))));
     if (!parts.length) continue;
     let d = null; if (ch.start) { d = ch.start > today ? ch.start : today; d = plus(d, (x.day - wday(d) + 7) % 7); }
     const ol = el("ol", "path"), dn = parts.filter(p => p.video_id).length;
@@ -177,7 +177,7 @@ function channel(ch, lists) {
       ol.append(el("li", p.video_id ? "done" : p === n ? "now" : "", null, el("span", "n", p.bhaag), el("div", "", null, el("h3", "", p.naam), info)));
     }
     const bar = el("i"); bar.style.width = Math.max(2, dn / parts.length * 100) + "%";
-    out.push(el("section", "", null, head(`${x.naam}: Season 1`, `${parts.length} mein se ${dn} bhaag aa chuke`), el("div", "bar", null, bar), ol));
+    out.push(el("section", "", null, head(`${x.naam}: saare bhaag`, `${parts.length} mein se ${dn} bhaag aa chuke`), el("div", "bar", null, bar), ol));
   }
   return out;
 }

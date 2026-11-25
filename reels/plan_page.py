@@ -48,12 +48,12 @@ def channel(now):
     detail = []
     for s in ch["series"]:
         parts = load("plan", s["file"], default=[]) if s.get("file") else []; todo = [p for p in parts if not p.get("video_id")]
-        nxt = f"Bhaag {todo[0]['bhaag']}: {todo[0]['naam']}" if todo else "Season poora" if parts else "List banni baaki"
+        nxt = f"Bhaag {todo[0]['bhaag']}: {todo[0]['naam']}" if todo else "List poori" if parts else "List banni baaki"
         out.append(f"| {s['din']} | {s['naam']} | {s['granth']} | {cell(nxt)} |")
         if not parts: continue
         d = None
         if start: d = max(start, now.date()); d += dt.timedelta(days=(s["day"] - d.weekday()) % 7)
-        detail += ["", f"### {s['naam']}: Season 1", "", "| Bhaag | Kahani | Kaand, sarg | Kab | Haalat |", "|---|---|---|---|---|"]
+        detail += ["", f"### {s['naam']}: saare bhaag", "", "| Bhaag | Kahani | Kaand, sarg | Kab | Haalat |", "|---|---|---|---|---|"]
         for p in parts:
             if p.get("video_id"): k, st = p.get("date") or "-", "Aa gayi " + link(p["video_id"])
             else:
