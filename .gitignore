@@ -10,8 +10,8 @@ paheli-krishna/references/videos/*
 
 # Pushpak Katha: local only
 pushpak-katha/.venv/
-pushpak-katha/samples/
-pushpak-katha/art/
+
+
 
 # local notes for Claude (not published)
 CLAUDE.md

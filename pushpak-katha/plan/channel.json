@@ -1,12 +1,14 @@
 {
  "start": null,
+ "per_day": 1,
+ "url": "https://www.youtube.com/@PushpakKatha",
  "series": [
-  {"day": 0, "din": "Somvaar", "naam": "Shiv Mahagatha", "granth": "Shiv Puran", "file": null},
-  {"day": 1, "din": "Mangalvaar", "naam": "Ramayan", "granth": "Valmiki Ramayan", "file": "ramayan.json"},
-  {"day": 2, "din": "Budhvaar", "naam": "Ganesh Leela", "granth": "Ganesh Puran, Shiv Puran", "file": null},
-  {"day": 3, "din": "Guruvaar", "naam": "Krishna Leela", "granth": "Bhagwat Puran, skandh 10", "file": null},
-  {"day": 4, "din": "Shukravaar", "naam": "Bhakton ki Gatha", "granth": "Bhagwat Puran, Ramcharitmanas", "file": null},
-  {"day": 5, "din": "Shanivaar", "naam": "Mahabharat", "granth": "Mahabharat", "file": null},
-  {"day": 6, "din": "Ravivaar", "naam": "Paheli, Rahasya, What If", "granth": "us hafte ki 6 kathayein", "file": null}
+  {
+   "day": null,
+   "din": "Roz",
+   "naam": "Ramayan",
+   "granth": "Valmiki Ramayan, 7 kaand, 661 adhyay",
+   "file": "ramayan.json"
+  }
  ]
 }

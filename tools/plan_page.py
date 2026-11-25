@@ -54,7 +54,10 @@ def channel(now):
         out.append(f"| {s['din']} | {s['naam']} | {s['granth']} | {cell(nxt)} |")
         if not parts: continue
         d = None
-        if start: d = max(start, now.date()); d += dt.timedelta(days=(s["day"] - d.weekday()) % 7)
+        if start:
+            d = max(start, now.date())
+            if s["day"] is not None: d += dt.timedelta(days=(s["day"] - d.weekday()) % 7)
+        step, k_day = (dt.timedelta(days=1), 0) if s["day"] is None else (dt.timedelta(days=7), 0)      # no fixed weekday = every day
         detail += ["", f"### {s['naam']}: saare {len(parts)} bhaag"]; khand = None
         for p in parts:
             if p.get("khand", "") != khand:
@@ -64,7 +67,9 @@ def channel(now):
             if p.get("video_id"): k, st = p.get("date") or "-", "Aa gayi " + link(p["video_id"]) + (f"<br>Kahan ruke: {cell(p['ruke'])}" if p.get("ruke") else "")
             else:
                 k = f"{d:%d-%m-%Y}" if d else "tay nahi"; st = "**Agla**" if p is todo[0] else "Baaki"
-                if d: d += dt.timedelta(days=7)
+                if d:
+                    k_day += 1
+                    if k_day >= (ch.get("per_day", 1) if s["day"] is None else 1): d += step; k_day = 0
             out_src = f"[{p['kaand']} {p['sarg']}]({p['link']})"; detail.append(f"| {p['bhaag']} | {cell(p['naam'])} | {out_src} | {k} | {st} |")
         detail += ["", "</details>"]
     return out + detail + ["", "*Kram granth ki adhyay-soochi se liya hai. Har adhyay poora padhkar hi uski script banegi.*"]

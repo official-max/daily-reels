@@ -41,13 +41,7 @@ Shuru hone ki tareekh: **abhi tay nahi**. Tay hote hi neeche tareekhein apne aap
 
 | Din | Series | Granth | Agla bhaag |
 |---|---|---|---|
-| Somvaar | Shiv Mahagatha | Shiv Puran | List banni baaki |
-| Mangalvaar | Ramayan | Valmiki Ramayan | Bhaag 1: Agastya rishi Ram ji ke darbar mein |
-| Budhvaar | Ganesh Leela | Ganesh Puran, Shiv Puran | List banni baaki |
-| Guruvaar | Krishna Leela | Bhagwat Puran, skandh 10 | List banni baaki |
-| Shukravaar | Bhakton ki Gatha | Bhagwat Puran, Ramcharitmanas | List banni baaki |
-| Shanivaar | Mahabharat | Mahabharat | List banni baaki |
-| Ravivaar | Paheli, Rahasya, What If | us hafte ki 6 kathayein | List banni baaki |
+| Roz | Ramayan | Valmiki Ramayan, 7 kaand, 661 adhyay | Bhaag 1: Agastya rishi Ram ji ke darbar mein |
 
 ### Ramayan: saare 732 bhaag
 
@@ -855,4 +849,4 @@ Shuru hone ki tareekh: **abhi tay nahi**. Tay hote hi neeche tareekhein apne aap
 
 *Kram granth ki adhyay-soochi se liya hai. Har adhyay poora padhkar hi uski script banegi.*
 
-Aakhri update: 26-11-2026 03:01 IST
+Aakhri update: 26-11-2026 03:11 IST
