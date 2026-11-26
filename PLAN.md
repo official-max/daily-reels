@@ -10,19 +10,22 @@ Roz 3 video: **12:00, 16:00, 19:00** (IST).
 
 | Kab | Haalat | Video |
 |---|---|---|
-| Guru 26-11-2026, 12:00 | Taiyar, YouTube par schedule | Mahan Arjun Bhi Haar Maan Gaye The? 😲 Haar Ke Baad Gita / Part 2 #shorts |
-| Guru 26-11-2026, 16:00 | Taiyar, YouTube par schedule | Krishna Ke Ek Kaam Ne Badal Di Zindagi! 🙏 Haar Ke Baad Gita / Part 3 #shorts |
-| Guru 26-11-2026, 19:00 | Taiyar, YouTube par schedule | Bina Chhue Rekha Chhoti Kaise Kare? 🤔 Raja Ki Chaak Paheli / Part 1 #shorts |
-| Shukr 27-11-2026, 12:00 | Abhi banni baaki | - |
-| Shukr 27-11-2026, 16:00 | Abhi banni baaki | - |
-| Shukr 27-11-2026, 19:00 | Abhi banni baaki | - |
+| Shukr 27-11-2026, 12:00 | Taiyar, YouTube par schedule | Kisan Ne Bina Chhue Rekha Chhoti Kar Di! 😲 Raja Ki Chaak Paheli / Part 2 #shorts |
+| Shukr 27-11-2026, 16:00 | Taiyar, YouTube par schedule | Ghar Mein Mehmaan, Rasoi Khaali! 😢 Khaali Bartan Ka Chamatkar / Part 1 #shorts |
+| Shukr 27-11-2026, 19:00 | Taiyar, YouTube par schedule | Ek Daane Se Bhar Gaya Hazaaron Ka Pet! 😲 Khaali Bartan Ka Chamatkar / Part 2 #shorts |
+| Shani 28-11-2026, 12:00 | Abhi banni baaki | - |
+| Shani 28-11-2026, 16:00 | Abhi banni baaki | - |
+| Shani 28-11-2026, 19:00 | Abhi banni baaki | - |
 
-Chal rahi series: **Raja Ki Chaak Paheli**, agla part: **2**
+Agli run nayi series shuru karegi: **Paheli**
 
 ### Pichhli 12
 
 | Kab | Type | Series | Part | Video |
 |---|---|---|---|---|
+| Guru 26-11-2026, 19:00 | Paheli | Raja Ki Chaak Paheli | 1/2 | [dekho](https://youtube.com/shorts/gvIWlm3BCvE) |
+| Guru 26-11-2026, 16:00 | Krishna katha | Haar Ke Baad Gita | 3/3 | [dekho](https://youtube.com/shorts/QBHbW7aYIgo) |
+| Guru 26-11-2026, 12:00 | Krishna katha | Haar Ke Baad Gita | 2/3 | [dekho](https://youtube.com/shorts/Anw4idvh6Dg) |
 | Budh 25-11-2026, 19:00 | Krishna katha | Haar Ke Baad Gita | 1/3 | [dekho](https://youtube.com/shorts/I21s08irMsU) |
 | Budh 25-11-2026, 16:00 | Paheli | Mazdoor Ki Paheli | 2/2 | [dekho](https://youtube.com/shorts/EHsGPHXpo5g) |
 | Budh 25-11-2026, 12:00 | Paheli | Mazdoor Ki Paheli | 1/2 | [dekho](https://youtube.com/shorts/DsQsTUq52bI) |
@@ -32,8 +35,6 @@ Chal rahi series: **Raja Ki Chaak Paheli**, agla part: **2**
 | Som 23-11-2026, 19:00 | Paheli | Ek Sikka, Khaali Kamra | 2/2 | [dekho](https://youtube.com/shorts/CZOX2ZyGvOs) |
 | Som 23-11-2026, 16:00 | Paheli | Ek Sikka, Khaali Kamra | 1/2 | [dekho](https://youtube.com/shorts/nNz2rpAEEbQ) |
 | Som 23-11-2026, 12:00 | Krishna katha | Garib Bhakt Ka Bhog | 3/3 | [dekho](https://youtube.com/shorts/iKyZt6DMdUU) |
-| Ravi 22-11-2026, 16:00 | Krishna katha | Garib Bhakt Ka Bhog | 2/3 | [dekho](https://youtube.com/shorts/idNrMw4ffDc) |
-| Ravi 22-11-2026, 12:00 | Krishna katha | Garib Bhakt Ka Bhog | 1/3 | [dekho](https://youtube.com/shorts/BmV520VdkrU) |
 
 ## 2. Pushpak Katha (taiyari chal rahi hai)
 
@@ -860,4 +861,4 @@ Shuru hone ki tareekh: **abhi tay nahi**. Tay hote hi neeche tareekhein apne aap
 
 *Kram granth ki adhyay-soochi se liya hai. Har adhyay poora padhkar hi uski script banegi.*
 
-Aakhri update: 26-11-2026 03:48 IST
+Aakhri update: 26-11-2026 21:07 IST
