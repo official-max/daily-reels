@@ -1,298 +1,381 @@
 {
  "active": {
-  "series_title": "Kumhar Ki Angoothi",
+  "series_title": "Sudama Ki Potli",
   "parts": [
    {
-    "topic": "Karz mein dooba kumhar Raja se mohlat maangta hai, Raja shart rakhta hai: aisi angoothi lao jo dukhi ko khush aur khush ko dukhi kare",
-    "hook": "Bure din kab *khatam* honge?",
-    "p_name": "Garib Kumhar",
-    "label": "PAHELI",
-    "title_line1": "Kumhar Ki",
-    "title_line2": "Angoothi",
-    "title_sub": "Raja ki ulti shart",
-    "end_text": "COMMENT KARO",
-    "end_sub": "Sahi jawab Part 2 mein",
-    "yt_title": "Dukhi Ko Khush, Khush Ko Dukhi? 🤔 Kumhar Ki Angoothi | Part 1 #shorts",
-    "yt_description": "Karz mein dooba ek garib kumhar Raja ke darbar pahuncha.\nRaja ne rakhi ulti shart: aisi angoothi lao jo dukhi ko khush aur khush ko dukhi kar de!\nAngoothi par kya likha tha? Comment karo!\n#paheli #hindikahani #rajakikahani #shorts #hindistory #moralstory #cartoon",
+    "topic": "Ek dukhi pita ko Krishna Sudama ki kahani sunate hain: garib Sudama mutthi bhar chiwda lekar Dwarka pahunchte hain",
+    "hook": "Kiske aage haath *phailaun*?",
+    "p_name": "Dukhi Pita",
+    "label": "KRISHNA KATHA",
+    "title_line1": "Khaali Jeb,",
+    "title_line2": "Bhookhe Bachche",
+    "title_sub": "Krishna ne sunayi kahani",
+    "end_text": "KAL PART 2",
+    "end_sub": "Follow karo, miss mat karo",
+    "yt_title": "Naukri Gayi, Bachche Bhookhe! 😢 Sudama Ki Potli | Part 1 #shorts",
+    "yt_description": "Naukri chali gayi, ghar mein bachche bhookhe... kiske aage haath phailayein?\nTab Shri Krishna ne sunayi apne garib mitra Sudama ki kahani.\nMutthi bhar chiwda lekar Sudama Dwarka pahunche... aage kya hua? Part 2 kal!\n#krishna #sudama #krishnakatha #bhagavatkatha #radheradhe #hindistory #shorts",
     "tags": [
-     "paheli",
-     "hindi kahani",
-     "raja ki kahani",
-     "kumhar ki angoothi",
-     "hindi paheli",
-     "moral story",
-     "cartoon story",
-     "shorts hindi",
-     "dimagi paheli",
-     "lok katha"
+     "krishna sudama",
+     "sudama ki kahani",
+     "krishna katha",
+     "bhagavat katha",
+     "krishna story hindi",
+     "sudama chiwda",
+     "krishna dosti",
+     "devotional shorts",
+     "radhe radhe",
+     "hindi kahani"
     ],
     "shots": [
      {
-      "scene": "darbar",
+      "scene": "meet",
       "mood": "sad",
-      "sticker": "BURE DIN?",
+      "sticker": "KHAALI JEB",
       "cards": [],
       "lines": [
        {
-        "speaker": "N",
-        "hindi": "क्या आपके भी बुरे दिन खत्म ही नहीं होते? सुनिए, एक गरीब कुम्हार की कहानी।",
-        "caption": "Kya aapke bhi *bure din* khatam hi nahi hote? Suniye, ek *garib kumhar* ki kahani."
+        "speaker": "P",
+        "hindi": "नौकरी चली गई, बच्चे भूखे हैं... किसके आगे हाथ फैलाऊँ?",
+        "caption": "Naukri chali gayi, bachche *bhookhe* hain... kiske aage haath phailaun?"
+       },
+       {
+        "speaker": "A",
+        "hindi": "केशव, यह भाई बहुत टूट चुका है।",
+        "caption": "Keshav, yeh bhai bahut *toot* chuka hai."
        }
       ]
      },
      {
-      "scene": "darbar",
+      "scene": "meet",
+      "mood": "neutral",
+      "sticker": "EK PURANI KAHANI",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "K",
+        "hindi": "शर्म मत करो... मेरा एक मित्र था, सुदामा, तुमसे भी गरीब।",
+        "caption": "Sharm mat karo... mera ek mitra tha, *Sudama*, tumse bhi garib."
+       }
+      ]
+     },
+     {
+      "scene": "walk",
       "mood": "sad",
-      "sticker": "KARZ KA BOJH",
+      "sticker": "BHOOKHA PARIVAAR",
       "cards": [],
       "lines": [
        {
         "speaker": "N",
-        "hindi": "कर्ज़ में डूबा एक कुम्हार, राजा से मोहलत माँगने आया।",
-        "caption": "*Karz* mein dooba ek kumhar, Raja se *mohlat* maangne aaya."
+        "hindi": "सुदामा के घर में कई दिन चूल्हा नहीं जलता था।",
+        "caption": "Sudama ke ghar mein kai din *chulha* nahi jalta tha."
        },
        {
-        "speaker": "C",
-        "hindi": "महाराज, थोड़ा समय दीजिए... सब दिन एक जैसे नहीं रहते।",
-        "caption": "Maharaj, thoda samay dijiye... *sab din* ek jaise nahi rehte."
+        "speaker": "N",
+        "hindi": "फिर भी वह भगवान का नाम लेना कभी नहीं भूले।",
+        "caption": "Phir bhi woh Bhagwan ka *naam* lena kabhi nahi bhoole."
        }
       ]
      },
      {
-      "scene": "darbar",
-      "mood": "angry",
+      "scene": "walk",
+      "mood": "neutral",
+      "sticker": "MUTTHI BHAR CHIWDA",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "पत्नी बोली, द्वारका जाइए, आपके मित्र कृष्ण वहाँ के राजा हैं।",
+        "caption": "Patni boli, *Dwarka* jaiye, aapke mitra Krishna wahan ke raja hain."
+       },
+       {
+        "speaker": "N",
+        "hindi": "पड़ोस से माँगकर, उसने मुट्ठी भर चिवड़ा कपड़े में बाँध दिया।",
+        "caption": "Pados se maangkar, usne *mutthi bhar chiwda* kapde mein baandh diya."
+       }
+      ]
+     },
+     {
+      "scene": "walk",
+      "mood": "sad",
+      "sticker": "DWARKA KA MAHAL",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "कई दिन पैदल चलकर, सुदामा महल के सोने के दरवाज़े पर पहुँचे।",
+        "caption": "Kai din paidal chalkar, Sudama mahal ke *sone ke darwaze* par pahunche."
+       },
+       {
+        "speaker": "N",
+        "hindi": "मन काँप उठा... इतने बड़े राजा को, यह सूखा चिवड़ा दूँ?",
+        "caption": "Mann *kaanp* utha... itne bade raja ko, yeh sookha chiwda doon?"
+       }
+      ]
+     },
+     {
+      "scene": "divine",
+      "mood": "neutral",
       "sticker": "",
-      "cards": [
-       {
-        "icon": "clock",
-        "label": "Sirf 7 Din"
-       },
-       {
-        "icon": "question",
-        "label": "Ulti Angoothi"
-       }
-      ],
-      "lines": [
-       {
-        "speaker": "R",
-        "hindi": "बड़ी बातें करता है? तो ला एक ऐसी अंगूठी...",
-        "caption": "Badi baatein karta hai? To la ek aisi *angoothi*..."
-       },
-       {
-        "speaker": "R",
-        "hindi": "जो दुखी को खुश करे, और खुश को दुखी!",
-        "caption": "Jo *dukhi ko khush* kare, aur *khush ko dukhi*!"
-       }
-      ]
-     },
-     {
-      "scene": "darbar",
-      "mood": "angry",
-      "sticker": "",
-      "cards": [
-       {
-        "icon": "coin",
-        "label": "Jeet = Maafi"
-       },
-       {
-        "icon": "door",
-        "label": "Haar = Jail"
-       }
-      ],
-      "lines": [
-       {
-        "speaker": "R",
-        "hindi": "लाया तो कर्ज़ माफ़। नहीं लाया, तो पूरा परिवार जेल में!",
-        "caption": "Laaya to *karz maaf*. Nahi laaya, to poora parivaar *jail* mein!"
-       }
-      ]
-     },
-     {
-      "scene": "darbar",
-      "mood": "shock",
-      "sticker": "SAATVAN DIN",
       "cards": [],
       "lines": [
        {
         "speaker": "N",
-        "hindi": "दरबार में सन्नाटा। ऐसी अंगूठी, भला होती है कहीं?",
-        "caption": "Darbar mein *sannata*. Aisi angoothi, bhala hoti hai kahin?"
-       },
-       {
-        "speaker": "N",
-        "hindi": "सातवें दिन, कुम्हार लौटा... हाथ में लोहे की एक सादी अंगूठी।",
-        "caption": "Saatven din, kumhar lauta... haath mein *lohe ki* ek saadi angoothi."
-       }
-      ]
-     },
-     {
-      "scene": "darbar",
-      "mood": "happy",
-      "sticker": "KYA LIKHA HAI?",
-      "cards": [],
-      "lines": [
-       {
-        "speaker": "C",
-        "hindi": "महाराज, यह रही अंगूठी। इस पर लिखा पढ़िए।",
-        "caption": "Maharaj, yeh rahi angoothi. Is par *likha* padhiye."
-       },
-       {
-        "speaker": "N",
-        "hindi": "अंगूठी पर क्या लिखा था? जवाब कमेंट करो, सही जवाब मिलेगा पार्ट दो में!",
-        "caption": "Angoothi par kya likha tha? *Jawab comment karo*, sahi jawab milega *Part 2* mein!"
+        "hindi": "क्या कृष्ण अपने गरीब मित्र को पहचानेंगे? आगे क्या हुआ? पार्ट दो कल!",
+        "caption": "Kya Krishna apne garib mitra ko *pehchanenge*? Aage kya hua? Part 2 kal!"
        }
       ]
      }
     ]
    },
    {
-    "topic": "Angoothi par likha tha 'Yeh samay bhi beet jayega' - dukh mein hausla, sukh mein hosh; Raja ka ghamand toota",
-    "hook": "Angoothi par kya *likha* tha?",
-    "p_name": "Garib Kumhar",
-    "label": "PAHELI",
-    "title_line1": "Angoothi Ka",
-    "title_line2": "Raaz",
-    "title_sub": "Ek line, poora sach",
-    "end_text": "FOLLOW KARO",
-    "end_sub": "Yeh samay bhi beetega",
-    "yt_title": "Ek Line Ne Toda Raja Ka Ghamand! 😲 Kumhar Ki Angoothi | Part 2 #shorts",
-    "yt_description": "Lohe ki saadi angoothi par likhi ek line ne Raja ko hila diya.\nDukh mein hausla, sukh mein hosh - yahi hai is paheli ka jawab.\nAapka jawab sahi tha? Comment mein batao!\n#paheli #hindikahani #rajakikahani #shorts #moralstory #motivation #hindistory",
+    "topic": "Krishna nange paanv daudkar Sudama ko gale lagate hain, unke pair dhote hain aur prem se chiwda khate hain",
+    "hook": "Krishna nange *paanv* daude!",
+    "p_name": "Dukhi Pita",
+    "label": "KRISHNA KATHA",
+    "title_line1": "Nange Paanv",
+    "title_line2": "Daude Krishna",
+    "title_sub": "Sudama ki potli ka raaz",
+    "end_text": "KAL PART 3",
+    "end_sub": "Follow karo, kahani baaki",
+    "yt_title": "Krishna Ne Dhoye Garib Dost Ke Pair! 😲 Sudama Ki Potli | Part 2 #shorts",
+    "yt_description": "Garib Sudama Dwarka ke mahal pahunche, haath mein bas mutthi bhar chiwda.\nRaja Krishna nange paanv daude, gale lagaya aur khud unke pair dhoye!\nPar Sudama khaali haath kyun laute? Part 3 kal!\n#krishna #sudama #krishnasudama #dosti #krishnakatha #radheradhe #shorts",
     "tags": [
-     "paheli ka jawab",
-     "hindi kahani",
-     "raja ki kahani",
-     "kumhar ki angoothi",
-     "yeh samay bhi beet jayega",
-     "moral story",
-     "motivation hindi",
-     "cartoon story",
-     "shorts hindi",
-     "lok katha"
+     "krishna sudama",
+     "sudama milan",
+     "krishna dosti",
+     "sudama chiwda",
+     "krishna katha",
+     "bhagavat katha",
+     "dwarka",
+     "krishna story hindi",
+     "radhe radhe",
+     "devotional shorts"
     ],
     "shots": [
      {
-      "scene": "darbar",
+      "scene": "walk",
       "mood": "neutral",
-      "sticker": "PICHHLI BAAR",
+      "sticker": "KAL KI KAHANI",
       "cards": [],
       "lines": [
        {
         "speaker": "N",
-        "hindi": "राजा की शर्त थी... ऐसी अंगूठी, जो दुखी को खुश, और खुश को दुखी करे।",
-        "caption": "Raja ki shart thi... aisi angoothi, jo *dukhi ko khush*, aur *khush ko dukhi* kare."
+        "hindi": "गरीब सुदामा, मुट्ठी भर चिवड़ा लेकर, कृष्ण के महल पहुँचे थे।",
+        "caption": "Garib Sudama, *mutthi bhar chiwda* lekar, Krishna ke mahal pahunche the."
        }
       ]
      },
      {
-      "scene": "darbar",
+      "scene": "divine",
       "mood": "happy",
-      "sticker": "",
-      "cards": [
-       {
-        "icon": "lamp",
-        "label": "Samay Beetega"
-       }
-      ],
+      "sticker": "NANGE PAANV",
+      "cards": [],
       "lines": [
        {
         "speaker": "N",
-        "hindi": "राजा ने अंगूठी पढ़ी। लिखा था...",
-        "caption": "Raja ne angoothi padhi. *Likha tha*..."
+        "hindi": "पर जैसे ही कृष्ण ने सुना, वह नंगे पाँव दौड़ पड़े!",
+        "caption": "Par jaise hi Krishna ne suna, woh *nange paanv* daud pade!"
        },
        {
-        "speaker": "C",
-        "hindi": "यह समय भी बीत जाएगा।",
-        "caption": "*Yeh samay bhi* beet jayega."
+        "speaker": "N",
+        "hindi": "सुदामा को गले लगाया, और आँखों से आँसू बहने लगे।",
+        "caption": "Sudama ko *gale* lagaya, aur aankhon se aansu behne lage."
        }
       ]
      },
      {
-      "scene": "darbar",
-      "mood": "neutral",
-      "sticker": "",
-      "cards": [
-       {
-        "icon": "tick",
-        "label": "Dukh Mein Aas"
-       },
-       {
-        "icon": "crown",
-        "label": "Sukh Mein Hosh"
-       }
-      ],
+      "scene": "divine",
+      "mood": "happy",
+      "sticker": "RAJA NE DHOYE PAIR",
+      "cards": [],
       "lines": [
        {
-        "speaker": "C",
-        "hindi": "महाराज, दुख में यह पढ़ो, तो हिम्मत मिलती है... बुरा दिन भी जाएगा।",
-        "caption": "Maharaj, *dukh* mein yeh padho, to *himmat* milti hai... bura din bhi jayega."
+        "speaker": "N",
+        "hindi": "राजा कृष्ण ने, अपने हाथों से सुदामा के पैर धोए।",
+        "caption": "Raja Krishna ne, apne haathon se Sudama ke *pair dhoye*."
        },
        {
-        "speaker": "C",
-        "hindi": "और सुख में पढ़ो, तो घमंड टूटता है... यह राजगद्दी भी हमेशा नहीं।",
-        "caption": "Aur *sukh* mein padho, to *ghamand* toot-ta hai... yeh rajgaddi bhi hamesha nahi."
+        "speaker": "N",
+        "hindi": "रानी रुक्मिणी ने खुद पंखा झला... पूरा महल देखता रह गया।",
+        "caption": "Rani *Rukmini* ne khud pankha jhala... poora mahal dekhta reh gaya."
        }
       ]
      },
      {
-      "scene": "darbar",
+      "scene": "meet",
       "mood": "shock",
-      "sticker": "RAJA HAIRAAN",
+      "sticker": "",
       "cards": [],
       "lines": [
        {
-        "speaker": "N",
-        "hindi": "पूरा दरबार चुप। राजा की आँखें भर आईं।",
-        "caption": "Poora darbar chup. Raja ki *aankhein* bhar aayin."
+        "speaker": "A",
+        "hindi": "केशव, एक गरीब ब्राह्मण के पैर... आपने खुद धोए?",
+        "caption": "Keshav, ek garib brahman ke pair... aapne *khud* dhoye?"
        },
        {
-        "speaker": "R",
-        "hindi": "मेरा घमंड... एक लोहे की अंगूठी ने तोड़ दिया।",
-        "caption": "Mera *ghamand*... ek lohe ki angoothi ne *tod diya*."
+        "speaker": "K",
+        "hindi": "अर्जुन, मित्र गरीब हो सकता है... मित्रता कभी गरीब नहीं होती।",
+        "caption": "Arjun, mitra garib ho sakta hai... *mitrata* kabhi garib nahi hoti."
        }
       ]
      },
      {
-      "scene": "darbar",
+      "scene": "divine",
+      "mood": "happy",
+      "sticker": "CHHUPI POTLI",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "सुदामा पोटली छुपा रहे थे, कृष्ण ने हँसकर छीन ली, और प्रेम से चिवड़ा खाया।",
+        "caption": "Sudama *potli* chhupa rahe the, Krishna ne hanskar chheen li, aur *prem* se chiwda khaya."
+       }
+      ]
+     },
+     {
+      "scene": "walk",
+      "mood": "sad",
+      "sticker": "",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "पर सुदामा ने कुछ नहीं माँगा... खाली हाथ घर लौट पड़े।",
+        "caption": "Par Sudama ne kuch nahi maanga... *khaali haath* ghar laut pade."
+       },
+       {
+        "speaker": "N",
+        "hindi": "पत्नी को क्या कहेंगे? आगे क्या हुआ? पार्ट तीन कल!",
+        "caption": "Patni ko kya kahenge? Aage kya hua? *Part 3* kal!"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "topic": "Sudama ki jhopdi mahal ban jaati hai; Krishna dukhi pita ko sikhate hain ki Bhagwan bhent nahi, bhaav dekhte hain",
+    "hook": "Jhopdi ban gayi *mahal*!",
+    "p_name": "Dukhi Pita",
+    "label": "KRISHNA KATHA",
+    "title_line1": "Bina Maange",
+    "title_line2": "Sab Mil Gaya",
+    "title_sub": "Sudama ki potli ka ant",
+    "end_text": "RADHE RADHE",
+    "end_sub": "Bhaav ki seekh share karo",
+    "yt_title": "Khaali Haath Lauta, Ghar Bana Mahal! 🙏 Sudama Ki Potli | Part 3 #shorts",
+    "yt_description": "Sudama ne Krishna se kuch nahi maanga, phir bhi ghar laute to jhopdi mahal ban chuki thi.\nKrishna ne chiwda nahi, prem dekha tha.\nSeekh: Bhagwan bhent nahi, bhaav dekhte hain. Sharm chhodo, imaandari se karm karo.\n#krishna #sudama #krishnakatha #bhagavatkatha #motivation #radheradhe #shorts",
+    "tags": [
+     "krishna sudama",
+     "sudama ka mahal",
+     "bhagwan bhaav dekhte hain",
+     "krishna katha",
+     "bhagavat katha",
+     "krishna seekh",
+     "krishna motivation",
+     "sudama story",
+     "radhe radhe",
+     "devotional shorts"
+    ],
+    "shots": [
+     {
+      "scene": "walk",
+      "mood": "sad",
+      "sticker": "LAMBA RAASTA",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "खाली हाथ लौटते सुदामा सोच रहे थे, पत्नी को क्या जवाब दूँगा?",
+        "caption": "Khaali haath laut-te Sudama soch rahe the, patni ko kya *jawab* doonga?"
+       }
+      ]
+     },
+     {
+      "scene": "walk",
+      "mood": "shock",
+      "sticker": "JHOPDI BANI MAHAL",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "पर गाँव पहुँचे, तो टूटी झोपड़ी की जगह, सुंदर महल खड़ा था!",
+        "caption": "Par gaon pahunche, to tooti *jhopdi* ki jagah, sundar *mahal* khada tha!"
+       },
+       {
+        "speaker": "N",
+        "hindi": "पत्नी सुंदर कपड़ों में, बच्चे खुश... सुदामा की आँखें भर आईं।",
+        "caption": "Patni sundar kapdon mein, bachche *khush*... Sudama ki aankhein bhar aayin."
+       }
+      ]
+     },
+     {
+      "scene": "divine",
+      "mood": "happy",
+      "sticker": "BINA MAANGE",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "कृष्ण ने बिना माँगे सब दे दिया, क्योंकि उन्होंने चिवड़ा नहीं, प्रेम देखा।",
+        "caption": "Krishna ne *bina maange* sab de diya, kyunki unhone chiwda nahi, *prem* dekha."
+       }
+      ]
+     },
+     {
+      "scene": "meet",
+      "mood": "happy",
+      "sticker": "UMMEED JAAGI",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "P",
+        "hindi": "प्रभु, मेरे पास भी देने को बस मेहनत और भरोसा है।",
+        "caption": "Prabhu, mere paas bhi dene ko bas *mehnat* aur *bharosa* hai."
+       }
+      ]
+     },
+     {
+      "scene": "meet",
       "mood": "happy",
       "sticker": "",
-      "cards": [
-       {
-        "icon": "coin",
-        "label": "Karz Maaf"
-       }
-      ],
+      "cards": [],
       "lines": [
        {
-        "speaker": "R",
-        "hindi": "आज से तेरा कर्ज़ माफ़! और यह अंगूठी, मेरे हाथ में रहेगी।",
-        "caption": "Aaj se tera *karz maaf*! Aur yeh angoothi, *mere haath* mein rahegi."
+        "speaker": "K",
+        "hindi": "वही काफी है... शर्म छोड़ो, ईमानदारी से कर्म करो, बाकी मुझ पर छोड़ दो।",
+        "caption": "Wahi kaafi hai... sharm chhodo, *imaandari* se karm karo, baaki mujh par chhod do."
+       },
+       {
+        "speaker": "A",
+        "hindi": "सच है, सुदामा ने भी भरोसा नहीं छोड़ा था।",
+        "caption": "Sach hai, Sudama ne bhi *bharosa* nahi chhoda tha."
        }
       ]
      },
      {
-      "scene": "darbar",
+      "scene": "divine",
       "mood": "happy",
-      "sticker": "AAJ KI SEEKH",
+      "sticker": "",
       "cards": [],
       "lines": [
        {
-        "speaker": "N",
-        "hindi": "दोस्तों, घर की तंगी हो, या कामयाबी का नशा...",
-        "caption": "Doston, ghar ki *tangi* ho, ya kaamyabi ka *nasha*..."
+        "speaker": "K",
+        "hindi": "याद रखना, भगवान भेंट नहीं, भाव देखते हैं।",
+        "caption": "Yaad rakhna, Bhagwan *bhent* nahi, *bhaav* dekhte hain."
        },
        {
         "speaker": "N",
-        "hindi": "याद रखो, यह समय भी बीत जाएगा।",
-        "caption": "Yaad rakho, *yeh samay bhi beet jayega*."
+        "hindi": "आपका भरोसा किस पर है? कमेंट में लिखिए, राधे राधे।",
+        "caption": "Aapka bharosa kis par hai? *Comment* mein likhiye, Radhe Radhe."
        }
       ]
      }
     ]
    }
   ],
-  "type": "paheli",
+  "type": "devotional",
   "next": 1,
-  "theme": 3
+  "theme": 4
  },
- "last_kind": "devotional"
+ "last_kind": "paheli"
 }

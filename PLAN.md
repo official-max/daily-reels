@@ -10,19 +10,21 @@ Roz 3 video: **12:00, 16:00, 19:00** (IST).
 
 | Kab | Haalat | Video |
 |---|---|---|
-| Shukr 27-11-2026, 16:00 | Taiyar, YouTube par schedule | Ghar Mein Mehmaan, Rasoi Khaali! 😢 Khaali Bartan Ka Chamatkar / Part 1 #shorts |
-| Shukr 27-11-2026, 19:00 | Taiyar, YouTube par schedule | Ek Daane Se Bhar Gaya Hazaaron Ka Pet! 😲 Khaali Bartan Ka Chamatkar / Part 2 #shorts |
 | Shani 28-11-2026, 12:00 | Taiyar, YouTube par schedule | Dukhi Ko Khush, Khush Ko Dukhi? 🤔 Kumhar Ki Angoothi / Part 1 #shorts |
-| Shani 28-11-2026, 16:00 | Abhi banni baaki | - |
-| Shani 28-11-2026, 19:00 | Abhi banni baaki | - |
+| Shani 28-11-2026, 16:00 | Taiyar, YouTube par schedule | Ek Line Ne Toda Raja Ka Ghamand! 😲 Kumhar Ki Angoothi / Part 2 #shorts |
+| Shani 28-11-2026, 19:00 | Taiyar, YouTube par schedule | Naukri Gayi, Bachche Bhookhe! 😢 Sudama Ki Potli / Part 1 #shorts |
 | Ravi 29-11-2026, 12:00 | Abhi banni baaki | - |
+| Ravi 29-11-2026, 16:00 | Abhi banni baaki | - |
+| Ravi 29-11-2026, 19:00 | Abhi banni baaki | - |
 
-Chal rahi series: **Kumhar Ki Angoothi**, agla part: **2**
+Chal rahi series: **Sudama Ki Potli**, agla part: **2**
 
 ### Pichhli 12
 
 | Kab | Type | Series | Part | Video |
 |---|---|---|---|---|
+| Shukr 27-11-2026, 19:00 | Krishna katha | Khaali Bartan Ka Chamatkar | 2/2 | [dekho](https://youtube.com/shorts/8VD9-QOBsOw) |
+| Shukr 27-11-2026, 16:00 | Krishna katha | Khaali Bartan Ka Chamatkar | 1/2 | [dekho](https://youtube.com/shorts/Nco_PY9abiU) |
 | Shukr 27-11-2026, 12:00 | Paheli | Raja Ki Chaak Paheli | 2/2 | [dekho](https://youtube.com/shorts/nxULJ09FsO0) |
 | Guru 26-11-2026, 19:00 | Paheli | Raja Ki Chaak Paheli | 1/2 | [dekho](https://youtube.com/shorts/gvIWlm3BCvE) |
 | Guru 26-11-2026, 16:00 | Krishna katha | Haar Ke Baad Gita | 3/3 | [dekho](https://youtube.com/shorts/QBHbW7aYIgo) |
@@ -33,8 +35,6 @@ Chal rahi series: **Kumhar Ki Angoothi**, agla part: **2**
 | Mangal 24-11-2026, 19:00 | Krishna katha | Do Sikkon Ka Chamatkar | 3/3 | [dekho](https://youtube.com/shorts/UDXDPhjblw8) |
 | Mangal 24-11-2026, 16:00 | Krishna katha | Do Sikkon Ka Chamatkar | 2/3 | [dekho](https://youtube.com/shorts/-BUnEQ1UTkk) |
 | Mangal 24-11-2026, 12:00 | Krishna katha | Do Sikkon Ka Chamatkar | 1/3 | [dekho](https://youtube.com/shorts/MMxthtWyfEk) |
-| Som 23-11-2026, 19:00 | Paheli | Ek Sikka, Khaali Kamra | 2/2 | [dekho](https://youtube.com/shorts/CZOX2ZyGvOs) |
-| Som 23-11-2026, 16:00 | Paheli | Ek Sikka, Khaali Kamra | 1/2 | [dekho](https://youtube.com/shorts/nNz2rpAEEbQ) |
 
 ## 2. Pushpak Katha (taiyari chal rahi hai)
 
@@ -861,4 +861,4 @@ Shuru hone ki tareekh: **abhi tay nahi**. Tay hote hi neeche tareekhein apne aap
 
 *Kram granth ki adhyay-soochi se liya hai. Har adhyay poora padhkar hi uski script banegi.*
 
-Aakhri update: 27-11-2026 15:18 IST
+Aakhri update: 28-11-2026 01:14 IST
