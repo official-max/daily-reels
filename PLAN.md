@@ -10,19 +10,20 @@ Roz 3 video: **12:00, 16:00, 19:00** (IST).
 
 | Kab | Haalat | Video |
 |---|---|---|
-| Shukr 27-11-2026, 12:00 | Taiyar, YouTube par schedule | Kisan Ne Bina Chhue Rekha Chhoti Kar Di! 😲 Raja Ki Chaak Paheli / Part 2 #shorts |
 | Shukr 27-11-2026, 16:00 | Taiyar, YouTube par schedule | Ghar Mein Mehmaan, Rasoi Khaali! 😢 Khaali Bartan Ka Chamatkar / Part 1 #shorts |
 | Shukr 27-11-2026, 19:00 | Taiyar, YouTube par schedule | Ek Daane Se Bhar Gaya Hazaaron Ka Pet! 😲 Khaali Bartan Ka Chamatkar / Part 2 #shorts |
-| Shani 28-11-2026, 12:00 | Abhi banni baaki | - |
+| Shani 28-11-2026, 12:00 | Taiyar, YouTube par schedule | Dukhi Ko Khush, Khush Ko Dukhi? 🤔 Kumhar Ki Angoothi / Part 1 #shorts |
 | Shani 28-11-2026, 16:00 | Abhi banni baaki | - |
 | Shani 28-11-2026, 19:00 | Abhi banni baaki | - |
+| Ravi 29-11-2026, 12:00 | Abhi banni baaki | - |
 
-Agli run nayi series shuru karegi: **Paheli**
+Chal rahi series: **Kumhar Ki Angoothi**, agla part: **2**
 
 ### Pichhli 12
 
 | Kab | Type | Series | Part | Video |
 |---|---|---|---|---|
+| Shukr 27-11-2026, 12:00 | Paheli | Raja Ki Chaak Paheli | 2/2 | [dekho](https://youtube.com/shorts/nxULJ09FsO0) |
 | Guru 26-11-2026, 19:00 | Paheli | Raja Ki Chaak Paheli | 1/2 | [dekho](https://youtube.com/shorts/gvIWlm3BCvE) |
 | Guru 26-11-2026, 16:00 | Krishna katha | Haar Ke Baad Gita | 3/3 | [dekho](https://youtube.com/shorts/QBHbW7aYIgo) |
 | Guru 26-11-2026, 12:00 | Krishna katha | Haar Ke Baad Gita | 2/3 | [dekho](https://youtube.com/shorts/Anw4idvh6Dg) |
@@ -34,7 +35,6 @@ Agli run nayi series shuru karegi: **Paheli**
 | Mangal 24-11-2026, 12:00 | Krishna katha | Do Sikkon Ka Chamatkar | 1/3 | [dekho](https://youtube.com/shorts/MMxthtWyfEk) |
 | Som 23-11-2026, 19:00 | Paheli | Ek Sikka, Khaali Kamra | 2/2 | [dekho](https://youtube.com/shorts/CZOX2ZyGvOs) |
 | Som 23-11-2026, 16:00 | Paheli | Ek Sikka, Khaali Kamra | 1/2 | [dekho](https://youtube.com/shorts/nNz2rpAEEbQ) |
-| Som 23-11-2026, 12:00 | Krishna katha | Garib Bhakt Ka Bhog | 3/3 | [dekho](https://youtube.com/shorts/iKyZt6DMdUU) |
 
 ## 2. Pushpak Katha (taiyari chal rahi hai)
 
@@ -861,4 +861,4 @@ Shuru hone ki tareekh: **abhi tay nahi**. Tay hote hi neeche tareekhein apne aap
 
 *Kram granth ki adhyay-soochi se liya hai. Har adhyay poora padhkar hi uski script banegi.*
 
-Aakhri update: 26-11-2026 21:07 IST
+Aakhri update: 27-11-2026 15:18 IST

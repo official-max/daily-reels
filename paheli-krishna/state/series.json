@@ -1,4 +1,298 @@
 {
- "active": null,
+ "active": {
+  "series_title": "Kumhar Ki Angoothi",
+  "parts": [
+   {
+    "topic": "Karz mein dooba kumhar Raja se mohlat maangta hai, Raja shart rakhta hai: aisi angoothi lao jo dukhi ko khush aur khush ko dukhi kare",
+    "hook": "Bure din kab *khatam* honge?",
+    "p_name": "Garib Kumhar",
+    "label": "PAHELI",
+    "title_line1": "Kumhar Ki",
+    "title_line2": "Angoothi",
+    "title_sub": "Raja ki ulti shart",
+    "end_text": "COMMENT KARO",
+    "end_sub": "Sahi jawab Part 2 mein",
+    "yt_title": "Dukhi Ko Khush, Khush Ko Dukhi? 🤔 Kumhar Ki Angoothi | Part 1 #shorts",
+    "yt_description": "Karz mein dooba ek garib kumhar Raja ke darbar pahuncha.\nRaja ne rakhi ulti shart: aisi angoothi lao jo dukhi ko khush aur khush ko dukhi kar de!\nAngoothi par kya likha tha? Comment karo!\n#paheli #hindikahani #rajakikahani #shorts #hindistory #moralstory #cartoon",
+    "tags": [
+     "paheli",
+     "hindi kahani",
+     "raja ki kahani",
+     "kumhar ki angoothi",
+     "hindi paheli",
+     "moral story",
+     "cartoon story",
+     "shorts hindi",
+     "dimagi paheli",
+     "lok katha"
+    ],
+    "shots": [
+     {
+      "scene": "darbar",
+      "mood": "sad",
+      "sticker": "BURE DIN?",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "क्या आपके भी बुरे दिन खत्म ही नहीं होते? सुनिए, एक गरीब कुम्हार की कहानी।",
+        "caption": "Kya aapke bhi *bure din* khatam hi nahi hote? Suniye, ek *garib kumhar* ki kahani."
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "sad",
+      "sticker": "KARZ KA BOJH",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "कर्ज़ में डूबा एक कुम्हार, राजा से मोहलत माँगने आया।",
+        "caption": "*Karz* mein dooba ek kumhar, Raja se *mohlat* maangne aaya."
+       },
+       {
+        "speaker": "C",
+        "hindi": "महाराज, थोड़ा समय दीजिए... सब दिन एक जैसे नहीं रहते।",
+        "caption": "Maharaj, thoda samay dijiye... *sab din* ek jaise nahi rehte."
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "angry",
+      "sticker": "",
+      "cards": [
+       {
+        "icon": "clock",
+        "label": "Sirf 7 Din"
+       },
+       {
+        "icon": "question",
+        "label": "Ulti Angoothi"
+       }
+      ],
+      "lines": [
+       {
+        "speaker": "R",
+        "hindi": "बड़ी बातें करता है? तो ला एक ऐसी अंगूठी...",
+        "caption": "Badi baatein karta hai? To la ek aisi *angoothi*..."
+       },
+       {
+        "speaker": "R",
+        "hindi": "जो दुखी को खुश करे, और खुश को दुखी!",
+        "caption": "Jo *dukhi ko khush* kare, aur *khush ko dukhi*!"
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "angry",
+      "sticker": "",
+      "cards": [
+       {
+        "icon": "coin",
+        "label": "Jeet = Maafi"
+       },
+       {
+        "icon": "door",
+        "label": "Haar = Jail"
+       }
+      ],
+      "lines": [
+       {
+        "speaker": "R",
+        "hindi": "लाया तो कर्ज़ माफ़। नहीं लाया, तो पूरा परिवार जेल में!",
+        "caption": "Laaya to *karz maaf*. Nahi laaya, to poora parivaar *jail* mein!"
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "shock",
+      "sticker": "SAATVAN DIN",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "दरबार में सन्नाटा। ऐसी अंगूठी, भला होती है कहीं?",
+        "caption": "Darbar mein *sannata*. Aisi angoothi, bhala hoti hai kahin?"
+       },
+       {
+        "speaker": "N",
+        "hindi": "सातवें दिन, कुम्हार लौटा... हाथ में लोहे की एक सादी अंगूठी।",
+        "caption": "Saatven din, kumhar lauta... haath mein *lohe ki* ek saadi angoothi."
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "happy",
+      "sticker": "KYA LIKHA HAI?",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "C",
+        "hindi": "महाराज, यह रही अंगूठी। इस पर लिखा पढ़िए।",
+        "caption": "Maharaj, yeh rahi angoothi. Is par *likha* padhiye."
+       },
+       {
+        "speaker": "N",
+        "hindi": "अंगूठी पर क्या लिखा था? जवाब कमेंट करो, सही जवाब मिलेगा पार्ट दो में!",
+        "caption": "Angoothi par kya likha tha? *Jawab comment karo*, sahi jawab milega *Part 2* mein!"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "topic": "Angoothi par likha tha 'Yeh samay bhi beet jayega' - dukh mein hausla, sukh mein hosh; Raja ka ghamand toota",
+    "hook": "Angoothi par kya *likha* tha?",
+    "p_name": "Garib Kumhar",
+    "label": "PAHELI",
+    "title_line1": "Angoothi Ka",
+    "title_line2": "Raaz",
+    "title_sub": "Ek line, poora sach",
+    "end_text": "FOLLOW KARO",
+    "end_sub": "Yeh samay bhi beetega",
+    "yt_title": "Ek Line Ne Toda Raja Ka Ghamand! 😲 Kumhar Ki Angoothi | Part 2 #shorts",
+    "yt_description": "Lohe ki saadi angoothi par likhi ek line ne Raja ko hila diya.\nDukh mein hausla, sukh mein hosh - yahi hai is paheli ka jawab.\nAapka jawab sahi tha? Comment mein batao!\n#paheli #hindikahani #rajakikahani #shorts #moralstory #motivation #hindistory",
+    "tags": [
+     "paheli ka jawab",
+     "hindi kahani",
+     "raja ki kahani",
+     "kumhar ki angoothi",
+     "yeh samay bhi beet jayega",
+     "moral story",
+     "motivation hindi",
+     "cartoon story",
+     "shorts hindi",
+     "lok katha"
+    ],
+    "shots": [
+     {
+      "scene": "darbar",
+      "mood": "neutral",
+      "sticker": "PICHHLI BAAR",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "राजा की शर्त थी... ऐसी अंगूठी, जो दुखी को खुश, और खुश को दुखी करे।",
+        "caption": "Raja ki shart thi... aisi angoothi, jo *dukhi ko khush*, aur *khush ko dukhi* kare."
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "happy",
+      "sticker": "",
+      "cards": [
+       {
+        "icon": "lamp",
+        "label": "Samay Beetega"
+       }
+      ],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "राजा ने अंगूठी पढ़ी। लिखा था...",
+        "caption": "Raja ne angoothi padhi. *Likha tha*..."
+       },
+       {
+        "speaker": "C",
+        "hindi": "यह समय भी बीत जाएगा।",
+        "caption": "*Yeh samay bhi* beet jayega."
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "neutral",
+      "sticker": "",
+      "cards": [
+       {
+        "icon": "tick",
+        "label": "Dukh Mein Aas"
+       },
+       {
+        "icon": "crown",
+        "label": "Sukh Mein Hosh"
+       }
+      ],
+      "lines": [
+       {
+        "speaker": "C",
+        "hindi": "महाराज, दुख में यह पढ़ो, तो हिम्मत मिलती है... बुरा दिन भी जाएगा।",
+        "caption": "Maharaj, *dukh* mein yeh padho, to *himmat* milti hai... bura din bhi jayega."
+       },
+       {
+        "speaker": "C",
+        "hindi": "और सुख में पढ़ो, तो घमंड टूटता है... यह राजगद्दी भी हमेशा नहीं।",
+        "caption": "Aur *sukh* mein padho, to *ghamand* toot-ta hai... yeh rajgaddi bhi hamesha nahi."
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "shock",
+      "sticker": "RAJA HAIRAAN",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "पूरा दरबार चुप। राजा की आँखें भर आईं।",
+        "caption": "Poora darbar chup. Raja ki *aankhein* bhar aayin."
+       },
+       {
+        "speaker": "R",
+        "hindi": "मेरा घमंड... एक लोहे की अंगूठी ने तोड़ दिया।",
+        "caption": "Mera *ghamand*... ek lohe ki angoothi ne *tod diya*."
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "happy",
+      "sticker": "",
+      "cards": [
+       {
+        "icon": "coin",
+        "label": "Karz Maaf"
+       }
+      ],
+      "lines": [
+       {
+        "speaker": "R",
+        "hindi": "आज से तेरा कर्ज़ माफ़! और यह अंगूठी, मेरे हाथ में रहेगी।",
+        "caption": "Aaj se tera *karz maaf*! Aur yeh angoothi, *mere haath* mein rahegi."
+       }
+      ]
+     },
+     {
+      "scene": "darbar",
+      "mood": "happy",
+      "sticker": "AAJ KI SEEKH",
+      "cards": [],
+      "lines": [
+       {
+        "speaker": "N",
+        "hindi": "दोस्तों, घर की तंगी हो, या कामयाबी का नशा...",
+        "caption": "Doston, ghar ki *tangi* ho, ya kaamyabi ka *nasha*..."
+       },
+       {
+        "speaker": "N",
+        "hindi": "याद रखो, यह समय भी बीत जाएगा।",
+        "caption": "Yaad rakho, *yeh samay bhi beet jayega*."
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "type": "paheli",
+  "next": 1,
+  "theme": 3
+ },
  "last_kind": "devotional"
 }
