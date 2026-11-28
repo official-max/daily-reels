@@ -67,17 +67,60 @@ def write_with_claude(part, plan):
     raise RuntimeError(" | ".join(err)[-1500:])
 
 
-def render(n):
-    f = files(n)
-    if os.path.exists(f["mp4"]): os.remove(f["mp4"])
-    r = subprocess.run([sys.executable, f["py"]], cwd=ROOT, env=dict(os.environ, PYTHONUTF8="1"), capture_output=True, text=True, encoding="utf-8", timeout=7200)
-    log(r.stdout[-800:])
-    if r.returncode != 0 or not os.path.exists(f["mp4"]): raise RuntimeError(f"render failed: {r.stderr[-1200:]}")
+def ff(*args):
     import imageio_ffmpeg
-    info = subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-i", f["mp4"]], capture_output=True, text=True).stderr
-    hh, mm, ss = info.split("Duration: ")[1].split(",")[0].split(":"); sec = int(hh) * 3600 + int(mm) * 60 + float(ss)
-    if not 20 < sec <= MAX_SECONDS: raise RuntimeError(f"video is {sec:.1f} s (allowed up to {MAX_SECONDS})")
-    return f["mp4"], round(sec, 1)
+    return subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(), "-hide_banner", *args], capture_output=True, text=True, encoding="utf-8", errors="replace").stderr
+
+
+def spans(log_text, key):
+    """(start, end) pairs from ffmpeg *detect filters."""
+    import re
+    st = [float(x) for x in re.findall(key + r"_start: ?([\d.]+)", log_text)]; en = [float(x) for x in re.findall(key + r"_end: ?([\d.]+)", log_text)]
+    return list(zip(st, en + [1e9] * (len(st) - len(en))))
+
+
+def check(mp4, planned):
+    """The finished file, checked like a viewer would: complete, sound all through, no black or frozen stretch, right size.
+    -> list of problems (empty = fine). A contact sheet goes to out/check_<name>.jpg for the run page."""
+    bad = []; info = ff("-i", mp4)
+    try: hh, mm, ss = info.split("Duration: ")[1].split(",")[0].split(":"); sec = int(hh) * 3600 + int(mm) * 60 + float(ss)
+    except (IndexError, ValueError): return ["the file has no duration (broken)"], 0
+    if "Audio:" not in info: bad.append("no sound track")
+    if "1080x1920" not in info: bad.append("not 1080x1920")
+    if not 20 < sec <= MAX_SECONDS: bad.append(f"length {sec:.1f} s (allowed 20-{MAX_SECONDS})")
+    if planned and abs(sec - planned) > 1.0: bad.append(f"length {sec:.1f} s but the timeline is {planned:.1f} s (cut?)")
+    err = ff("-v", "error", "-i", mp4, "-f", "null", "-")
+    if err.strip(): bad.append("decode errors: " + err.strip()[:200])
+    a = ff("-i", mp4, "-vn", "-af", "volumedetect,silencedetect=noise=-48dB:d=1.5", "-f", "null", "-")
+    try:
+        mean = float(a.split("mean_volume: ")[1].split(" dB")[0])
+        if mean < -38: bad.append(f"sound almost silent (mean {mean} dB)")
+    except (IndexError, ValueError): bad.append("sound could not be measured")
+    for s, e in spans(a, "silence"):
+        if s < sec - 4.5: bad.append(f"silence {s:.1f}-{min(e, sec):.1f} s")
+    v = ff("-i", mp4, "-an", "-vf", "blackdetect=d=1.5:pic_th=0.94,freezedetect=n=0.002:d=5", "-f", "null", "-")
+    for s, e in spans(v, "black"):
+        if s < sec - 0.8: bad.append(f"black screen {s:.1f}-{min(e, sec):.1f} s")
+    for s, e in spans(v, "lavfi.freezedetect.freeze"):
+        if s < sec - 6: bad.append(f"picture frozen {s:.1f}-{min(e, sec):.1f} s")
+    name = os.path.splitext(os.path.basename(mp4))[0].replace("sample_", "")
+    ff("-y", "-v", "quiet", "-i", mp4, "-vf", f"fps={30 / max(sec, 1):.4f},scale=180:-1,tile=10x3", "-frames:v", "1", os.path.join(OUT, f"check_{name}.jpg"))
+    return bad, round(sec, 1)
+
+
+def render(n):
+    """Render; check the file; one more render if the check fails."""
+    import re
+    f = files(n); last = []
+    for attempt in (1, 2):
+        if os.path.exists(f["mp4"]): os.remove(f["mp4"])
+        r = subprocess.run([sys.executable, f["py"]], cwd=ROOT, env=dict(os.environ, PYTHONUTF8="1"), capture_output=True, text=True, encoding="utf-8", timeout=7200)
+        log(r.stdout[-800:])
+        if r.returncode != 0 or not os.path.exists(f["mp4"]): last = [f"render failed: {r.stderr[-1200:]}"]; continue
+        m = re.search(r"bhaag\d+ ([\d.]+) s", r.stdout); bad, sec = check(f["mp4"], float(m.group(1)) if m else None)
+        if not bad: log(f"check passed: {sec} s, sound, picture and length fine"); return f["mp4"], sec
+        log(f"check failed (attempt {attempt}): {bad}"); last = bad
+    raise RuntimeError("video check failed: " + "; ".join(last)[:1200])
 
 
 def main():

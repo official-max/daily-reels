@@ -2,9 +2,10 @@ name: Pushpak Katha
 
 on:
   schedule:
-    # Every hour; GitHub's cron is often late, so each run fills the free slots of the next 24 hours
-    # (pushpak-katha/engine/schedule.py: 09:00, 14:00, 20:00 IST). YouTube publishes them on time.
-    - cron: "47 * * * *"
+    # Main run at 02:15 IST (night: the Claude subscription is free then); it makes all of the day's videos
+    # (slots 09:00, 14:00, 20:00 IST, pushpak-katha/engine/schedule.py) and YouTube publishes them on time.
+    # Retries at 04:15, 06:15, 08:15, 12:15 and 16:15 IST: if something stopped, they finish it; otherwise they end in seconds.
+    - cron: "45 20,22,0,2,6,10 * * *"
   workflow_dispatch:
     inputs:
       upload:
@@ -77,6 +78,7 @@ jobs:
           path: |
             pushpak-katha/out/sample_bhaag*.mp4
             pushpak-katha/out/preview_bhaag*.jpg
+            pushpak-katha/out/check_bhaag*.jpg
           retention-days: 7
           if-no-files-found: ignore
 

@@ -2,9 +2,10 @@ name: Daily Reel
 
 on:
   schedule:
-    # Every hour, but GitHub's cron is often hours late, so each run fills every free slot of the next 24 hours
-    # (reels/schedule.py: 3 a day, 12:00, 16:00 and 19:00 IST). YouTube then publishes them on time.
-    - cron: "17 * * * *"
+    # Main run at 02:00 IST (night: the Claude subscription is free then); it fills the day's slots
+    # (reels/schedule.py: 12:00, 16:00 and 19:00 IST) and YouTube publishes them on time.
+    # Retries at 04:00, 06:00, 08:00, 12:00 and 16:00 IST: if something stopped, they finish it; otherwise they end in seconds.
+    - cron: "30 20,22,0,2,6,10 * * *"
   workflow_dispatch:
     inputs:
       type:
