@@ -10,12 +10,12 @@ Roz 3 video: **12:00, 16:00, 19:00** (IST).
 
 | Kab | Haalat | Video |
 |---|---|---|
-| Shani 28-11-2026, 19:00 | Taiyar, YouTube par schedule | Naukri Gayi, Bachche Bhookhe! 😢 Sudama Ki Potli / Part 1 #shorts |
 | Ravi 29-11-2026, 12:00 | Taiyar, YouTube par schedule | Krishna Ne Dhoye Garib Dost Ke Pair! 😲 Sudama Ki Potli / Part 2 #shorts |
 | Ravi 29-11-2026, 16:00 | Taiyar, YouTube par schedule | Khaali Haath Lauta, Ghar Bana Mahal! 🙏 Sudama Ki Potli / Part 3 #shorts |
 | Ravi 29-11-2026, 19:00 | Abhi banni baaki | - |
 | Som 30-11-2026, 12:00 | Abhi banni baaki | - |
 | Som 30-11-2026, 16:00 | Abhi banni baaki | - |
+| Som 30-11-2026, 19:00 | Abhi banni baaki | - |
 
 Agli run nayi series shuru karegi: **Paheli**
 
@@ -23,6 +23,7 @@ Agli run nayi series shuru karegi: **Paheli**
 
 | Kab | Type | Series | Part | Video |
 |---|---|---|---|---|
+| Shani 28-11-2026, 19:00 | Krishna katha | Sudama Ki Potli | 1/3 | [dekho](https://youtube.com/shorts/TuRf6rGAOOc) |
 | Shani 28-11-2026, 16:00 | Paheli | Kumhar Ki Angoothi | 2/2 | [dekho](https://youtube.com/shorts/X2iBiA5Gsd4) |
 | Shani 28-11-2026, 12:00 | Paheli | Kumhar Ki Angoothi | 1/2 | [dekho](https://youtube.com/shorts/hI9L01BtlJ8) |
 | Shukr 27-11-2026, 19:00 | Krishna katha | Khaali Bartan Ka Chamatkar | 2/2 | [dekho](https://youtube.com/shorts/8VD9-QOBsOw) |
@@ -34,7 +35,6 @@ Agli run nayi series shuru karegi: **Paheli**
 | Budh 25-11-2026, 19:00 | Krishna katha | Haar Ke Baad Gita | 1/3 | [dekho](https://youtube.com/shorts/I21s08irMsU) |
 | Budh 25-11-2026, 16:00 | Paheli | Mazdoor Ki Paheli | 2/2 | [dekho](https://youtube.com/shorts/EHsGPHXpo5g) |
 | Budh 25-11-2026, 12:00 | Paheli | Mazdoor Ki Paheli | 1/2 | [dekho](https://youtube.com/shorts/DsQsTUq52bI) |
-| Mangal 24-11-2026, 19:00 | Krishna katha | Do Sikkon Ka Chamatkar | 3/3 | [dekho](https://youtube.com/shorts/UDXDPhjblw8) |
 
 ## 2. Pushpak Katha (taiyari chal rahi hai)
 
@@ -861,4 +861,4 @@ Shuru hone ki tareekh: **abhi tay nahi**. Tay hote hi neeche tareekhein apne aap
 
 *Kram granth ki adhyay-soochi se liya hai. Har adhyay poora padhkar hi uski script banegi.*
 
-Aakhri update: 28-11-2026 17:42 IST
+Aakhri update: 28-11-2026 20:02 IST
