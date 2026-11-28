@@ -48,7 +48,9 @@ jobs:
       - name: Install
         if: steps.due.outputs.go == 'true'
         run: |
+          sudo apt-get update -q && sudo apt-get install -y -q libegl1 libgl1 libfontconfig1    # skia-python needs these on Linux
           pip install -r requirements.txt
+          python -c "import skia; print('skia', skia.__version__)"
           npm install -g @anthropic-ai/claude-code
 
       - name: Make the videos
