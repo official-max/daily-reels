@@ -42,7 +42,7 @@ Shuru hone ki tareekh: **abhi tay nahi**. Tay hote hi neeche tareekhein apne aap
 
 | Din | Series | Granth | Agla bhaag |
 |---|---|---|---|
-| Roz | Ramayan | Valmiki Ramayan, 7 kaand, 661 adhyay | Bhaag 1: Agastya rishi Ram ji ke darbar mein |
+| Roz | Ramayan | Valmiki Ramayan, 7 kaand, 661 adhyay | Bhaag 4: Rakshas kaise bane |
 
 ### Ramayan: saare 732 bhaag
 
@@ -50,10 +50,10 @@ Shuru hone ki tareekh: **abhi tay nahi**. Tay hote hi neeche tareekhein apne aap
 
 | Bhaag | Kahani | Kaand, sarg | Kab | Haalat |
 |---|---|---|---|---|
-| 1 | Agastya rishi Ram ji ke darbar mein | [Uttar 1](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424762.html) | tay nahi | **Agla** |
-| 2 | Ravan ke pita Vishravas ka janm | [Uttar 2](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424763.html) | tay nahi | Baaki |
-| 3 | Kuber ko Lanka kaise mili | [Uttar 3](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424764.html) | tay nahi | Baaki |
-| 4 | Rakshas kaise bane | [Uttar 4](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424765.html) | tay nahi | Baaki |
+| 1 | Agastya rishi Ram ji ke darbar mein | [Uttar 1](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424762.html) | 2026-11-29 | Aa gayi [dekho](https://youtube.com/shorts/6ZcnBl_zJuI) |
+| 2 | Ravan ke pita Vishravas ka janm | [Uttar 2](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424763.html) | 2026-11-29 | Aa gayi [dekho](https://youtube.com/shorts/zFYpACj3gmI) |
+| 3 | Kuber ko Lanka kaise mili | [Uttar 3](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424764.html) | 2026-11-29 | Aa gayi [dekho](https://youtube.com/shorts/E5bziCWGtII) |
+| 4 | Rakshas kaise bane | [Uttar 4](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424765.html) | tay nahi | **Agla** |
 | 5 | Malyavan, Sumali aur Mali | [Uttar 5](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424766.html) | tay nahi | Baaki |
 | 6 | Devta Shiv ji aur Vishnu ji ki sharan mein (1/2) | [Uttar 6](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424767.html) | tay nahi | Baaki |
 | 7 | Devta Shiv ji aur Vishnu ji ki sharan mein (2/2) | [Uttar 6](https://www.wisdomlib.org/hinduism/book/the-ramayana-of-valmiki/d/doc424767.html) | tay nahi | Baaki |
@@ -861,4 +861,4 @@ Shuru hone ki tareekh: **abhi tay nahi**. Tay hote hi neeche tareekhein apne aap
 
 *Kram granth ki adhyay-soochi se liya hai. Har adhyay poora padhkar hi uski script banegi.*
 
-Aakhri update: 28-11-2026 20:02 IST
+Aakhri update: 28-11-2026 22:32 IST
