@@ -1,0 +1,94 @@
+name: Pushpak Katha
+
+on:
+  schedule:
+    # Every hour; GitHub's cron is often late, so each run fills the free slots of the next 24 hours
+    # (pushpak-katha/engine/schedule.py: 09:00, 14:00, 20:00 IST). YouTube publishes them on time.
+    - cron: "47 * * * *"
+  workflow_dispatch:
+    inputs:
+      upload:
+        description: "Upload to YouTube? (true/false)"
+        default: "true"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pushpak
+  cancel-in-progress: false
+
+jobs:
+  katha:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    defaults:
+      run:
+        working-directory: pushpak-katha
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Is a video due?
+        id: due
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then DUE=$(python3 engine/schedule.py --force); else DUE=$(python3 engine/schedule.py); fi
+          echo "due: $DUE"
+          if [ "$DUE" = "none" ]; then echo "go=false" >> "$GITHUB_OUTPUT"; else echo "go=true" >> "$GITHUB_OUTPUT"; fi
+
+      - uses: actions/setup-python@v6
+        if: steps.due.outputs.go == 'true'
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pushpak-katha/requirements.txt
+
+      - name: Install
+        if: steps.due.outputs.go == 'true'
+        run: |
+          pip install -r requirements.txt
+          npm install -g @anthropic-ai/claude-code
+
+      - name: Make the videos
+        if: steps.due.outputs.go == 'true'
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN_PUSHPAK: ${{ secrets.YT_REFRESH_TOKEN_PUSHPAK }}
+        run: |
+          if [ "${{ github.event.inputs.upload }}" = "false" ]; then python engine/auto.py --no-upload; exit 0; fi
+          FORCE=""; if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then FORCE="--force"; fi
+          for i in 1 2 3; do
+            DUE=$(python engine/schedule.py $FORCE)
+            echo "due: $DUE"
+            if [ "$DUE" = "none" ]; then break; fi
+            read -r DAY SLOT PUBLISH <<< "$DUE"
+            python engine/auto.py --date "$DAY" --slot "$SLOT" --publish "$PUBLISH"
+            FORCE=""
+          done
+
+      - name: Keep the videos for 7 days
+        if: always() && steps.due.outputs.go == 'true'
+        uses: actions/upload-artifact@v6
+        with:
+          name: pushpak-${{ github.run_number }}
+          path: |
+            pushpak-katha/out/sample_bhaag*.mp4
+            pushpak-katha/out/preview_bhaag*.jpg
+          retention-days: 7
+          if-no-files-found: ignore
+
+      - name: Save state, scripts and new scenes
+        if: always() && steps.due.outputs.go == 'true'
+        run: |
+          git config user.name "daily-reels-bot"
+          git config user.email "daily-reels-bot@users.noreply.github.com"
+          python3 ../tools/plan_page.py || true
+          # only these paths, so nothing else written during the run can reach the repo
+          git add state/ plan/ramayan.json scripts/ cast/ engine/bhaag*.py ../PLAN.md || true
+          git diff --cached --quiet && exit 0
+          git commit -m "pushpak: $(date -u '+%F %H:%M') UTC"
+          for i in 1 2 3; do git pull --rebase -X theirs && git push && exit 0; sleep 5; done
+          exit 1

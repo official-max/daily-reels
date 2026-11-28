@@ -3,3 +3,5 @@ pillow
 skia-python
 edge-tts
 imageio-ffmpeg
+google-api-python-client
+google-auth

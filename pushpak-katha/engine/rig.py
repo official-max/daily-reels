@@ -66,8 +66,20 @@ def solve(v, bulk=1.):
 def world(p, v, y, s, d): return (v["x"] + p[0] * s * d, y + p[1] * s)
 
 # ---------------- pieces
+SOFT = False   # True: airbrushed shading (soft shadow lower right, light upper left, a gloss spot) instead of flat cel shading
 def shape(c, path, rgb, w=6, sh=.26, off=(-9, -10)):
-    c.save(); c.clipPath(path, True); c.drawPaint(fill(mix(rgb, (50, 10, 70), sh))); c.translate(*off); c.drawPath(path, fill(rgb)); c.restore(); c.drawPath(path, line(INK, w))
+    if not SOFT:
+        c.save(); c.clipPath(path, True); c.drawPaint(fill(mix(rgb, (50, 10, 70), sh))); c.translate(*off); c.drawPath(path, fill(rgb)); c.restore(); c.drawPath(path, line(INK, w)); return
+    rgb = vivid(rgb); r = path.getBounds(); k = max(3., min(18., min(r.width(), r.height()) * .18)); inv = skia.Path(path); inv.setFillType(skia.PathFillType.kInverseWinding)
+    gold = rgb[0] > 200 and rgb[1] > 150 and rgb[2] < rgb[1] * .45
+    if gold: rgb = (255, min(255, rgb[1] * 1.08), rgb[2] * .6)
+    c.save(); c.clipPath(path, True); c.drawPaint(fill(rgb))
+    g = .45 if gold else 1.; c.save(); c.translate(-k * .9 * g, -k * g); c.drawPath(inv, fill(mix(rgb, (170, 70, 10) if gold else (70, 24, 30), .4 if gold else sh + .12), .95, k * g)); c.restore()
+    c.save(); c.translate(k * .7, k * .8); c.drawPath(inv, fill(mix(rgb, (255, 252, 230), .7 if gold else .5), .85, k * .8)); c.restore()
+    if r.width() > 20 and r.height() > 20: c.drawOval(skia.Rect.MakeXYWH(r.left() + r.width() * .2, r.top() + r.height() * .1, r.width() * .24, r.height() * .14), fill((255, 255, 255), .6 if gold else .32, k * .5))
+    c.restore(); c.drawPath(path, line(mix((74, 36, 22), rgb, .15), w * .85))
+def vivid(rgb, k=1.22):
+    m = sum(rgb) / 3; return tuple(max(0, min(255, m + (v - m) * k)) for v in rgb)
 def cap(a, b, w0, w1):
     dx, dy = b[0] - a[0], b[1] - a[1]; L = math.hypot(dx, dy) or 1; nx, ny = -dy / L, dx / L; m = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2); mw = (w0 + w1) / 2 * 1.1
     q = skia.Path(); q.moveTo(a[0] + nx * w0, a[1] + ny * w0); q.quadTo(m[0] + nx * mw, m[1] + ny * mw, b[0] + nx * w1, b[1] + ny * w1); q.lineTo(b[0] - nx * w1, b[1] - ny * w1); q.quadTo(m[0] - nx * mw, m[1] - ny * mw, a[0] - nx * w0, a[1] - ny * w0); q.close()
@@ -75,6 +87,9 @@ def cap(a, b, w0, w1):
 def limb2(a, b, e, w): return skia.Op(cap(a, b, w[0], w[1]), cap(b, e, w[1], w[2]), skia.kUnion_PathOp)
 
 def gada(c, a, b, gold=(246, 186, 60)):
+    if SOFT:
+        gold = (255, 200, 40); u = ((b[0] - a[0]), (b[1] - a[1])); L = math.hypot(*u) or 1; u = (u[0] / L, u[1] / L); shape(c, cap(a, b, 10, 12), gold, 6); shape(c, oval(b[0] - u[0] * 20, b[1] - u[1] * 20, 30, 30), gold, 6)
+        shape(c, oval(b[0] + u[0] * 30, b[1] + u[1] * 30, 66), gold, 7); shape(c, oval(b[0] + u[0] * 104, b[1] + u[1] * 104, 16), gold, 5); return
     c.drawPath(cap(a, b, 9, 11), line(INK, 10)); c.drawPath(cap(a, b, 9, 11), fill(gold)); dx, dy = b[0] - a[0], b[1] - a[1]; L = math.hypot(dx, dy) or 1; u = (dx / L, dy / L)
     shape(c, oval(b[0], b[1], 52), gold, 7); [c.drawCircle(b[0] + cos(k * pi / 3 + .4) * 32, b[1] + sin(k * pi / 3 + .4) * 32, 8, fill((200, 60, 40))) for k in range(6)]; shape(c, oval(b[0] + u[0] * 60, b[1] + u[1] * 60, 17), gold, 5)
 def khadga(c, a, b):
@@ -165,9 +180,10 @@ def body(c, who, v, y, s=1., d=1, t=0., talk=0., mood="n", past=None, weapon=Tru
     shape(c, smooth(tor([(-58, 10), (-56, -60), (-88, -150), (-70, -206), (0, -224), (66, -208), (92, -156), (64, -70), (58, 10)])), sk, 6, off=(-12, -8))
     if B > 1: c.drawPath(smooth(tor([(-30, -128), (10, -116), (62, -134)]), False), line(mix(sk, INK, .4), 5)); c.drawPath(smooth(tor([(14, -190), (18, -150), (12, -116)]), False), line(mix(sk, INK, .4), 5)); [c.drawPath(smooth(tor([(-14, -92 + i * 30), (16, -86 + i * 30), (40, -94 + i * 30)]), False), line(mix(sk, INK, .3), 4)) for i in range(2)]
     if p.get("skirt"): shape(c, smooth(tor([(-62, -60), (-80, -206), (0, -216), (70, -206), (62, -60)])), cl)
-    c.drawPath(smooth(tor([(-60, -196), (-10, -110), (54, -20)]), False), line(INK, 30)); c.drawPath(smooth(tor([(-60, -196), (-10, -110), (54, -20)]), False), line(eg, 20))
+    if p.get("sash", True): c.drawPath(smooth(tor([(-60, -196), (-10, -110), (54, -20)]), False), line(INK, 30)); c.drawPath(smooth(tor([(-60, -196), (-10, -110), (54, -20)]), False), line(eg, 20))
+    if p.get("top"): p["top"](c, tor, p)
     # dhoti over the thighs
-    k1, k2 = J["f1"][1], J["f2"][1]; mx = lambda a, b, u: (a[0] + (b[0] - a[0]) * u, a[1] + (b[1] - a[1]) * u); W0 = tor([(-64, -24), (64, -24)]); u = .78 if not p.get("skirt") and who != "muni" else 1.0
+    k1, k2 = J["f1"][1], J["f2"][1]; mx = lambda a, b, u: (a[0] + (b[0] - a[0]) * u, a[1] + (b[1] - a[1]) * u); W0 = tor([(-64, -24), (64, -24)]); u = .78 if not p.get("skirt") and not p.get("long") and who != "muni" else 1.0
     a, b = mx(J["f1"][0], k1, u), mx(J["f2"][0], k2, u)
     if u == 1.0: a, b = (J["f1"][2][0] + 44, J["f1"][2][1] - 22), (J["f2"][2][0] - 40, J["f2"][2][1] - 22)
     dh = poly([W0[0], W0[1], (max(a[0], b[0]) + 52 * B, a[1] if a[0] > b[0] else b[1]), (a[0] if a[0] > b[0] else b[0], (a[1] if a[0] > b[0] else b[1]) + 34), ((a[0] + b[0]) / 2, min(a[1], b[1]) - (10 if u < 1 else -20)), (a[0] if a[0] < b[0] else b[0], (a[1] if a[0] < b[0] else b[1]) + 34), (min(a[0], b[0]) - 52 * B, a[1] if a[0] < b[0] else b[1])]); pe = skia.Paint(Color=col(cl), AntiAlias=True, PathEffect=skia.CornerPathEffect.Make(34)); c.drawPath(dh, skia.Paint(Color=col(INK), AntiAlias=True, Style=skia.Paint.kStroke_Style, StrokeWidth=12, PathEffect=skia.CornerPathEffect.Make(34))); c.drawPath(dh, pe)
@@ -179,7 +195,7 @@ def body(c, who, v, y, s=1., d=1, t=0., talk=0., mood="n", past=None, weapon=Tru
     ss = tor([(30, 0)])[0]; shape(c, smooth([ss, (ss[0] + 40, ss[1] + 20), (ss[0] + 30 - vx * .4, ss[1] + 120 + vy * .2), (ss[0] - vx * .5, ss[1] + 130 + vy * .2)]), eg, 5)
     # head
     c.save(); c.translate(*nk); c.rotate(R + v["lean"] * .5 + v["head"] * -1 if False else R + v["lean"] * .5 + v["head"]); c.scale(p["hs"], p["hs"]); shape(c, poly([(-26, -30), (26, -30), (32, 20), (-32, 20)]), far, 5); HEADS[p["head"]](c, t, talk, mood, p); c.restore()
-    for i, (rgb, w) in enumerate(((eg, 9), ((250, 240, 220), 7))): q = smooth(tor([(-56, -204), (10, -150 + i * 26), (60, -204)]), False); c.drawPath(q, line(INK, w + 6)); c.drawPath(q, line(rgb, w))
+    for i, (rgb, w) in enumerate(p.get("necklace", ((eg, 9), ((250, 240, 220), 7)))): q = smooth(tor([(-56, -204), (10, -150 + i * 26), (60, -204)]), False); c.drawPath(q, line(INK, w + 6)); c.drawPath(q, line(rgb, w))
     s1, e1, h1 = J["a1"]
     if weapon and p.get("weapon"): back = end(h1, 0, 0); tp = J["tip"]; st = (h1[0] - (tp[0] - h1[0]) * .22, h1[1] - (tp[1] - h1[1]) * .22); p["weapon"](c, st if p["weapon"] is gada else h1, tp)
     shape(c, limb2(s1, e1, h1, (38 * B, 28 * B, 20 * B)), sk); shape(c, oval(h1[0], h1[1], 27 * B), sk, 5)
