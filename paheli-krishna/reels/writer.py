@@ -54,7 +54,10 @@ FORMAT_TEXT = {
 
 RULES = """Writing rules (per part):
 - 5 to 6 shots; 1 to 2 lines per shot; 80-105 spoken Hindi words in total. Each line at most 16 words.
-- The first line is a strong hook. Keep the drama high: stakes, surprise, reactions.
+- The first line is a strong hook spoken in the first 2 seconds: the conflict, a question or a shock (never a greeting,
+  never "Ek baar ki baat hai"). Viewers decide in 2-3 seconds; most swiped away before 10 s. Something must happen in
+  every shot of the first 10 seconds. Keep the drama high: stakes, surprise, reactions.
+- Later parts: the recap must also hook a new viewer who never saw Part 1 (a question or the stakes, not a summary).
 - "hindi": natural spoken Hindi in Devanagari for text-to-speech: commas and "..." for pauses, numbers as words, no emojis.
 - "caption": the same line in Roman Hinglish. Wrap 1-3 key words in *asterisks* (always in pairs) to highlight them.
 - "mood": expression of whoever the shot is about: sad, neutral, happy, angry (Raja's threats) or shock (stunned court / Raja).

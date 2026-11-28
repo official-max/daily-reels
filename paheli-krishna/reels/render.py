@@ -15,7 +15,8 @@ from .scenes import SHOTS, TALK
 from .audio import build_audio
 
 TL = None          # the timeline being rendered (set per process by start())
-TITLE_END = 2.6    # the title card is visible until this time (s)
+TITLE_END = 2.6    # stickers wait until this time (s)
+SHOW_TITLE = False # 2026-11-28: the big title card covered the scene in the first seconds; 78% swiped away
 
 
 def start(tl):
@@ -106,7 +107,7 @@ def draw_overlays(frame, T, si, s, end_at):
         img = caption(k, ph); a = T - ph["start"] + 0.05
         ov.overlay(frame, img, W / 2, 330 + img.height / 2 - 100, lerp(0.6, 1.0, ease_back(a / 0.25)),
                    clamp(a / 0.1) * clamp((ph["end"] + 0.3 - T) / 0.2))
-    if T < TITLE_END:
+    if SHOW_TITLE and T < TITLE_END:
         img = cached("title", lambda: ov.make_title(TL["label"], TL["title1"], TL["title2"], TL["title_sub"]))
         ov.overlay(frame, img, W / 2, 860, lerp(0.7, 1.0, ease_back((T - 0.1) / 0.4)), clamp((T - 0.1) / 0.2) * clamp((TITLE_END - T) / 0.35))
     if T >= end_at:

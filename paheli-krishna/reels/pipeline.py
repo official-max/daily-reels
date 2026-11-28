@@ -57,6 +57,17 @@ def next_theme(kind, history):
     return (last[-1] + 1) % len(themes.THEMES[kind]) if last else 0
 
 
+def next_kind(history):
+    """2 devotional series, then 1 paheli (2026-11-28: Krishna stories got 2-3x the views of paheli)."""
+    seq = []
+    for h in history:
+        k = (h.get("type"), h.get("series"))
+        if not seq or seq[-1] != k: seq.append(k)
+    kinds = [k for k, _ in seq if k in KINDS]
+    if not kinds or kinds[-1] != "devotional": return "devotional"
+    return "paheli" if kinds[-2:] == ["devotional", "devotional"] else "devotional"
+
+
 def new_series(kind, today, history, yt):
     trends = writer.trending(yt)
     log(f"writing a new {kind} series ({len(trends)} trending titles)")
@@ -84,7 +95,7 @@ def todays_part(a, state, history, today, yt):
     if not series or series.get("next", 0) >= len(series.get("parts", [])):
         last = state.get("last_kind")
         if a.type in KINDS: kind = a.type
-        elif last in KINDS: kind = KINDS[(KINDS.index(last) + 1) % len(KINDS)]      # take turns
+        elif last in KINDS: kind = next_kind(history)
         else: kind = KINDS[0]
         series = new_series(kind, today, history, yt)
         state["active"] = series
